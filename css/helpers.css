@@ -1,0 +1,24 @@
+/* Grid */
+
+.grid {
+    display: grid;
+}
+
+/* Flex */
+
+.flex {
+    display: flex;
+}
+
+.flex.row {
+    flex-direction: row;
+}
+
+.flex.column {
+    flex-direction: column;
+}
+
+.flex.wrap {
+    flex-wrap: wrap;
+}
+
