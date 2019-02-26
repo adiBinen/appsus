@@ -1,0 +1,16 @@
+@import './reset.css';
+@import './helpers.css';
+@import './fonts.css';
+
+
+/* HTML App Defaults */
+
+h1, h2, h3, h4, h5, h6, button, a {
+    text-transform: capitalize;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}

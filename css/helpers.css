@@ -4,6 +4,14 @@
     display: grid;
 }
 
+.grid.justify-center {
+    justify-content: center;
+}
+
+.grid.align-center {
+    align-items: center;
+}
+
 /* Flex */
 
 .flex {
@@ -22,3 +30,10 @@
     flex-wrap: wrap;
 }
 
+.flex.justify-center {
+    justify-content: center;
+}
+
+.flex.align-center {
+    align-items: center;
+}
