@@ -9,6 +9,4 @@ window.vueApp = new Vue({
     components: {
         homepage
     },
-    created() {
-    }
 })

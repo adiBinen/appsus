@@ -1,6 +1,9 @@
 /* Font Awesome */
 @import url('https://use.fontawesome.com/releases/v5.7.2/css/all.css');
 
+/* Material Icons */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
 /* Local Fonts */
 @font-face {
     font-family: 'Maven Pro';
