@@ -1,3 +1,4 @@
+import { eventBus, UNREAD_EMAILS } from '../../../event-bus.js';
 
 import emailService from '../services/email.service.js';
 import emailPreview from '../cmps/email-preview.cmp.js';
@@ -18,10 +19,14 @@ export default {
     data() {
         return {
             emails: null,
+            unreadEmails: null,
         }
     },
     created() {
         emailService.query()
             .then(emails => this.emails = emails);
+
+        emailService.getUnreadEmails()
+            .then(unreadNum => eventBus.$emit(UNREAD_EMAILS, unreadNum));
     }
 }

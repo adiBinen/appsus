@@ -28,5 +28,9 @@ export default {
         
         emailService.getEmailById(emailId)
             .then(email => this.email = email);
-    }
+
+        setTimeout(() => {
+            this.email.isRead = true;
+        })
+    },
 }
