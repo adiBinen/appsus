@@ -12,7 +12,7 @@ export default {
         };
     },
     created() {
-        let emailId = this.$router.params.emailId;
+        let emailId = this.$route.params.emailId;
         emailService.getEmailById(emailId)
             .then(email => this.email = email);
     }
