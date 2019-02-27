@@ -34,9 +34,10 @@
     cursor: pointer;
     padding: 10px 0;
     transition: .3s;
+    background-color: #f0f0f0;
 }
-.email-preview:hover {
-    background-color: #d7d5d5;
+.email-preview:hover + .email-preview {
+    box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
 }
 .email-preview > * {
     text-align: center;
