@@ -1,13 +1,10 @@
-import navGlobal from '../cmps/nav-global.cmp.js';
+import mainHeader from '../cmps/main-header.cmp.js';
 
 export default {
-    components: {
-        navGlobal,
-    },
+    components: { mainHeader },
     template: ` 
         <main class="homepage">
-            <nav-global></nav-global>
-            <h1>Homepage</h1>
+            <main-header></main-header>
         </main class="homepage">
     `,
 

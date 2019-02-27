@@ -5,12 +5,16 @@
     "header header"
     "nav content";
     grid-template-rows: 65px 1fr;
-    grid-template-columns: 10vw 2fr;
+    grid-template-columns: 100px 2fr;
 }
 
 .email-header {
     grid-area: header;
     background-color: lightpink;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
 }
 
 /* EMAIL NAV BAR MAGIC */
@@ -28,8 +32,7 @@
     height: 100%;
     width: 100%;
     border-right: .5px solid grey;
-    transition-delay: .1s;
-    transition: .8s ease-in-out;
+    transition: .6s ease-in-out;
 }
 
 .email-side-nav .btns-container .btn-compose {
@@ -59,7 +62,7 @@
 
 .email-side-nav .btns-container:hover {
     position: absolute;
-    width: 20vw;
+    width: 200px;
     background-color: white;
     z-index: 1;
 }
@@ -67,27 +70,32 @@
 .email-side-nav .btns-container:hover .btn-compose::after {
     content: "Compose";
     padding-left: 20px;
+    vertical-align: 5px;
 }
 
 .email-side-nav .btns-container:hover .btn-inbox::after {
     content: "Inbox";
     padding-left: 20px;
     opacity: 1;
+    vertical-align: 5px;
 }
 
 .email-side-nav .btns-container:hover .btn-sent::after {
     content: "Sent";
     padding-left: 20px;
+    vertical-align: 5px;
 }
 
 .email-side-nav .btns-container:hover .btn-drafts::after {
     content: "Drafts";
     padding-left: 20px;
+    vertical-align: 5px;
 }
 
 .email-side-nav .btns-container:hover .btn-trash::after {
     content: "Trash";
     padding-left: 20px;
+    vertical-align: 5px;
 }
 
 

@@ -1,0 +1,7 @@
+.homepage-header {
+    display: flex;
+    align-items: center;
+    background-color: lightgrey;
+    justify-content: space-between;
+    padding: 0 20px;   
+}
