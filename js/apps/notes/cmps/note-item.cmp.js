@@ -4,10 +4,11 @@
 import typeNote from './type-note.cmp.js';
 import typeVideo from './type-video.cmp.js';
 import typeAudio from './type-audio.cmp.js';
+import paletteBtns from './palette-btns.cmp.js';
 import {eventBus, NOTE_DELETE, NOTE_DUPLICATE} from '../../../event-bus.js';
 
 export default {
-    components: { typeNote, typeVideo, typeAudio },
+    components: { typeNote, typeVideo, typeAudio, paletteBtns },
     props: ['note'],
     template: `
         <li class="note-item" v-if="note.type !== 'typeTodo'" :style="noteColor">
@@ -24,7 +25,9 @@ export default {
                 <button class="btn btn-color-note" @click="isPalleteOpen = !isPalleteOpen">
                     <i class="fas fa-palette"></i>
                 </button>
-                <div class="colorPalette" v-if="isPalleteOpen">Palette</div>
+                <div class="colorPalette" v-if="isPalleteOpen">
+                    <palette-btns :note-color="note.color"></palette-btns>
+                </div>
 
                 <button class="btn btn-pin-note">
                     <i class="fas fa-thumbtack"></i>

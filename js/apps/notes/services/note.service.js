@@ -51,6 +51,10 @@ function duplicateNote(noteId) {
         })
 }
 
+function changeNoteProp() {
+    
+}
+
 function _createNotes() {
     let notes = storageService.loadFromLocal(NOTES_KEY);
     if (!notes) {
