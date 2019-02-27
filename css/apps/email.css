@@ -151,7 +151,7 @@
 .email-compose {
     position: absolute;
     bottom: 0;
-    left: 100px;
+    right: 100px;
     height: 400px;
     width: 500px;
     background-color: white;
