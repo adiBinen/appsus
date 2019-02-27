@@ -2,7 +2,7 @@
 export default {
     props: ['email'],
     template: ` 
-        <tr class="email-preview">
+        <router-link tag="tr" to="" class="email-preview">
            <td>
                 {{email.sender}}
            </td>
@@ -13,9 +13,9 @@ export default {
                 {{email.body}}
            </td>
            <td>
-                {{email.sentAt}}
+                {{formmatedDate}}
            </td>
-        </tr>
+        </router-link>
     `,
     data() {
         return {
@@ -23,9 +23,13 @@ export default {
         }
     },
     computed: {
-        
+        formmatedDate() {
+            let sentAtDate = new Date(this.email.sentAt);
+            let yyyy = (this.currentDate.getFullYear() === sentAtDate.getFullYear()) ? '' : sentAtDate.getFullYear();
+
+        }
     },
     mounted() {
-        this.currentDate = Date.now();
+        this.currentDate = new Date();
     }
 }

@@ -13,10 +13,5 @@ export default {
         return {
             emails: null,
         };
-    },
-    created() {
-        emailService.query()
-            .then(emails => this.emails = emails);
-    }
-    
+    },    
 }
