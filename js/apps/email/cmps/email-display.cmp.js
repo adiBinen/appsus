@@ -3,7 +3,8 @@ import emailService from '../services/email.service.js';
 export default {
     template: `
         <section v-if="email">
-            {{email}}
+            {{email}} 
+            <h1>hey</h1>
         </section>
     `,
     data() {
@@ -12,7 +13,9 @@ export default {
         };
     },
     created() {
-        let emailId = this.$router.params.emailId;
+        let emailId = this.$route.params.emailId;
+        console.log(emailId);
+        
         emailService.getEmailById(emailId)
             .then(email => this.email = email);
     }

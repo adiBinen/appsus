@@ -12,7 +12,7 @@ const routes = [
         children: [
             {path: '', component: emailList},
             {path: 'inbox', component: emailList},
-            {path: 'display/:emailId', component: emailDisplay}
+            {path: 'display:emailId', component: emailDisplay}
         ], },
 ]
 
