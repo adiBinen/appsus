@@ -2,7 +2,7 @@ import noteService from '../services/note.service.js';
 import notesHeader from '../cmps/header.cmp.js';
 import noteCreate from '../cmps/note-create.cmp.js';
 import noteList from '../cmps/note-list.cmp.js';
-import {eventBus, NOTE_DELETE, NOTE_DUPLICATE} from '../../../event-bus.js'
+import {eventBus, NOTE_DELETE, NOTE_DUPLICATE, NOTE_CHANGE_COLOR} from '../../../event-bus.js'
 
 export default {
     components: { notesHeader, noteCreate, noteList },
@@ -34,6 +34,10 @@ export default {
 
         eventBus.$on(NOTE_DUPLICATE, noteId => {
             noteService.duplicateNote(noteId);
+        })
+
+        eventBus.$on(NOTE_CHANGE_COLOR, paletteColor => {
+            // noteService.changeNoteProp(color, paletteColor);
         })
     }
 }

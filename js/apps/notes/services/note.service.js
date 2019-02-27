@@ -7,6 +7,7 @@ export default {
     addNote,
     deleteNote,
     duplicateNote,
+    changeNoteProp,
 };
 
 const NOTES_KEY = 'localNotes';
@@ -51,7 +52,7 @@ function duplicateNote(noteId) {
         })
 }
 
-function changeNoteProp() {
+function changeNoteProp(prop, value) {
     
 }
 

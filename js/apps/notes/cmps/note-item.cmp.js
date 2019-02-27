@@ -26,7 +26,7 @@ export default {
                     <i class="fas fa-palette"></i>
                 </button>
                 <div class="colorPalette" v-if="isPalleteOpen">
-                    <palette-btns :note-color="note.color"></palette-btns>
+                    <palette-btns :note-id="note.id" :note-color="note.color"></palette-btns>
                 </div>
 
                 <button class="btn btn-pin-note">

@@ -1,22 +1,28 @@
 
 import utilService from '../../../services/util.service.js';
+import {eventBus, NOTE_CHANGE_COLOR} from '../../../event-bus.js';
 
 export default {
-    props: ['noteColor'],
+    props: ['noteColor', 'noteId'],
     template: `
         <section class="palette-btns" v-if="noteColor">
             <button 
-                @click=""
                 class="btn-color"
-                v-for="palette in palettes"
-                :style="{'background-color': palette}"
-                :class="{selected: noteColor === palette}"
+                v-for="color in palettes"
+                @click="colorChanged(color)"
+                :style="{'background-color': color}"
+                :class="{selected: noteColor === color}"
             ></button>
         </section>
     `,
     data() {
         return {
             palettes: [],
+        }
+    },
+    methods: {
+        colorChanged(color) {
+            eventBus.$emit(NOTE_CHANGE_COLOR, color);
         }
     },
     created() {
