@@ -5,10 +5,10 @@ export default {
         navGlobal,
     },
     template: ` 
-        <section>
+        <main class="homepage">
             <nav-global></nav-global>
-            <h1>Hi</h1>
-        </section>
+            <h1>Homepage</h1>
+        </main class="homepage">
     `,
 
 }

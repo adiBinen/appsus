@@ -1,11 +1,13 @@
 
 import emailService from '../services/email.service.js';
-import emailList from '../services/email.service.js';
+import mainHeader from '../cmps/header.cmp.js';
+import emailList from '../cmps/email-list.cmp.js';
 
 export default {
-    components: { emailList},
+    components: { mainHeader, emailList},
     template: `
-        <main>
+        <main class="email-app">
+            <main-header></main-header>
             <email-list :emails="emails">
             </email-list>
         </main>
