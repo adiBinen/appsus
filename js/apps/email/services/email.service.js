@@ -44,11 +44,11 @@ function deleteEmail(id) {
 function _createEmails() {
     let emails = storageService.loadFromLocal(EMAILS_KEY);
     if (!emails) {
-        emails = [
-            _createEmail(),
-            _createEmail(),
-            _createEmail(),
-        ];
+        emails = [];
+        for (let i = 0; i < 50; i++) {
+            emails.push(_createEmail());
+        }
+        storageService.saveToLocal(EMAILS_KEY, emails);
     }
     emailsDB = emails;
 }

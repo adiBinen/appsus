@@ -9,7 +9,7 @@ export default {
         <main class="email-app grid">
             <main-header></main-header>
             <side-nav></side-nav>
-            <router-view></router-view class="email-content">
+            <router-view  class="email-content"></router-view>
         </main>
     `,
     data() {
