@@ -2,7 +2,7 @@ import utilService from '../../../services/util.service.js';
 import storageService from '../../../services/storage.service.js';
 
 export default {
-    getEmailsToDisplay,
+    query,
     addEmail,
     deleteEmail,
 };
@@ -15,7 +15,7 @@ var emailsDB;
 
 _createEmails();
 
-function getEmailsToDisplay() {
+function query() {
     return Promise.resolve(emailsDB);
 }
 
