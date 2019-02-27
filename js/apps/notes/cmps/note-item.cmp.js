@@ -34,7 +34,6 @@ export default {
                 </button>
             </div>
             
-            
         </li>
     `,
     data() {

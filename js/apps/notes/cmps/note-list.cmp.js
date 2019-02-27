@@ -6,9 +6,8 @@ export default {
     components: { noteItem },
     props: ['notes'],
     template: `
-        <ul class="note-list" v-if="notes">
-            <note-item v-for="note in notes" :key="note.id" :note="note">
-            </note-item>
+        <ul class="note-list">
+            <note-item v-for="note in notes" :key="note.id" :note="note"></note-item>
         </ul>
     `,
 }

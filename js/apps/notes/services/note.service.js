@@ -48,6 +48,7 @@ function duplicateNote(noteId) {
             let copyNote = { ...note };
             copyNote.id = utilService.generateId();
             notesDB.splice(idx, 0, copyNote);
+            storageService.saveToLocal(NOTES_KEY, notesDB);
             return Promise.resolve();
         })
 }
@@ -88,6 +89,7 @@ function _createNote(type, data) {
         type: type,
         data: data,
         createdAt: Date.now(),
-        color: utilService.getRandomPastel()
+        color: utilService.getRandomPastel(),
+        isPinned: false
     }
 }

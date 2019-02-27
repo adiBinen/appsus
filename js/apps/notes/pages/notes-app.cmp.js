@@ -7,10 +7,13 @@ import {eventBus, NOTE_DELETE, NOTE_DUPLICATE, NOTE_CHANGE_COLOR} from '../../..
 export default {
     components: { notesHeader, noteCreate, noteList },
     template: `
-        <main class="notes-app">
+        <main class="notes-app" v-if="notes">
             <notes-header></notes-header>
             <note-create @note-created="addNote"></note-create>
-            <note-list :notes="notes"></note-list>
+            <h3>pinnedNotes</h3>
+            <note-list :notes="pinnedNotes"></note-list>
+            <h3>unpinnedNotes</h3>
+            <note-list :notes="unpinnedNotes"></note-list>
         </main>
     `,
     data() {
@@ -22,6 +25,14 @@ export default {
         addNote(note) {
             noteService.addNote(note.type, note.data)
                 .then(res => console.log(res));
+        }
+    },
+    computed: {
+        pinnedNotes() {
+            return this.notes.filter((note) => note.isPinned)
+        },
+        unpinnedNotes() {
+            return this.notes.filter((note) => !note.isPinned)
         }
     },
     created() {
