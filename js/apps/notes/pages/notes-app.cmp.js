@@ -7,13 +7,15 @@ import {eventBus, NOTE_DELETE, NOTE_DUPLICATE, NOTE_CHANGE_COLOR} from '../../..
 export default {
     components: { notesHeader, noteCreate, noteList },
     template: `
-        <main class="notes-app" v-if="notes">
+        <main class="notes-app grid" v-if="notes">
             <notes-header></notes-header>
             <note-create @note-created="addNote"></note-create>
-            <h3>pinnedNotes</h3>
-            <note-list :notes="pinnedNotes"></note-list>
-            <h3>unpinnedNotes</h3>
-            <note-list :notes="unpinnedNotes"></note-list>
+            <div class="notes-container">
+                <h3>pinnedNotes</h3>
+                <note-list :notes="pinnedNotes"></note-list>
+                <h3>unpinnedNotes</h3>
+                <note-list :notes="unpinnedNotes"></note-list>
+            </div>
         </main>
     `,
     data() {

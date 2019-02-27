@@ -1,12 +1,76 @@
+.notes-app {
+    grid-template-areas: 
+    "header"
+    "create"
+    "notes";
+    grid-auto-rows: max-content;
+}
 
+.notes-header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
+    padding: 0 20px;
+    background-color: #badc58;
+}
+
+.note-create {
+    grid-area: create;
+    justify-self: center;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.notes-container {
+    grid-area: notes;
+}
+
+.note-create input {
+    margin-right: 20px;
+    width: 200px;
+    padding: 5px;
+    outline: none;
+    border: 1px solid #333;
+    background-color: #333;
+    color: #fff;
+    transition: .6s;
+}
+
+.note-create input:focus {
+    background-color: #fff;
+    color: #333;
+}
+
+.note-create button {
+    font-size: 1.125em;
+    color: #333;
+}
+
+.note-create button:hover {
+    color: #686de0;
+}
 
 
 
 /* palette */
+
+.btn-note-container {
+    position: relative;
+}
+
+.color-palette {
+    position: absolute;
+}
+
 .btn-color {
     width: 15px;
     height: 15px;
     border-radius: 50%;
+    border: .5px solid transparent;
 }
 .btn-color.selected {
     border: .5px solid gray;

@@ -24,10 +24,9 @@ export default {
         colorChanged(color) {
             let change = {color, noteId: this.noteId};
             eventBus.$emit(NOTE_CHANGE_COLOR, change);
-        }
+        },
     },
     created() {
         this.palettes = utilService.getPastelPalette();
     },
-
 }
