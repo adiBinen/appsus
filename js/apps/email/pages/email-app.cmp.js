@@ -1,7 +1,7 @@
 
 import emailService from '../services/email.service.js';
 import mainHeader from '../cmps/header.cmp.js';
-import emailList from '../services/email.service.js';
+import emailList from '../cmps/email-list.cmp.js';
 
 export default {
     components: { mainHeader, emailList},

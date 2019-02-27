@@ -1,10 +1,8 @@
+
 export default {
-    components: {
-        emailPreview
-    },
     props: ['email'],
     template: ` 
-        <tr class="email-preview" >
+        <tr class="email-preview">
            <td>
                 {{email.sender}}
            </td>
