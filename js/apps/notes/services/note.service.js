@@ -28,15 +28,15 @@ function getNoteById(id) {
 function addNote(type, data) {
     notesDB.push(_createNote(type, data));
     storageService.saveToLocal(NOTES_KEY, notesDB);
-    return Promise.resolve(`E-Mail was successfully sent to ${recipient}.`);
+    return Promise.resolve(`Note ${note} was successfully created.`);
 }
 
 function deleteNote(id) {
     let idx = notesDB.findIndex(email => email.id === id);
-    if (idx === -1) return Promise.reject('Failed to delete e-mail.')
+    if (idx === -1) return Promise.reject('Failed to delete note.')
     notesDB.splice(idx, 1);
     storageService.saveToLocal(NOTES_KEY, notesDB);
-    return Promise.resolve('E-Mail was successfully deleted.');
+    return Promise.resolve('Note was successfully deleted.');
 }
 
 function _createNotes() {
