@@ -4,19 +4,19 @@ import utilService from '../../../services/util.service.js'
 export default {
     props: ['email'],
     template: ` 
-        <router-link tag="tr" :to="'display' + email.id" exact class="email-preview">
-           <td>
+        <router-link tag="li" :to="'display' + email.id" exact class="email-preview flex">
+           <div class="sender">
                 {{email.sender}}
-           </td>
-           <td>
+           </div>
+           <div class="subject">
                 {{email.subject}}
-           </td>
-           <td>
+           </div>
+           <div class="body">
                 {{email.body}}
-           </td>
-           <td>
+           </div>
+           <div class="date">
                 {{formattedDate}}
-           </td>
+           </div>
         </router-link>
     `,
     data() {

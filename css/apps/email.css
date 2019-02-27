@@ -27,12 +27,31 @@
     height: calc(100vh - 100px);
 }
 
+/* Email List */
 
-/* EMAIL DISPLAY PAGE */
-
-.email-display {
+/* Email Preview */
+.email-preview > * {
+    text-align: center;
 }
-
-.email-display > * {
-    border-bottom: 1px solid grey;
+.email-preview > *:not(.body) {
+    width: 10%;
+}
+.email-preview .subject {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    text-align: right;
+    width: 20%;
+    padding-right: 0;
+}
+.email-preview .body {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    width: 60%;
+}
+.body::before {
+    content: '-';
 }

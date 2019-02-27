@@ -53,7 +53,7 @@ function _createEmails() {
     emailsDB = emails;
 }
 
-function _createEmail(sender = "Adi", recipient = "Simon", subject = 'Hi there', body = LOREM_TXT) {
+function _createEmail(sender = "Adi", recipient = "Simon", subject = 'Hi there, whats app? bla bla bla', body = LOREM_TXT) {
     return {
         id: utilService.generateId(),
         sender: sender,
