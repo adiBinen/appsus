@@ -52,8 +52,12 @@ function duplicateNote(noteId) {
         })
 }
 
-function changeNoteProp(prop, value) {
-    
+function changeNoteProp(prop, value, noteId) {
+    getNoteById(noteId)
+    .then((note) => {
+        note[prop] = value;
+        storageService.saveToLocal(NOTES_KEY, notesDB);
+    })
 }
 
 function _createNotes() {
