@@ -1,6 +1,16 @@
+/* IMPORT ESSENTIALS */
+
 @import './reset.css';
 @import './helpers.css';
 @import './fonts.css';
+
+/* --------- END IMPORT ESSENTIALS --------- */
+
+/* Import Apps */
+
+@import './apps/email.css';
+
+/* --------- End Import Apps --------- */
 
 
 /* HTML App Defaults */

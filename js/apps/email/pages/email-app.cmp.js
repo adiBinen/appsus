@@ -1,15 +1,15 @@
 
-import emailService from '../services/email.service.js';
 import mainHeader from '../cmps/header.cmp.js';
 import emailList from '../cmps/email-list.cmp.js';
+import sideNav from '../cmps/side-nav.cmp.js';
 
 export default {
-    components: { mainHeader, emailList},
+    components: { mainHeader, sideNav, emailList},
     template: `
-        <main class="email-app">
+        <main class="email-app grid">
             <main-header></main-header>
-            <email-list :emails="emails">
-            </email-list>
+            <side-nav></side-nav>
+            <router-view></router-view class="email-content">
         </main>
     `,
     data() {
@@ -17,9 +17,6 @@ export default {
             emails: null,
         };
     },
-    created() {
-        emailService.query()
-            .then(emails => this.emails = emails);
-    }
+    
     
 }

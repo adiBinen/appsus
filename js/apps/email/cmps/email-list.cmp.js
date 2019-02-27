@@ -1,11 +1,11 @@
 
-import emailPreview from '../cmps/email-preview.cmp.js'
+import emailService from '../services/email.service.js';
+import emailPreview from '../cmps/email-preview.cmp.js';
 
 export default {
     components: {
         emailPreview
     },
-    props: ['emails'],
     template: ` 
         <section class="email-list">
             <table v-if="emails">
@@ -17,7 +17,11 @@ export default {
     `,
     data() {
         return {
-
+            emails: null,
         }
+    },
+    created() {
+        emailService.query()
+            .then(emails => this.emails = emails);
     }
 }

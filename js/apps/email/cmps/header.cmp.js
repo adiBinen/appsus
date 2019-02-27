@@ -13,5 +13,5 @@ export default {
         return {
             emails: null,
         };
-    },    
+    },
 }
