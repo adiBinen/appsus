@@ -27,9 +27,17 @@
     height: calc(100vh - 100px);
 }
 
-/* Email List */
+/* email list */
 
-/* Email Preview */
+/* email preview */
+.email-preview {
+    cursor: pointer;
+    padding: 10px 0;
+    transition: .3s;
+}
+.email-preview:hover {
+    background-color: #d7d5d5;
+}
 .email-preview > * {
     text-align: center;
 }
@@ -43,7 +51,7 @@
     font-weight: bold;
     text-align: right;
     width: 20%;
-    padding-right: 0;
+    padding-right: 5px;
 }
 .email-preview .body {
     white-space: nowrap; 
@@ -54,4 +62,10 @@
 }
 .body::before {
     content: '-';
+}
+
+
+/* EMAIL DISPLAY */
+.email-display {
+
 }
