@@ -4,7 +4,9 @@ export default {
     template: `
         <section class="note-create">
             CREATE NOTE
-            <input ref="input" @keyup.enter="createNote" type="text" v-model="note.data" />
+            <input ref="input"  type="text" required
+                @keyup.enter="createNote" v-model="note.data"
+            />
             <button title="Note" @click="changeType('typeNote')">
                 <i class="fas fa-font"></i>
             </button>
@@ -37,7 +39,6 @@ export default {
     methods: {
         changeType(type) {
             this.note.type = type;
-            console.log(this.note.type);
         },
         createNote() {
             this.$emit('note-created', { ...this.note });
