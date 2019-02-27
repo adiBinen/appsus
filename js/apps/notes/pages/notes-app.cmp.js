@@ -36,8 +36,10 @@ export default {
             noteService.duplicateNote(noteId);
         })
 
-        eventBus.$on(NOTE_CHANGE_COLOR, paletteColor => {
-            // noteService.changeNoteProp(color, paletteColor);
+        eventBus.$on(NOTE_CHANGE_COLOR, changeObj => {
+            let noteId = changeObj.noteId;
+            let color = changeObj.color;
+            noteService.changeNoteProp('color', color, noteId);
         })
     }
 }

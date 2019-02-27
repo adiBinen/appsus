@@ -22,7 +22,8 @@ export default {
     },
     methods: {
         colorChanged(color) {
-            eventBus.$emit(NOTE_CHANGE_COLOR, color);
+            let change = {color, noteId: this.noteId};
+            eventBus.$emit(NOTE_CHANGE_COLOR, change);
         }
     },
     created() {
