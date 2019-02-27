@@ -10,7 +10,7 @@ export default {
     components: { typeNote, typeVideo, typeAudio },
     props: ['note'],
     template: `
-        <li class="note-item" v-if="note.type !== 'typeTodo'">
+        <li class="note-item" v-if="note.type !== 'typeTodo'" :style="noteColor">
             <h1>I AM A NOTE ITEM OF TYPE: {{note.type}}</h1>
             <component :is="note.type" :data="note.data"></component>
 
@@ -21,18 +21,22 @@ export default {
                 <button class="btn btn-copy-note" @click="copyNote()">
                     <i class="fas fa-clone"></i>
                 </button>
-                <button class="btn btn-color-note">
+                <button class="btn btn-color-note" @click="isPalleteOpen = !isPalleteOpen">
                     <i class="fas fa-palette"></i>
                 </button>
+                <div class="colorPalette" v-if="isPalleteOpen">Palette</div>
+
                 <button class="btn btn-pin-note">
                     <i class="fas fa-thumbtack"></i>
                 </button>
             </div>
-
+            
+            
         </li>
     `,
     data() {
         return {
+            isPalleteOpen: false
         };
     },
     methods: {
@@ -42,6 +46,13 @@ export default {
         },
         copyNote() {
             eventBus.$emit(NOTE_DUPLICATE, this.note.id);
+        }
+    },
+    computed: {
+        noteColor() {
+            return {
+                'background-color': this.note.color
+            }
         }
     }
     

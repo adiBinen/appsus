@@ -1,7 +1,9 @@
 export default {
     generateId, 
     getRandomIntInclusive,
-    formatDate
+    formatDate,
+    getPastelPalette,
+    getRandomPastel
 }
 
 function generateId() {
@@ -46,4 +48,12 @@ function formatDate(timestamp) {
         let monthsName = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
         return monthsName[monthNum];
     }
+}
+
+function getPastelPalette() {
+    return ['#fff','#f98a8d','#fdcc87', '#fffd7f', '#c9ff9b', '#a5ffef', '#89dcfc', '#88b9fd', '#debbfe', '#dddddd'];
+}
+
+function getRandomPastel() {
+    return getPastelPalette()[getRandomIntInclusive(1,5)];
 }
