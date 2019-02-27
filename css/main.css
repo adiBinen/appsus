@@ -6,6 +6,8 @@
 
 /* --------- END IMPORT ESSENTIALS --------- */
 
+@import './homepage.css';
+
 /* Import Apps */
 
 @import './apps/email.css';
@@ -48,3 +50,29 @@ a:hover {
 a:visited {
     color: none;
 }
+
+/* GLOBAL CMPS */
+
+.global-nav {
+    position: relative;
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+}
+
+.global-nav .dropdown-menu {
+    position: absolute;
+    background-color: #ffffff;
+    box-shadow: 0 0 1px 1px black;
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .6s;
+}
+
+.global-nav .dropdown-menu.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* --------- End GLOBAL CMPS --------- */
