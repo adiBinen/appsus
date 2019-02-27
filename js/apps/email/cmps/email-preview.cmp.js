@@ -1,6 +1,6 @@
 export default {
     components: {
-        emailPreview
+        
     },
     props: ['email'],
     template: ` 
