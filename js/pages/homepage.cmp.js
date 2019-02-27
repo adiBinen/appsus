@@ -1,4 +1,4 @@
-import navGlobal from '../cmps/global/nav-global.cmp.js';
+import navGlobal from '../cmps/nav-global.cmp.js';
 
 export default {
     components: {

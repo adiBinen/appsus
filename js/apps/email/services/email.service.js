@@ -1,5 +1,5 @@
-import utilService from '../global/util.service.js';
-import storageService from '../global/storage.service.js';
+import utilService from '../../../services/util.service.js';
+import storageService from '../../../services/storage.service.js';
 
 export default {
     getEmailsToDisplay,
