@@ -1,14 +1,12 @@
 // Item to display
 // Todo: note-type: video, audio, note, todo
 
-var todoCmp;
-
 import typeNote from './type-note.cmp.js';
 import typeVideo from './type-video.cmp.js';
 import typeAudio from './type-audio.cmp.js';
 
 export default {
-    components: { typeNote, typeVideo, typeAudio, todoCmp },
+    components: { typeNote, typeVideo, typeAudio },
     props: ['note'],
     template: `
         <li class="note-item" v-if="note.type !== 'typeTodo'">
