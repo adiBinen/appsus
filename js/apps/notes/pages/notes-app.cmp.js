@@ -19,6 +19,5 @@ export default {
     created() {
         noteService.query()
             .then(notes => this.notes = notes);
-
     }
 }
