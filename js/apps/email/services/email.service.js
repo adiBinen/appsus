@@ -61,6 +61,6 @@ function _createEmail(sender = "Adi", recipient = "Simon", subject = 'Hi there',
         subject: subject,
         body: body,
         isRead: false,
-        sentAt: Date.now(),
+        sentAt: Date.now() - 1000 * 60 * 60 * 24 * 500,
     }
 }

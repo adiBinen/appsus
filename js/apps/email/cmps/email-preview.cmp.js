@@ -15,21 +15,21 @@ export default {
                 {{email.body}}
            </td>
            <td>
-                {{formmatedDate}}
+                {{formattedDate}}
            </td>
         </router-link>
     `,
     data() {
         return {
-            currentDate: null
+            
         }
     },
     computed: {
-        formmatedDate() {
-            return utilService.formmatedDate();
+        formattedDate() {
+            return utilService.formatDate(this.email.sentAt);
         }
     },
     mounted() {
-        this.currentDate = new Date();
+        
     }
 }

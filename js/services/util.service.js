@@ -1,7 +1,7 @@
 export default {
     generateId, 
     getRandomIntInclusive,
-    formmatedDate
+    formatDate
 }
 
 function generateId() {
@@ -14,33 +14,36 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function formmatedDate() {
-    const sentAtDate = new Date(this.email.sentAt);
-    const isSameYear = (this.currentDate.getFullYear() === sentAtDate.getFullYear());
-    const isSameMonth = (this.currentDate.getMonth() === sentAtDate.getMonth());
-    const isSameDay = (this.currentDate.getDate() === sentAtDate.getDate());
-    const isYesterday = (isSameMonth && (this.currentDate.getDate() - 1 === sentAtDate.getDate()))
+function formatDate(timestamp) {
+    const currDate = new Date();
+    const pastDate = new Date(timestamp);
+    const isSameYear = (currDate.getFullYear() === pastDate.getFullYear());
+    const isSameMonth = (currDate.getMonth() === pastDate.getMonth());
+    const isSameDay = (currDate.getDate() === pastDate.getDate());
+    const isYesterday = (isSameMonth && (currDate.getDate() - 1 === pastDate.getDate()))
 
     if (isSameYear) { // if same year - return full date
-        return `${_ziroPadding(sentAtDate.getDate())}.
-                ${_ziroPadding(sentAtDate.getMonth() + 1)}.
-                ${sentAtDate.getFullYear()}`
+        return `${_zeroPadding(pastDate.getDate())}.
+                ${_zeroPadding(pastDate.getMonth() + 1)}.
+                ${pastDate.getFullYear()}`
     }
     else if (isSameMonth && isSameDay) { // if same year, month and day - return hh:mm
-        return `${_ziroPadding(sentAtDate.getHours())} : 
-                ${_ziroPadding(sentAtDate.getMinutes())}`
+        return `${_zeroPadding(pastDate.getHours())} : 
+                ${_zeroPadding(pastDate.getMinutes())}`
     }
     else if (isSameMonth && isYesterday) return 'Yesterday' // if yesterday - return yesterday
-    return `${_ziroPadding(sentAtDate.getDate())} ${_getMonthName(sentAtDate.getMonth())} `
+    
+    // reutrn dd and month name
+    return `${_zeroPadding(pastDate.getDate())} ${_getMonthName(pastDate.getMonth())} `
 
 
-    function _ziroPadding(num) {
+    function _zeroPadding(num) {
         if (num < 10) return `0${num}`;
         else return num;
     }
 
     function _getMonthName(monthNum) {
-        let monthsName = [Jan, Feb, Mar, Apr, May, June, July, Aug, Sept, Oct, Nov, Dec];
+        let monthsName = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
         return monthsName[monthNum];
     }
 }
