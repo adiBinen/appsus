@@ -1,1 +1,5 @@
 // Create note
+
+export default {
+    
+}

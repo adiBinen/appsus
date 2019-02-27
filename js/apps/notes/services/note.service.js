@@ -44,10 +44,10 @@ function _createNotes() {
     if (!notes) {
         notes = [];
         // Dummy Data
-        let video = _createNote('video', 'https://www.youtube.com/watch?v=JVZTP_kX5BE');
-        let audio = _createNote('audio', './sound/win.mp3');
-        let note = _createNote('note', 'Hi there I am a note');
-        let todo = _createNote('todo', [
+        let video = _createNote('typeVideo', 'https://www.youtube.com/embed/tgbNymZ7vqY');
+        let audio = _createNote('typeAudio', './sound/win.mp3');
+        let note = _createNote('typeNote', 'Hi there I am a note');
+        let todo = _createNote('typeTodo', [
             { txt: 'Go walk', isMarked: false },
             { txt: 'Go swim', isMarked: false },
             { txt: 'Go jump', isMarked: false },
@@ -63,7 +63,9 @@ function _createNote(type, data) {
         // type: 'video' || 'audio' || 'todo' || 'note',
         // data: 'src'   || 'src'   || '[]'   || 'txt',
 
+        id: utilService.generateId(),
         type: type,
         data: data,
+        createdAt: Date.now(),
     }
 }
