@@ -29,24 +29,31 @@
 }
 
 /* email list */
-
+/* padding: 10px 0; */
 
 /* email preview */
 .email-preview > * {
     text-align: center;
 }
-
 .email-preview > *:not(.body) {
     width: 10%;
 }
-
-
+.email-preview .subject {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    text-align: right;
+    width: 20%;
+    padding-right: 0;
+}
 .email-preview .body {
     white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 70%;
+    text-align: left;
+    width: 60%;
 }
-.email-preview .date {
-    text-align: end;
+.body::before {
+    content: '-';
 }

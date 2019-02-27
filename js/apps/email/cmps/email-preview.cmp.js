@@ -5,10 +5,10 @@ export default {
     props: ['email'],
     template: ` 
         <router-link tag="li" :to="'display' + email.id" exact class="email-preview flex">
-           <div class="email-sender">
+           <div class="sender">
                 {{email.sender}}
            </div>
-           <div class="email-subject">
+           <div class="subject">
                 {{email.subject}}
            </div>
            <div class="body">
