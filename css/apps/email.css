@@ -1,3 +1,6 @@
+
+/* base */
+
 .email-app {
     grid-template-areas: 
     "header header"
@@ -23,5 +26,27 @@
     grid-area: content;
     overflow-y: scroll;
     height: calc(100vh - 100px);
-    padding-left: 20px;
+}
+
+/* email list */
+
+
+/* email preview */
+.email-preview > * {
+    text-align: center;
+}
+
+.email-preview > *:not(.body) {
+    width: 10%;
+}
+
+
+.email-preview .body {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 70%;
+}
+.email-preview .date {
+    text-align: end;
 }

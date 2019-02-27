@@ -8,11 +8,11 @@ export default {
     },
     template: ` 
         <section class="email-list">
-            <table v-if="emails">
+            <ul>
                 <email-preview v-for="email in emails" :key="email.id" :email="email">
                     
                 </email-preview>
-            </table>
+            </ul>
         </section>
     `,
     data() {
