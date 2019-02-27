@@ -29,7 +29,7 @@ function getNoteById(id) {
 function addNote(type, data) {
     notesDB.push(_createNote(type, data));
     storageService.saveToLocal(NOTES_KEY, notesDB);
-    return Promise.resolve(`Note ${note} was successfully created.`);
+    return Promise.resolve(`Note was successfully created.`);
 }
 
 function deleteNote(id) {

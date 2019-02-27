@@ -4,8 +4,8 @@
     grid-template-areas: 
     "header header"
     "nav content";
-    grid-template-rows: 100px 1fr;
-    grid-template-columns: 20vw 1fr;
+    grid-template-rows: 65px 1fr;
+    grid-template-columns: 5vw 1fr;
 }
 
 .email-header {
@@ -13,14 +13,47 @@
     background-color: lightpink;
 }
 
+/* EMAIL NAV BAR MAGIC */
+
 .email-side-nav {
     grid-area: nav;
-    background-color: lightgreen;
+    height: 100%;
+    position: relative;
 }
 
-.email-side-nav:not(:first-child) {
+.email-side-nav .btns-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 5vw;
+    transition: width .8s;
 }
 
+.email-side-nav .btns-container:hover {
+    position: absolute;
+    width: 20vw;
+    background-color: white;
+    z-index: 1;
+}
+
+.email-side-nav .btns-container:hover .btn-compose::after {
+    content: "Compose";
+    padding-left: 20px;
+}
+
+.email-side-nav .btns-container:hover .btn-inbox::after {
+    content: "Inbox";
+    padding-left: 20px;
+}
+
+.email-side-nav .btns-container:hover .btn-sent::after {
+    content: "Sent";
+    padding-left: 20px;
+}
+
+
+/* CONTENT ROUTER VIEW */
 .email-content {
     grid-area: content;
     overflow-y: scroll;

@@ -20,7 +20,6 @@ export default {
     },
     methods: {
         addNote(note) {
-            console.log('Hi', note)
             noteService.addNote(note.type, note.data)
                 .then(res => console.log(res));
         }
