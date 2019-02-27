@@ -4,6 +4,7 @@ import storageService from '../../../services/storage.service.js';
 export default {
     query,
     getEmailById,
+    getUnreadEmails,
     addEmail,
     deleteEmail,
 };
@@ -24,6 +25,10 @@ function getEmailById(id) {
     let email = emailsDB.find(email => email.id === id);
     if (email) return Promise.resolve(email);
     else return Promise.reject('Error: Email not found');
+}
+
+function getUnreadEmails() {
+    return Promise.resolve(emailsDB.filter(email => !email.isRead).length);
 }
 
 function addEmail(data) {
