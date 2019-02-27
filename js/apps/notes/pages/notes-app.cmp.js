@@ -2,6 +2,7 @@ import noteService from '../services/note.service.js';
 import notesHeader from '../cmps/header.cmp.js';
 import noteCreate from '../cmps/note-create.cmp.js';
 import noteList from '../cmps/note-list.cmp.js';
+import {eventBus, NOTE_DELETE, NOTE_DUPLICATE} from '../../../event-bus.js'
 
 export default {
     components: { notesHeader, noteCreate, noteList },
@@ -27,5 +28,13 @@ export default {
     created() {
         noteService.query()
             .then(notes => this.notes = notes);
-    },
+
+        eventBus.$on(NOTE_DELETE, noteId => {
+            noteService.deleteNote(noteId);
+        })
+
+        eventBus.$on(NOTE_DUPLICATE, noteId => {
+            noteService.duplicateNote(noteId);
+        })
+    }
 }
