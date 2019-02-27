@@ -56,6 +56,7 @@ function changeNoteProp(prop, value, noteId) {
     getNoteById(noteId)
     .then((note) => {
         note[prop] = value;
+        storageService.saveToLocal(NOTES_KEY, notesDB);
     })
 }
 
