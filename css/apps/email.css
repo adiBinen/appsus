@@ -1,3 +1,5 @@
+/* APP LAYOUT */
+
 .email-app {
     grid-template-areas: 
     "header header"
@@ -23,5 +25,14 @@
     grid-area: content;
     overflow-y: scroll;
     height: calc(100vh - 100px);
-    padding-left: 20px;
+}
+
+
+/* EMAIL DISPLAY PAGE */
+
+.email-display {
+}
+
+.email-display > * {
+    border-bottom: 1px solid grey;
 }
