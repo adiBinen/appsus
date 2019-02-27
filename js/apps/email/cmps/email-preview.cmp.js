@@ -21,13 +21,12 @@ export default {
     `,
     data() {
         return {
-            
         }
     },
     computed: {
         formattedDate() {
             return utilService.formatDate(this.email.sentAt);
-        }
+        },
     },
     mounted() {
         

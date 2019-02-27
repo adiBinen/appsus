@@ -34,9 +34,14 @@
     cursor: pointer;
     padding: 10px 0;
     transition: .3s;
+    background-color: #f0f0f0;
 }
-.email-preview:hover {
-    background-color: #d7d5d5;
+.email-preview:hover  {
+    box-shadow: inset 0px 0px 0px 0px #dadce0, 0px 1px 2px 0px rgba(60,64,67,.3), 0px 1px 3px 1px rgba(60,64,67,.15);
+}
+.email-preview:hover + .email-preview {
+    /* box-shadow: 0px 2px 0px 0px #dadce0; */
+    box-shadow: 0 4px 4px -2px #000000;
 }
 .email-preview > * {
     text-align: center;
@@ -64,6 +69,22 @@
     content: '-';
 }
 
+/* compose email */
+.email-compose {
+    position: absolute;
+    bottom: 0;
+    left: 100px;
+    height: 400px;
+    width: 500px;
+    background-color: white;
+}
+.email-compose > form {
+    flex-direction: column;
+}
+
+.email-compose > header {
+    background-color: gray;
+}
 
 /* EMAIL DISPLAY */
 .email-display > *:not(:last-child) {
