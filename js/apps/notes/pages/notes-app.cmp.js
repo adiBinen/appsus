@@ -6,7 +6,9 @@ export default {
     template: `
         <main class="notes-app">
             <notes-header></notes-header>
+            <section v-if="notes">
                 {{notes}}
+            </section>
         </main>
     `,
     data() {
@@ -16,7 +18,6 @@ export default {
     },
     created() {
         noteService.query()
-            .then(notes => console.log(notes));
-
+            .then(notes => this.notes = notes)
     }
 }

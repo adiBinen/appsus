@@ -1,7 +1,7 @@
 export default {
     template: `
         <aside class="email-side-nav">
-            <button>
+            <button @click="openComposeEmail()">
                 <i class="material-icons">add_circle_outline</i>
             </button>
             <router-link tag="button" to="/email/inbox" exact>
@@ -13,4 +13,9 @@ export default {
             <button>BUTTON</button>
         </aside>
     `,
+    methods: {
+        openComposeEmail() {
+            this.$emit('openComposeEmail');
+        }
+    }
 }

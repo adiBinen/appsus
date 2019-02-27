@@ -28,7 +28,7 @@ function getEmailById(id) {
 
 function addEmail(data) {
     let {sender, recipient, subject, body} = data;
-    emailsDB.push(_createEmail(sender, recipient, subject, body));
+    emailsDB.unshift(_createEmail(sender, recipient, subject, body));
     storageService.saveToLocal(EMAILS_KEY, emailsDB);
     return Promise.resolve(`E-Mail was successfully sent to ${recipient}.`);
 }
