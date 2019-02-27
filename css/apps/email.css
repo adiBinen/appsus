@@ -2,6 +2,8 @@
     grid-template-areas: 
     "header header"
     "nav content";
+    grid-template-rows: 100px 1fr;
+    grid-template-columns: 20vw 1fr;
 }
 
 .email-header {
@@ -12,9 +14,16 @@
 .email-side-nav {
     grid-area: nav;
     background-color: lightgreen;
+    height: 100%;
+}
+
+.email-side-nav:not(:first-child) {
+    align-self: flex-start; 
 }
 
 .email-content {
     grid-area: content;
-    background-color: lightblue;
+    overflow-y: scroll;
+    height: calc(100vh - 100px);
+    padding-left: 20px;
 }

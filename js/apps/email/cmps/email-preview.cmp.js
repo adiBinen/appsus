@@ -3,7 +3,7 @@
 export default {
     props: ['email'],
     template: ` 
-        <router-link tag="tr" :to="'email/display' + email.id" class="email-preview">
+        <router-link tag="tr" :to="'display' + email.id" exact class="email-preview">
            <td>
                 {{email.sender}}
            </td>
