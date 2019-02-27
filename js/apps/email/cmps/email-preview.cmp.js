@@ -1,4 +1,5 @@
 
+import utilService from '../../../services/util.service.js'
 
 export default {
     props: ['email'],
@@ -25,9 +26,7 @@ export default {
     },
     computed: {
         formmatedDate() {
-            // let sentAtDate = new Date(this.email.sentAt);
-            // let yyyy = (this.currentDate.getFullYear() === sentAtDate.getFullYear()) ? '' : sentAtDate.getFullYear();
-            return ''
+            return utilService.formmatedDate();
         }
     },
     mounted() {
