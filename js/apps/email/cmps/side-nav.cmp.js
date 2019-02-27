@@ -1,6 +1,6 @@
 export default {
     template: `
-        <aside class="email-side-nav flex column">
+        <aside class="email-side-nav">
             <button>
                 <i class="material-icons">add_circle_outline</i>
             </button>

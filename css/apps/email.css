@@ -14,11 +14,9 @@
 .email-side-nav {
     grid-area: nav;
     background-color: lightgreen;
-    height: 100%;
 }
 
 .email-side-nav:not(:first-child) {
-    align-self: flex-start; 
 }
 
 .email-content {
