@@ -1,14 +1,22 @@
 
 
-
 export default {
     props: [],
     components: {
         
     },
     template: ` 
-        <section class="">
+        <section class="email-list">
+            <table>
+                <tr>
+                    
+                </tr>
+            </table>
         </section>
     `,
+    data() {
+        return {
 
+        }
+    }
 }
