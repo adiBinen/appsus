@@ -61,7 +61,9 @@ function modifyEmail(modifiedEmail) {
 function modifyChecked(action) {
     var filteredEmails = emailsDB.filter(email => email.isChecked);
     if (!filteredEmails) return Promise.reject();
-    
+    if (action === 'delete') {
+        
+    }
 
 }
 
