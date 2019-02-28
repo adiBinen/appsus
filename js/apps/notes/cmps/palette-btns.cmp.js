@@ -4,7 +4,7 @@ import utilService from '../../../services/util.service.js';
 export default {
     props: ['noteColor'],
     template: `
-        <section class="palette-btns" v-if="noteColor">
+        <section class="palette-btns">
                 <button 
                     class="btn-color"
                     v-for="color in palettes"

@@ -73,9 +73,6 @@
 
 /* NOTE LIST - LAYOUT */
 .notes-container {
-    /* display: flex;
-    flex-direction: column; */
-    /* width: 600px; */
     margin: 0 auto;
     column-count: 1;
     padding: 0 5px;
@@ -99,27 +96,6 @@
     }
 }
 
-/* @media (min-width: 980px) {
-    .notes-container {
-        max-width: 800px;
-        margin: 0 auto;
-    }
-} */
-
-/* .wrapper {
-    max-width: 980px;
-    margin: 0 auto;
-}
-
-@media (max-width: 980px) {
-    .wrapper {
-        width: 760px;
-    }
-} */
-
-
-
-
 .note-list .note-item {
     padding: 10px;
     border-radius: 5px;
@@ -140,8 +116,9 @@
 }
 
 .color-palette {
+    display: none;
     position: absolute;
-    transform: translateY(-45px);
+    transform: translateY(-55px);
     background-color: #576574;
     padding: 5px;
     border-radius: 10px;
@@ -149,6 +126,13 @@
     z-index: 2;
 }
 
+.btn-color-note:focus ~ .color-palette {
+    display: block;
+}
+
+.color-palette:hover {
+    display: block;
+}
 
 .palette-btns .btn-color {
     width: 15px;

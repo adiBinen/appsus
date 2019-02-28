@@ -1,12 +1,13 @@
 
 import paletteBtns from './palette-btns.cmp.js';
-import { eventBus, 
-        NOTE_DELETE, 
-        NOTE_DUPLICATE, 
-        NOTE_MODIFIED, 
-        PALETTE_OPENED, 
-        PALETTE_CLOSED
-    } from '../../../event-bus.js';
+import {
+    eventBus,
+    NOTE_DELETE,
+    NOTE_DUPLICATE,
+    NOTE_MODIFIED,
+    PALETTE_OPENED,
+    PALETTE_CLOSED
+} from '../../../event-bus.js';
 
 
 export default {
@@ -21,18 +22,18 @@ export default {
                     <i class="fas fa-clone"></i>
                 </button>
                 
-                <button class="btn btn-pin-note" @click="modifyNote('isPinned', 'toggle')">
+                <button ref="pin" class="btn btn-pin-note" @click="modifyNote('isPinned', 'toggle')">
                     <i class="fas fa-thumbtack"></i>
                 </button>
 
                 <!-- Palette button and menu -->
-                <button class="btn btn-color-note" @click="paletteToggled">
+                <button class="btn btn-color-note" >
                     <i class="fas fa-palette"></i>
                 </button>
-                <div class="color-palette" v-if="isPalleteOpen">
+                <div class="color-palette" 
+                >
                     <palette-btns 
                         :note-color="note.color"
-                        v-if="isPalleteOpen"
                         @colorChanged="modifyNote"
                     ></palette-btns>
                 </div>
@@ -52,7 +53,7 @@ export default {
     `,
     data() {
         return {
-            isPalleteOpen: false,
+            isPaletteOpen: false,
             currNote: { ...this.note },
             isEditable: false,
         }
@@ -71,18 +72,17 @@ export default {
         },
         modifyNote(prop, val) {
             if (!val && prop.includes('#')) {
-                
+
                 val = prop;
                 prop = 'color';
             }
             if (val === 'toggle') this.currNote.isPinned = !this.currNote.isPinned;
-            else this.currNote[prop] = val;            
-            eventBus.$emit(NOTE_MODIFIED, {...this.currNote});
+            else this.currNote[prop] = val;
+            eventBus.$emit(NOTE_MODIFIED, { ...this.currNote });
         },
-        paletteToggled() {
-            this.isPalleteOpen = !this.isPalleteOpen;
-            if (!this.isPalleteOpen) return;
-            eventBus.$emit(PALETTE_OPENED);
+        togglePalette() {
+            this.isPaletteOpen = !this.isPaletteOpen;
+            if(this.isPaletteOpen) this.$refs.palette.focus()
         }
     },
     computed: {
@@ -103,6 +103,12 @@ export default {
                     break;
             }
             return data;
+        },
+        getPaletteState() {
+            return this.isPaletteOpen;
+        },
+        focusPalette() {
+            return {focused: this.isPaletteOpen}
         }
     },
     created() {
