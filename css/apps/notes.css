@@ -75,3 +75,9 @@
 .btn-color.selected {
     border: .5px solid gray;
 }
+
+/* TYPE TODO NOTE */
+
+.note-item .type-todo .todo-item.marked {
+    text-decoration: line-through;
+}

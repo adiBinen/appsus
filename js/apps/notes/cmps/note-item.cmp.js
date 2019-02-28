@@ -4,14 +4,16 @@
 import typeNote from './type-note.cmp.js';
 import typeVideo from './type-video.cmp.js';
 import typeAudio from './type-audio.cmp.js';
+import typeImage from './type-image.cmp.js';
+import typeTodo from './type-todo.cmp.js';
 import paletteBtns from './palette-btns.cmp.js';
 import {eventBus, NOTE_DELETE, NOTE_DUPLICATE} from '../../../event-bus.js';
 
 export default {
-    components: { typeNote, typeVideo, typeAudio, paletteBtns },
+    components: { typeNote, typeVideo, typeAudio, typeImage, typeTodo, paletteBtns },
     props: ['note'],
     template: `
-        <li class="note-item" v-if="note.type !== 'typeTodo'" :style="noteColor">
+        <li class="note-item" :style="noteColor">
             <h1>I AM A NOTE ITEM OF TYPE: {{note.type}}</h1>
             <component :is="note.type" :data="note.data"></component>
 
