@@ -7,7 +7,7 @@ export default {
     addNote,
     deleteNote,
     duplicateNote,
-    changeNoteProp,
+    modifyNote,
 };
 
 const NOTES_KEY = 'localNotes';
@@ -60,12 +60,18 @@ function duplicateNote(noteId) {
         })
 }
 
-function changeNoteProp(prop, value, noteId) {
-    getNoteById(noteId)
-        .then((note) => {
-            note[prop] = value;
-            storageService.saveToLocal(NOTES_KEY, notesDB);
-        })
+function modifyNote(modifiedNote) {
+    let idx = _getNoteIdxById();
+    if (idx !== -1) {
+        notesDB.splice(idx, 1, modifiedNote);
+        storageService.saveToLocal(NOTES_KEY, notesDB);
+        return Promise.resolve('Note was successfully modified');
+    }
+    return Promise.reject('Note not found');
+}
+
+function _getNoteIdxById(id) {
+    return notesDB.findIndex(note => note.id === id);
 }
 
 function _createNotes() {
