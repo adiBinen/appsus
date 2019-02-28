@@ -36,8 +36,12 @@ export default {
                     ></palette-btns>
                 </div>
 
-                <button class="btn btn-edit-note" @click="toggleEdit">
+                <button v-if="!isEditable" class="btn btn-edit-note" @click="toggleEdit">
                     <i class="fas fa-edit"></i>
+                </button>
+
+                <button v-else="isEditable" class="btn btn-save-note" @click="saveNote">
+                    <i class="fas fa-save"></i>
                 </button>
 
                 <router-link 
@@ -77,6 +81,10 @@ export default {
             else this.currNote[prop] = val;
             eventBus.$emit(NOTE_MODIFIED, { ...this.currNote });
         },
+        saveNote() {
+            eventBus.$emit(NOTE_MODIFIED, {...this.note});
+            this.toggleEdit();
+        }
     },
     computed: {
         emailData() {
