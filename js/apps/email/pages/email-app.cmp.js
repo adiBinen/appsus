@@ -4,7 +4,7 @@ import emailList from '../cmps/email-list.cmp.js';
 import sideNav from '../cmps/side-nav.cmp.js';
 import emailCompose from '../cmps/email-comopse.cmp.js';
 import emailService from '../services/email.service.js';
-import { eventBus, EMAIL_MODIFIED } from '../../../event-bus.js';
+import { eventBus, EMAIL_MODIFIED, EMAILS_CHECKED_MODIFIED } from '../../../event-bus.js';
 
 
 export default {
@@ -46,6 +46,10 @@ export default {
 
         eventBus.$on(EMAIL_MODIFIED, newEmail => {
             emailService.modifyEmail(newEmail);
+        })
+
+        eventBus.$on(EMAILS_CHECKED_MODIFIED, action => {
+            emailService.modifyChecked(newEmail, action);
         })
 
 
