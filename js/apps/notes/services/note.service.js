@@ -88,6 +88,8 @@ function _createNotes() {
         ]);
         let img = _createNote('typeImage', './img/my-meme.jpg');
         notes.push(video, audio, img, note, todo);
+        notes[0].isPinned = true;
+        notes[4].isPinned = true;
         storageService.saveToLocal(NOTES_KEY, notes);
     }
     notesDB = notes;
