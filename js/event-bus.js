@@ -1,5 +1,8 @@
 export const eventBus = new Vue();
 
+// GLOBAL-NAV
+export const GLOBAL_NAV_CLOSE = 'close-global-nav';
+
 // EMAIL-APP
 export const UNREAD_EMAILS = 'unread-emails';
 export const EMAIL_MODIFIED = 'emails-modified';

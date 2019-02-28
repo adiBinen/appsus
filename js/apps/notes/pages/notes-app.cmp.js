@@ -13,6 +13,7 @@ import {
 } from '../../../event-bus.js'
 
 export default {
+    props: ['unreadEmails'],
     components: { notesHeader, noteCreate, noteList },
     template: `
         <main class="notes-app " v-if="notes">
