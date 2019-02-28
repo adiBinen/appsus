@@ -27,9 +27,16 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    flex-direction: column;
     display: flex;
     align-items: center;
     padding: 20px;
+}
+
+@media(min-width: 600px) {
+    .note-create {
+        flex-direction: row;
+    }
 }
 
 .note-create .input-container {
@@ -44,6 +51,30 @@
     transform: translate(-70%, 15%);
     z-index: 3;
     color: #2ecc71;
+}
+
+.note-create .todo-input button.add-todo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-140%, 15%);
+    z-index: 3;
+    color: #2ecc71;
+    transition: .3s;
+}
+
+.note-create .todo-input button.remove-todo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-70%, 15%);
+    z-index: 3;
+    color: #2ecc71;
+    transition: .3s;
+}
+
+.todo-input button.add-todo:hover, .todo-input button.remove-todo:hover {
+    color: #686de0;
 }
 
 .note-create input {
@@ -97,6 +128,16 @@
     }
 }
 
+@media (min-width: 980px) {
+    .notes-container {
+        width: auto;
+        max-width: 980px;
+    }
+    .note-list {
+        column-count: 4;
+    }
+}
+
 .note-list .note-item {
     padding: 10px;
     border-radius: 5px;
@@ -106,6 +147,10 @@
 
 .note-list .note-item:hover {
     box-shadow: 0 1px 2px 0 rgba(60,64,67,0.30), 0 1px 3px 1px rgba(60,64,67,0.15);
+}
+
+.note-item {
+    text-align: center;
 }
 
 /* END NOTE LIST LAYOUT */
@@ -160,59 +205,9 @@
     text-decoration: line-through;
 }
 
-.checkbox-container {
-    width: 50px;
-}
-
-.checkbox-container {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
+.note-item .type-todo {
     user-select: none;
-}
-.checkbox-container input {
-    position: absolute;
-    opacity: 0;
     cursor: pointer;
-    height: 0;
-    width: 0;
-}
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 20px;
-    height: 15px;
-    width: 15px;
-    box-shadow: 0px 0px 0 3px #d1d2d2;
-    border-radius: 1px;
-}
-/* On mouse-over, add a grey background color */
-.checkbox-container:hover input ~ .checkmark {
-    box-shadow: 0px 0px 0 3px #5a6576;
-}
-/* When the checkbox is checked, add a blue background */
-.checkbox-container input:checked ~ .checkmark {
-    box-sizing: border-box;
-    box-shadow: 0px 0px 0 3px #5a6576;
-    border-radius: 1px;
-    background-color: #5a6576;
-}
-/* Create the indicator (the dot/circle - hidden when not checked) */
-.checkbox-container:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-/* Show the indicator (dot/circle) when checked */
-.checkbox-container input:checked ~ .checkmark:after {
-    font-family: "Font Awesome 5 Free";
-    padding-top: 0px;
-    font-weight: 900;
-    content: "\f00c";
-    display: block;
-    font-size: 15px;
-    color: white;
+    padding: 5px;
+    margin-bottom: 5px;
 }

@@ -66,6 +66,7 @@
     color: #fff;
     padding: 2px 5px;
     transform: translate(-65%, -100%);
+    transition: .6s ease-in-out;
     background-color: rgb(207, 48, 48);
     border-radius: 50px;
     font-weight: bold;

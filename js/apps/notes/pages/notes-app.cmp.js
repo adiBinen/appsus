@@ -64,7 +64,6 @@ export default {
         eventBus.$on(NOTE_MODIFIED, newNote => {
             // Filter empty todos
             if (Array.isArray(newNote.data)) newNote.data = newNote.data.filter(todo => {
-                console.log(todo.txt.length);
                 return todo.txt.length > 0;
             });
             noteService.modifyNote(newNote);
@@ -90,9 +89,7 @@ export default {
         eventBus.$on(NOTE_TODO_TOGGLE_MARK, ({ noteId, todoId }) => {
             let note = this.notes.find(note => note.id === noteId);
             let todo = note.data.find(todo => todo.id === todoId);
-            console.log(todo.isMarked)
             todo.isMarked = !todo.isMarked
-            console.log(todo, todo.isMarked);
             noteService.modifyNote(note);
             this.requestNewNotes();
         })
