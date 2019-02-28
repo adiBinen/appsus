@@ -5,7 +5,7 @@ export default {
     props: ['email'],
     template: ` 
         <router-link tag="li" :to="email.id" exact class="email-preview flex" :class="setUnread">
-            <label class="checkbox-container" @click.stop>
+            <label class="checkbox-container" @click.stop="">
                 <input type="checkbox">
                 <span class="checkmark"></span>
             </label>

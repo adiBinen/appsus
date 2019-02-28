@@ -8,7 +8,8 @@ export default {
                 :key="todo.id"
                 :class="{marked: todo.isMarked}"
             >
-                <input v-model="todo.txt" v-show="isEditable"/>
+                <div v-if="!isEditable">{{todo.txt}}</div>
+                <input v-model="todo.txt" v-else="isEditable"/>
             </li>
         </ul>
     `,
