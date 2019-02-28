@@ -6,18 +6,18 @@ import typeVideo from './type-video.cmp.js';
 import typeAudio from './type-audio.cmp.js';
 import typeImage from './type-image.cmp.js';
 import typeTodo from './type-todo.cmp.js';
-import noteEdit from './note-edit.cmp.js';
+import noteToolbar from './note-toolbar.cmp.js';
 // import paletteBtns from './palette-btns.cmp.js';
 // import { eventBus, NOTE_DELETE, NOTE_DUPLICATE } from '../../../event-bus.js';
 
 export default {
-    components: { typeNote, typeVideo, typeAudio, typeImage, typeTodo, noteEdit },
+    components: { typeNote, typeVideo, typeAudio, typeImage, typeTodo, noteToolbar },
     props: ['note'],
     template: `
         <li class="note-item" :style="noteColor">
             <h1>I AM A NOTE ITEM OF TYPE: {{note.type}}</h1>
             <component :is="note.type" :data="note.data" :is-editable="isEditable"></component>
-            <note-edit @toggle-edit="toggleEdit" :note="note"></note-edit>
+            <note-toolbar @toggle-edit="toggleEdit" :note="note"></note-toolbar>
         </li>
     `,
     data() {
