@@ -2,6 +2,7 @@
 import emailService from '../../email/services/email.service.js';
 
 export default {
+    props: ['username', 'body'],
     template: `
         <section class="email-compose">
             <header>
@@ -16,14 +17,13 @@ export default {
             </form>
         </section>
     `,
-    props: ['username'],
     data() {
         return {
             email: {
                 sender: this.username,
                 recipient: null,
                 subject: null,
-                body: null
+                body: this.body,
             }
         };
     },

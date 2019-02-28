@@ -6,6 +6,11 @@
 
 /* Local Fonts */
 @font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto/Roboto-Regular.ttf');    
+}
+
+@font-face {
     font-family: 'Maven Pro';
     src: url('../fonts/Maven_Pro/MavenPro-Regular.ttf');
 }

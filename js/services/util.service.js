@@ -24,14 +24,11 @@ function formatDate(timestamp) {
     const isSameDay = (currDate.getDate() === pastDate.getDate());
     const isYesterday = (isSameMonth && (currDate.getDate() - 1 === pastDate.getDate()))
 
-    if (isSameYear) { // if same year - return full date
-        return `${_zeroPadding(pastDate.getDate())}.
-                ${_zeroPadding(pastDate.getMonth() + 1)}.
-                ${pastDate.getFullYear()}`
+    if (!isSameYear) { // if same year - return full date
+        return `${_zeroPadding(pastDate.getDate())}.${_zeroPadding(pastDate.getMonth() + 1)}.${pastDate.getFullYear()}`
     }
     else if (isSameMonth && isSameDay) { // if same year, month and day - return hh:mm
-        return `${_zeroPadding(pastDate.getHours())} : 
-                ${_zeroPadding(pastDate.getMinutes())}`
+        return `${_zeroPadding(pastDate.getHours())}:${_zeroPadding(pastDate.getMinutes())}`
     }
     else if (isSameMonth && isYesterday) return 'Yesterday' // if yesterday - return yesterday
     
@@ -45,7 +42,7 @@ function formatDate(timestamp) {
     }
 
     function _getMonthName(monthNum) {
-        let monthsName = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+        let monthsName = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'June', 'July', 'Aug.', 'Sept.', 'Oct.', 'Nov.', 'Dec.'];
         return monthsName[monthNum];
     }
 }

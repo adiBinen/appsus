@@ -17,6 +17,9 @@
 
 
 /* HTML App Defaults */
+* {
+    box-sizing: border-box;
+}
 
 html,body {
     font-size: 16px;

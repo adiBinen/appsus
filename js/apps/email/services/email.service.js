@@ -49,13 +49,24 @@ function deleteEmail(id) {
 function _createEmails() {
     let emails = storageService.loadFromLocal(EMAILS_KEY);
     if (!emails) {
+        // DUMMY DATA SECTION
         emails = [];
         for (let i = 0; i < 50; i++) {
             emails.unshift(_createEmail());
         }
         emails[0].isRead = true;
+        emails[0].sentAt = Date.now();
+        emails[0].sender = 'Simon'
         emails[3].isRead = true;
+        emails[3].sender = 'Simon'
         emails[6].isRead = true;
+        emails[6].sender = 'Simon'
+        emails[7].sentAt = Date.now() - 1000 * 60 * 60 * 24;
+        emails[7].sender = 'Simon'
+        emails[8].sentAt = Date.now() - 1000 * 60 * 60 * 24 * 3;
+        emails[8].sender = 'Simon'
+        emails[9].sentAt = Date.now() - 1000 * 60 * 60 * 24 * 365 * 5;
+        emails[9].sender = 'Simon'
         storageService.saveToLocal(EMAILS_KEY, emails);
     }
     emailsDB = emails;

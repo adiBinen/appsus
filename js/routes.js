@@ -11,14 +11,16 @@ import notesApp from './apps/notes/pages/notes-app.cmp.js';
 
 const routes = [
     { path: '/', component: homepage },
+
     {
-        path: '/email', component: emailApp,
+        path: '/email:compose?:body?', component: emailApp,
         children: [
             { path: '', component: emailList },
             { path: 'inbox', component: emailList },
-            { path: 'display:emailId', component: emailDisplay }
+            { path: ':emailId', component: emailDisplay },
         ],
     },
+    { path: '', component: emailApp },
     {
         path: '/notes', component: notesApp,
         children: [

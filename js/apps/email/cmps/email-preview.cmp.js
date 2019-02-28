@@ -4,7 +4,7 @@ import utilService from '../../../services/util.service.js'
 export default {
     props: ['email'],
     template: ` 
-        <router-link tag="li" :to="'display' + email.id" exact class="email-preview flex">
+        <router-link tag="li" :to="email.id" exact class="email-preview flex" :class="setUnread">
            <div class="sender">
                 {{email.sender}}
            </div>
@@ -27,8 +27,11 @@ export default {
         formattedDate() {
             return utilService.formatDate(this.email.sentAt);
         },
+        setUnread() {
+            return { unread: this.email.isRead }
+        },
     },
     mounted() {
-        
+
     }
 }

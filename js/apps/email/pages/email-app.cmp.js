@@ -15,14 +15,15 @@ export default {
             <main-header></main-header>
             <side-nav @openComposeEmail="openComposeEmail()"></side-nav>
             <router-view  class="email-content"></router-view>
-            <email-compose v-if="isComposing" @closeComposeEmail="closeComposeEmail" :username="username"></email-compose>
+            <email-compose v-if="isComposing" @closeComposeEmail="closeComposeEmail" :username="username" :body="sentBody"></email-compose>
         </main>
     `,
     data() {
         return {
             username: 'adi',
             emails: null,
-            isComposing: false
+            isComposing: null,
+            sentBody: null,
         };
     },
     methods: {
@@ -32,6 +33,11 @@ export default {
         closeComposeEmail() {
             this.isComposing = false;
         }
+    },
+    created() {
+        let {compose, body} = this.$route.params;
+        this.isComposing = compose;
+        this.sentBody = body;
     }
     
 }

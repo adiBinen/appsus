@@ -28,7 +28,13 @@ function getNoteById(id) {
 }
 
 function addNote(type, data) {
-    if (type === 'typeTodo') data = data.split(',');
+    // Data is a string and if the type is a todo, create an appropriate object
+    if (type === 'typeTodo') {
+        data = {
+            id: utilService.generateId(), txt: data.split(','), isMarked: false,
+        }
+    }
+
     notesDB.unshift(_createNote(type, data));
     storageService.saveToLocal(NOTES_KEY, notesDB);
     return Promise.resolve(`Note was successfully created.`);
@@ -84,8 +90,8 @@ function _createNotes() {
 
 function _createNote(type, data) {
     return {
-        // type: 'video' || 'audio' || 'todo' || 'note',
-        // data: 'src'   || 'src'   || '[]'   || 'txt',
+        // type: 'video' || 'audio' || 'image' || 'todo'                  || 'note',
+        // data: 'src'   || 'src'   || 'src'   || '[id, txt, isMarked]'   || 'txt',
 
         id: utilService.generateId(),
         type: type,
