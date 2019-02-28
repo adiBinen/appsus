@@ -7,6 +7,7 @@ export default {
     getUnreadEmails,
     addEmail,
     deleteEmail,
+    modifyEmail,
 };
 
 const EMAILS_KEY = 'localEmails';
@@ -46,6 +47,20 @@ function deleteEmail(id) {
     return Promise.resolve('E-Mail was successfully deleted.');
 }
 
+function modifyEmail(modifiedEmail) {
+    let idx = _getEmailIdxById(modifiedEmail.id);
+    if (idx !== -1) {
+        emailsDB.splice(idx, 1, modifiedEmail);
+        storageService.saveToLocal(EMAILS_KEY, emailsDB);
+        return Promise.resolve('Note was successfully modified');
+    }
+    return Promise.reject('Note not found');
+}
+
+function _getEmailIdxById(id) {
+    return emailsDB.findIndex(email => email.id === id);
+}
+
 function _createEmails() {
     let emails = storageService.loadFromLocal(EMAILS_KEY);
     if (!emails) {
@@ -80,6 +95,7 @@ function _createEmail(sender = "Adi", recipient = "Simon", subject = 'Hi there, 
         subject: subject,
         body: body,
         isRead: false,
+        isChecked: false,
         sentAt: Date.now() - 1000 * 60 * 60 * 24 * 500,
     }
 }

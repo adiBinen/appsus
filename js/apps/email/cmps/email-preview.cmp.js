@@ -1,11 +1,12 @@
 
 import utilService from '../../../services/util.service.js'
+import { eventBus, EMAIL_MODIFIED } from '../../../event-bus.js';
 
 export default {
     props: ['email'],
     template: ` 
         <router-link tag="li" :to="email.id" exact class="email-preview flex" :class="setUnread">
-            <label class="checkbox-container" @click.stop="">
+            <label class="checkbox-container" @click.stop="checkedEmail">
                 <input type="checkbox">
                 <span class="checkmark"></span>
             </label>
@@ -27,6 +28,14 @@ export default {
         return {
         }
     },
+    methods: {
+        checkedEmail() {
+            if (!this.email.isChecked) {
+                this.email.isChecked = true;
+                eventBus.$emit(EMAIL_MODIFIED, { ...this.email });
+            }
+        }
+    },
     computed: {
         formattedDate() {
             return utilService.formatDate(this.email.sentAt);
@@ -36,6 +45,5 @@ export default {
         },
     },
     mounted() {
-
     }
 }

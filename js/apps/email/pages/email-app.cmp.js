@@ -2,7 +2,9 @@
 import mainHeader from '../cmps/header.cmp.js';
 import emailList from '../cmps/email-list.cmp.js';
 import sideNav from '../cmps/side-nav.cmp.js';
-import emailCompose from '../cmps/email-comopse.cmp.js'
+import emailCompose from '../cmps/email-comopse.cmp.js';
+import emailService from '../services/email.service.js';
+import { eventBus, EMAIL_MODIFIED } from '../../../event-bus.js';
 
 
 export default {
@@ -41,6 +43,11 @@ export default {
         let { compose, body } = this.$route.query;
         this.isComposing = compose;
         this.sentBody = body;
-    }
 
+        eventBus.$on(EMAIL_MODIFIED, newEmail => {
+            emailService.modifyEmail(newEmail);
+        })
+
+
+    }
 }

@@ -17,6 +17,7 @@
     align-items: center;
     padding: 0 20px;
     box-shadow: 0 0px 0px .5px #64798fab;
+    z-index: 1;
 }
 
 /* EMAIL NAV BAR MAGIC */
