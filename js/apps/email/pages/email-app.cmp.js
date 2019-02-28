@@ -4,8 +4,11 @@ import emailList from '../cmps/email-list.cmp.js';
 import sideNav from '../cmps/side-nav.cmp.js';
 import emailCompose from '../cmps/email-comopse.cmp.js'
 
+
 export default {
-    components: { mainHeader,
+    props: ['unreadEmails'],
+    components: {
+        mainHeader,
         sideNav,
         emailList,
         emailCompose
@@ -13,7 +16,7 @@ export default {
     template: `
         <main class="email-app grid">
             <main-header></main-header>
-            <side-nav @openComposeEmail="openComposeEmail()"></side-nav>
+            <side-nav :unread-emails="unreadEmails" @openComposeEmail="openComposeEmail()"></side-nav>
             <router-view  class="email-content"></router-view>
             <email-compose v-if="isComposing" @closeComposeEmail="closeComposeEmail" :username="username" :body="sentBody"></email-compose>
         </main>
@@ -27,7 +30,7 @@ export default {
         };
     },
     methods: {
-        openComposeEmail() {           
+        openComposeEmail() {
             this.isComposing = true;
         },
         closeComposeEmail() {
@@ -35,9 +38,11 @@ export default {
         }
     },
     created() {
-        let {compose, body} = this.$route.params;
+        let { compose, body } = this.$route.query;
         this.isComposing = compose;
         this.sentBody = body;
-    }
+        console.log(compose, body);
     
+    }
+
 }

@@ -35,9 +35,13 @@ export default {
                     <i class="fas fa-edit"></i>
                 </button>
 
-                <!-- <router-link :to="'email/' + true + '/' + note.data" tag="button" class="btn btn-compose-email" target='_blank'>
+                <router-link 
+                    :to="'/email/inbox?compose=true&body=' + emailData" 
+                    tag="button" 
+                    class="btn btn-compose-email" 
+                >
                     <i class="fas fa-envelope"></i>
-                </router-link> -->
+                </router-link>
         </section>
     `,
     data() {
@@ -68,6 +72,26 @@ export default {
             if (val === 'toggle') this.currNote.isPinned = !this.currNote.isPinned;
             else this.currNote[prop] = val;            
             eventBus.$emit(NOTE_MODIFIED, {...this.currNote});
+        }
+    },
+    computed: {
+        emailData() {
+            let data;
+            switch (this.note.type) {
+                case 'typeImage':
+                    data = `Check out this Image: ${this.note.data}`
+                    break;
+                case 'typeVideo':
+                    data = `Check out this Video: ${this.note.data}`;
+                    break;
+                case 'typeAudio':
+                    data = `Check this out: ${this.note.data}`;
+                    break;
+                case 'typeTodo':
+                    data = this.note.data.join(', ');
+                    break;
+            }
+            return data;
         }
     },
     created() {

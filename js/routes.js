@@ -13,7 +13,7 @@ const routes = [
     { path: '/', component: homepage },
 
     {
-        path: '/email:compose?:body?', component: emailApp,
+        path: '/email:compose?', component: emailApp,
         children: [
             { path: '', component: emailList },
             { path: 'inbox', component: emailList },

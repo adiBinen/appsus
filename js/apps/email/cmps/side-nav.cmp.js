@@ -1,6 +1,6 @@
-import { eventBus, UNREAD_EMAILS } from '../../../event-bus.js';
 
 export default {
+    props: ['unreadEmails'],
     template: `
         <aside class="email-side-nav">
             <div class="btns-container">
@@ -24,7 +24,6 @@ export default {
     `,
     data() {
         return {
-            unreadEmails: null,
         };
     },
     methods: {
@@ -32,7 +31,4 @@ export default {
             this.$emit('openComposeEmail');
         },
     },
-    created() {
-        eventBus.$on(UNREAD_EMAILS, (unreadNum) => this.unreadEmails = unreadNum);
-    }
 }
