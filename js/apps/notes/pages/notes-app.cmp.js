@@ -49,7 +49,7 @@ export default {
             noteService.duplicateNote(noteId);
         })
 
-        eventBus.$on(NOTE_MODIFIED, newNote => {
+        eventBus.$on(NOTE_MODIFIED, newNote => {            
             noteService.modifyNote(newNote);
         })
 
