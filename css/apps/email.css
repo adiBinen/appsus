@@ -218,19 +218,23 @@
 }
 .checkmark {
     position: absolute;
-    top: -5px;
+    top: 0;
     left: 20px;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
+    height: 15px;
+    width: 15px;
+    box-shadow: 0px 0px 0 3px #d1d2d2;
+    border-radius: 1px;
 }
 /* On mouse-over, add a grey background color */
 .checkbox-container:hover input ~ .checkmark {
-    background-color: #ccc;
+    box-shadow: 0px 0px 0 3px #5a6576;
 }
 /* When the checkbox is checked, add a blue background */
 .checkbox-container input:checked ~ .checkmark {
-    background-color: #2196F3;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 0 3px #5a6576;
+    border-radius: 1px;
+    background-color: #5a6576;
 }
 /* Create the indicator (the dot/circle - hidden when not checked) */
 .checkbox-container:after {
@@ -240,8 +244,13 @@
 }
 /* Show the indicator (dot/circle) when checked */
 .checkbox-container input:checked ~ .checkmark:after {
-    content: "V";
+    font-family: "Font Awesome 5 Free";
+    padding-top: 0px;
+    font-weight: 900;
+    content: "\f00c";
     display: block;
+    font-size: 15px;
+    color: white;
 }
   
 
