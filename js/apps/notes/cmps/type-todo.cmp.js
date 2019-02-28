@@ -11,6 +11,10 @@ export default {
                 :key="todo.id"
                 :class="{marked: todo.isMarked}"
             >
+                <label class="checkbox-container" @click.stop="">
+                    <input type="checkbox" @click.stop="toggleMarked(todo.id)">
+                    <span class="checkmark"></span>
+                </label>
                 <div v-if="!isEditable">{{todo.txt}}</div>
                 <input v-model="todo.txt" v-else="isEditable"/>
                 <button v-if="isEditable" @click="removeTodo(todo.id)">
@@ -50,6 +54,11 @@ export default {
             let idx = this.todos.findIndex(todo => todo.id === id);
             this.todos.splice(idx, 1);
         },
+        toggleMarked(id) {
+            let todo = this.todos.find(todo => todo.id === id);
+            todo.isMarked = !todo.isMarked;
+            this.$emit('mark-todo', id);
+        }
     },
     created() {
         console.log(this.todos)

@@ -9,6 +9,7 @@ import {
     NOTE_MODIFIED,
     NOTE_TODO_ADD,
     NOTE_TODO_REMOVE,
+    NOTE_TODO_TOGGLE_MARK,
 } from '../../../event-bus.js'
 
 export default {
@@ -35,6 +36,10 @@ export default {
             noteService.addNote(note.type, note.data)
                 .then(res => console.log(res));
         },
+        requestNewNotes() {
+            noteService.query()
+                .then(notes => this.notes = notes);
+        }
     },
     computed: {
         pinnedNotes() {
@@ -74,14 +79,22 @@ export default {
         })
 
         eventBus.$on(NOTE_TODO_REMOVE, id => {
-           this.notes.forEach(note => {
-               if (Array.isArray(note.data)) {
-                   let idx = note.data.findIndex(todo => todo.id === id);
-                   note.data.splice(idx, 1);
-                   console.log(note.data)
-               }
-           })
-            console.log(id);
+            this.notes.forEach(note => {
+                if (Array.isArray(note.data)) {
+                    let idx = note.data.findIndex(todo => todo.id === id);
+                    note.data.splice(idx, 1);
+                }
+            })
+        })
+
+        eventBus.$on(NOTE_TODO_TOGGLE_MARK, ({ noteId, todoId }) => {
+            let note = this.notes.find(note => note.id === noteId);
+            let todo = note.data.find(todo => todo.id === todoId);
+            console.log(todo.isMarked)
+            todo.isMarked = !todo.isMarked
+            console.log(todo, todo.isMarked);
+            noteService.modifyNote(note);
+            this.requestNewNotes();
         })
 
 

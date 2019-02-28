@@ -7,8 +7,7 @@ import typeAudio from './type-audio.cmp.js';
 import typeImage from './type-image.cmp.js';
 import typeTodo from './type-todo.cmp.js';
 import noteToolbar from './note-toolbar.cmp.js';
-import notesAppCmp from '../pages/notes-app.cmp.js';
-import { eventBus, NOTE_TODO_ADD } from '../../../event-bus.js';
+import { eventBus, NOTE_TODO_ADD, NOTE_TODO_TOGGLE_MARK } from '../../../event-bus.js';
 // import paletteBtns from './palette-btns.cmp.js';
 // import { eventBus, NOTE_DELETE, NOTE_DUPLICATE } from '../../../event-bus.js';
 
@@ -22,6 +21,7 @@ export default {
                 :data="note.data" 
                 :is-editable="isEditable"
                 @add-todo="addTodo"
+                @mark-todo="markTodo"
             >
             </component>
             <note-toolbar @toggle-edit="toggleEdit" :note="note"></note-toolbar>
@@ -42,6 +42,9 @@ export default {
                 pointer: todoPointer,
             }
             eventBus.$emit(NOTE_TODO_ADD, todoToNote);
+        },
+        markTodo(id) {
+            eventBus.$emit(NOTE_TODO_TOGGLE_MARK, {noteId: this.note.id, todoId: id});
         }
     },
     computed: {

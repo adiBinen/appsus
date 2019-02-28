@@ -94,7 +94,7 @@ function _createNotes() {
         let todo = _createNote('typeTodo', [
             { id: utilService.generateId(), txt: 'Go walk', isMarked: false },
             { id: utilService.generateId(), txt: 'Go swim', isMarked: false },
-            { id: utilService.generateId(), txt: 'Go jump', isMarked: true },
+            { id: utilService.generateId(), txt: 'Go jump', isMarked: false },
         ]);
         let img = _createNote('typeImage', './img/my-meme.jpg');
         notes.push(video, audio, img, note, todo);
