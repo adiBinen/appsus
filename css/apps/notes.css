@@ -77,15 +77,19 @@
 }
 
 .note-list {
-    width: 100vw;
     column-count: 3;
-    height: 100%;
 }
 
 .note-list .note-item {
-    position: relative;
+    padding: 10px;
+    border-radius: 5px;
+    break-inside: avoid;
+    margin-bottom: 20px;
 }
 
+.note-list .note-item:hover {
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.30), 0 1px 3px 1px rgba(60,64,67,0.15);
+}
 
 /* END NOTE LIST LAYOUT */
 
