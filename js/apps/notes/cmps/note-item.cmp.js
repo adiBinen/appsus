@@ -15,7 +15,6 @@ export default {
     props: ['note'],
     template: `
         <li class="note-item" :style="noteColor">
-            <h1>I AM A NOTE ITEM OF TYPE: {{note.type}}</h1>
             <component :is="note.type" :data="note.data" :is-editable="isEditable"></component>
             <note-toolbar @toggle-edit="toggleEdit" :note="note"></note-toolbar>
         </li>

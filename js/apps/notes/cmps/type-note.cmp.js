@@ -5,8 +5,8 @@ export default {
     props: ['data', 'isEditable'],
     template: `
         <div class="type-note">
-            <h1>HI I AM A TYPE-NOTE BRO, HERE'S YOUR DATA:</h1>
-            <input v-show="isEditable" v-model="data" />
+            <div v-if="!isEditable">{{data}}</div>
+            <input v-else="isEditable" v-model="data" />
         </div>
     `,
     data() {

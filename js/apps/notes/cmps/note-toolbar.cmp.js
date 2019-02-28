@@ -5,8 +5,6 @@ import {
     NOTE_DELETE,
     NOTE_DUPLICATE,
     NOTE_MODIFIED,
-    PALETTE_OPENED,
-    PALETTE_CLOSED
 } from '../../../event-bus.js';
 
 
@@ -53,7 +51,6 @@ export default {
     `,
     data() {
         return {
-            isPaletteOpen: false,
             currNote: { ...this.note },
             isEditable: false,
         }
@@ -80,10 +77,6 @@ export default {
             else this.currNote[prop] = val;
             eventBus.$emit(NOTE_MODIFIED, { ...this.currNote });
         },
-        togglePalette() {
-            this.isPaletteOpen = !this.isPaletteOpen;
-            if(this.isPaletteOpen) this.$refs.palette.focus()
-        }
     },
     computed: {
         emailData() {
@@ -99,17 +92,11 @@ export default {
                     data = `Check this out: ${this.note.data}`;
                     break;
                 case 'typeTodo':
-                    data = this.note.data.join(', ');
+                    data = this.note.data.map(todo => todo.txt).join(', ');
                     break;
             }
             return data;
         },
-        getPaletteState() {
-            return this.isPaletteOpen;
-        },
-        focusPalette() {
-            return {focused: this.isPaletteOpen}
-        }
     },
     created() {
     },

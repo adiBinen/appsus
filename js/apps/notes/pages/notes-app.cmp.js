@@ -5,9 +5,7 @@ import noteList from '../cmps/note-list.cmp.js';
 import { eventBus, 
         NOTE_DELETE, 
         NOTE_DUPLICATE, 
-        NOTE_MODIFIED,
-        PALETTE_OPENED,
-        PALETTE_CLOSED
+        NOTE_MODIFIED
     } from '../../../event-bus.js'
 
 export default {
@@ -58,10 +56,5 @@ export default {
         eventBus.$on(NOTE_MODIFIED, newNote => {            
             noteService.modifyNote(newNote);
         })
-
-        eventBus.$on(PALETTE_OPENED, isPaletteOpen => {
-
-        })
-
     }
 }

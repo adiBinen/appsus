@@ -30,9 +30,17 @@ function getNoteById(id) {
 function addNote(type, data) {
     // Data is a string and if the type is a todo, create an appropriate object
     if (type === 'typeTodo') {
-        data = {
-            id: utilService.generateId(), txt: data.split(','), isMarked: false,
-        }
+        console.log('service',data);
+        let txts = data.split(',');
+        let todo = txts.map(txt => {
+            return {
+                id: utilService.generateId(),
+                txt: txt,
+                isMarked: false,
+            };
+        })
+        data = todo;
+        console.log(todo, data);
     }
 
     notesDB.unshift(_createNote(type, data));
