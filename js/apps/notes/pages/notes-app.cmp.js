@@ -2,7 +2,7 @@ import noteService from '../services/note.service.js';
 import notesHeader from '../cmps/header.cmp.js';
 import noteCreate from '../cmps/note-create.cmp.js';
 import noteList from '../cmps/note-list.cmp.js';
-import {eventBus, NOTE_DELETE, NOTE_DUPLICATE, NOTE_CHANGE_COLOR} from '../../../event-bus.js'
+import { eventBus, NOTE_DELETE, NOTE_DUPLICATE, NOTE_MODIFIED } from '../../../event-bus.js'
 
 export default {
     components: { notesHeader, noteCreate, noteList },
@@ -27,7 +27,7 @@ export default {
         addNote(note) {
             noteService.addNote(note.type, note.data)
                 .then(res => console.log(res));
-        }
+        },
     },
     computed: {
         pinnedNotes() {
@@ -49,10 +49,9 @@ export default {
             noteService.duplicateNote(noteId);
         })
 
-        eventBus.$on(NOTE_CHANGE_COLOR, changeObj => {
-            let noteId = changeObj.noteId;
-            let color = changeObj.color;
-            noteService.changeNoteProp('color', color, noteId);
+        eventBus.$on(NOTE_MODIFIED, newNote => {
+            noteService.modifyNote(newNote);
         })
+
     }
 }
