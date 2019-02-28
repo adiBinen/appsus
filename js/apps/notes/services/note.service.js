@@ -74,13 +74,15 @@ function _createNotes() {
             { id: utilService.generateId(), txt: 'Go swim', isMarked: false },
             { id: utilService.generateId(), txt: 'Go jump', isMarked: true },
         ]);
-        notes.push(video, audio, note, todo);
+        let img = _createNote('typeImage', './img/my-meme.jpg');
+        notes.push(video, audio, img, note, todo);
         storageService.saveToLocal(NOTES_KEY, notes);
     }
     notesDB = notes;
 }
 
 function _createNote(type, data) {
+    if (type === 'typeTodo') data = data.split(',');
     return {
         // type: 'video' || 'audio' || 'todo' || 'note',
         // data: 'src'   || 'src'   || '[]'   || 'txt',

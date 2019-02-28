@@ -21,9 +21,15 @@ export default {
                 <button class="btn btn-delete-note" @click="deleteNote()">
                     <i class="fas fa-trash-alt"></i>
                 </button>
-                <button class="btn btn-copy-note" @click="copyNote()">
+                <button class="btn btn-copy-note" @click="duplicateNote()">
                     <i class="fas fa-clone"></i>
                 </button>
+                
+                <button class="btn btn-pin-note">
+                    <i class="fas fa-thumbtack"></i>
+                </button>
+
+                <!-- Palette button and menu -->
                 <button class="btn btn-color-note" @click="isPalleteOpen = !isPalleteOpen">
                     <i class="fas fa-palette"></i>
                 </button>
@@ -31,8 +37,8 @@ export default {
                     <palette-btns :note-id="note.id" :note-color="note.color"></palette-btns>
                 </div>
 
-                <button class="btn btn-pin-note">
-                    <i class="fas fa-thumbtack"></i>
+                <button class="btn btn-edit-note">
+                    <i class="fas fa-edit"></i>
                 </button>
             </div>
             
@@ -48,7 +54,7 @@ export default {
             let toDelete = confirm('are you sure you want to delete?');
             if (toDelete) eventBus.$emit(NOTE_DELETE, this.note.id);
         },
-        copyNote() {
+        duplicateNote() {
             eventBus.$emit(NOTE_DUPLICATE, this.note.id);
         }
     },

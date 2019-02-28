@@ -8,8 +8,13 @@ export default {
                 :key="todo.id"
                 :class="{marked: todo.isMarked}"
             >
-                {{todo.txt}}
+                <input v-model="todo.txt" :readonly="!isEditable"/>
             </li>
         </ul>
     `,
+    data() {
+        return {
+            isEditable: false,
+        };
+    }
 }

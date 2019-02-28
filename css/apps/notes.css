@@ -64,16 +64,30 @@
 
 .color-palette {
     position: absolute;
+    background-color: #576574;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 1px 1px #333;
 }
 
-.btn-color {
+
+.palette-btns .btn-color {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    border: .5px solid transparent;
+    box-shadow: 0 0 1px 1px black;
+    margin-right: 3px;
 }
-.btn-color.selected {
-    border: .5px solid gray;
+.palette-btns .btn-color.selected {
+    box-shadow: 0 0 1px 1px #fff;
+}
+
+.palette-btns .btn-color.selected:hover {
+    box-shadow: 0 0 1px 1px #e3e3e3;
+}
+
+.palette-btns .btn-color:hover {
+    box-shadow: 0 0 1px 1px #576574;
 }
 
 /* TYPE TODO NOTE */
