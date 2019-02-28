@@ -91,14 +91,15 @@ export default {
             let note = this.notes.find(note => note.id === noteId);
             let todo = note.data.find(todo => todo.id === todoId);
             todo.isMarked = !todo.isMarked
-            noteService.modifyNote(note);
-            this.requestNewNotes();
+            noteService.modifyNote(note)
+                .then(this.requestNewNotes);
         })
 
         eventBus.$on(NOTE_TODOS_MODIFY, ({noteId, todos}) => {
             let note = this.notes.find(note => note.id === noteId);
             note.data = todos;
-            noteService.modifyNote(note);
+            noteService.modifyNote(note)
+                .then(this.requestNewNotes);
         })
 
 
