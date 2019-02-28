@@ -62,9 +62,10 @@ function modifyChecked(action) {
     var filteredEmails = emailsDB.filter(email => email.isChecked);
     if (!filteredEmails) return Promise.reject();
     if (action === 'delete') {
-        
+        filteredEmails.forEach(email => {
+            deleteEmail(email.id);
+        });
     }
-
 }
 
 function _getEmailIdxById(id) {
