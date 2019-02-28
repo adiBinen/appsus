@@ -26,22 +26,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     flex-direction: column;
     display: flex;
     align-items: center;
     padding: 20px;
 }
 
-@media(min-width: 600px) {
-    .note-create {
-        flex-direction: row;
-    }
-}
 
 .note-create .input-container {
     position: relative;
     display: flex;
+    margin-bottom: 10px;
+}
+
+@media(min-width: 750px) {
+    .note-create {
+        flex-direction: row;
+    }
+    .note-create .input-container {
+        margin-bottom: 0;
+    }
 }
 
 .note-create .input-container button {
@@ -100,6 +104,14 @@
 
 .note-create button:hover {
     color: #686de0;
+}
+
+.note-create-btns-container > *.selected {
+    color: #b2bec3;
+}
+
+.note-create-btns-container > *.selected:hover {
+    color: #2d3436;
 }
 
 

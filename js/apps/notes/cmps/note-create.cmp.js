@@ -30,19 +30,19 @@ export default {
                 </div>
             </div>
             <div class="note-create-btns-container">
-                <button title="Note" @click="changeType('typeNote')">
+                <button title="Note" @click="changeType('typeNote')" :class="{selected: note.type === 'typeNote'}">
                     <i class="fas fa-font"></i>
                 </button>
-                <button title="Image" @click="changeType('typeImage')">
+                <button title="Image" @click="changeType('typeImage')" :class="{selected: note.type === 'typeImage'}">
                     <i class="fas fa-image"></i>
                 </button>
-                <button title="Video" @click="changeType('typeVideo')">
+                <button title="Video" @click="changeType('typeVideo')" :class="{selected: note.type === 'typeVideo'}">
                     <i class="fab fa-youtube"></i>
                 </button>
-                <button title="Audio" @click="changeType('typeAudio')">
+                <button title="Audio" @click="changeType('typeAudio')" :class="{selected: note.type === 'typeAudio'}">
                     <i class="fas fa-headphones"></i>
                 </button>
-                <button title="Todo List" @click="changeType('typeTodo')">
+                <button title="Todo List" @click="changeType('typeTodo')" :class="{selected: note.type === 'typeTodo'}">
                     <i class="fas fa-list"></i>
                 </button>
             </div>
@@ -81,9 +81,9 @@ export default {
         },
         createNote() {
             if (this.note.type === 'typeTodo') {
-                this.note.data = this.todos;
-                // MAKE SURE TODO IS NOT EMPTY.....
-                if (this.todos.length === 1 && this.todos[0].txt === '') return;
+                // MAKE SURE TODO IS NOT EMPTY
+                if (this.todos.every(todo => todo.txt === '')) return;
+                this.note.data = this.todos.filter(todo => todo.txt !== '');
             }
             if (!this.note.data) return;
             this.$emit('note-created', { ...this.note });
