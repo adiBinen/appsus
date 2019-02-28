@@ -2,13 +2,14 @@ import noteService from '../services/note.service.js';
 import notesHeader from '../cmps/header.cmp.js';
 import noteCreate from '../cmps/note-create.cmp.js';
 import noteList from '../cmps/note-list.cmp.js';
-import { eventBus, 
-        NOTE_DELETE, 
-        NOTE_DUPLICATE, 
-        NOTE_MODIFIED,
-        NOTE_TODO_ADD,
-        NOTE_TODO_REMOVE,
-    } from '../../../event-bus.js'
+import {
+    eventBus,
+    NOTE_DELETE,
+    NOTE_DUPLICATE,
+    NOTE_MODIFIED,
+    NOTE_TODO_ADD,
+    NOTE_TODO_REMOVE,
+} from '../../../event-bus.js'
 
 export default {
     components: { notesHeader, noteCreate, noteList },
@@ -55,8 +56,16 @@ export default {
             noteService.duplicateNote(noteId);
         })
 
-        eventBus.$on(NOTE_MODIFIED, newNote => {            
+        eventBus.$on(NOTE_MODIFIED, newNote => {
+            // Filter empty todos
+            if (Array.isArray(newNote.data)) newNote.data = newNote.data.filter(todo => {
+                console.log(todo.txt.length);
+                return todo.txt.length > 0;
+            });
             noteService.modifyNote(newNote);
+            // Change note in current instance
+            let idx = this.notes.findIndex(note => note.id === newNote.id);
+            if (idx !== -1) this.notes.splice(idx, 1, newNote);
         })
 
         eventBus.$on(NOTE_TODO_ADD, todoToNote => {
@@ -65,7 +74,13 @@ export default {
         })
 
         eventBus.$on(NOTE_TODO_REMOVE, id => {
-            // REMOVE ME HERE
+           this.notes.forEach(note => {
+               if (Array.isArray(note.data)) {
+                   let idx = note.data.findIndex(todo => todo.id === id);
+                   note.data.splice(idx, 1);
+                   console.log(note.data)
+               }
+           })
             console.log(id);
         })
 
