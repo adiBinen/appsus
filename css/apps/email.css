@@ -62,16 +62,17 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    color: #e3e3e3;
+    color: #fff;
     padding: 2px 5px;
     transform: translate(-65%, -100%);
     background-color: rgb(207, 48, 48);
     border-radius: 50px;
     font-weight: bold;
+    font-size: 0.8em;
 }
 
 .email-side-nav .btns-container:hover .btn-inbox .unread-emails {
-    transform: translate(20%, -50%);
+    transform: translate(200%, -50%);
     background-color: transparent;
     color: #333;
 }
@@ -104,6 +105,8 @@
     /* background-color:  rgba(207, 48, 48, 0.3); */
     background-color: #fce8e6;
     color: #d93025;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
 .email-side-nav .btns-container:hover .btn-inbox::after {
