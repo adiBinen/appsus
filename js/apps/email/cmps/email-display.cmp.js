@@ -6,8 +6,8 @@ export default {
         <section v-if="email" class="email-display">
             <header class="email-display-header">
                 <h1 class="subject">{{email.subject}}</h1>
-                <div class="sent-date">{{formattedDate}}</div>
             </header>
+            <div class="sent-date">{{formattedDate}}</div>
             <h2><span>From: </span>{{email.sender}}</h2>
             <p>{{email.body}}</p>
         </section>
