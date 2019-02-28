@@ -17,7 +17,7 @@ export default {
     components: { notesHeader, noteCreate, noteList },
     template: `
         <main class="notes-app " v-if="notes">
-            <notes-header></notes-header>
+            <notes-header :unread-emails="unreadEmails"></notes-header>
             <note-create @note-created="addNote"></note-create>
             <div class="notes-container">
                 <!-- <hr v-if ="pinnedNotes.length >= 1"/> -->

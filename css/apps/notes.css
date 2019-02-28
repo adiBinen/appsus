@@ -115,7 +115,8 @@
 }
 
 .note-create-btns-container > *.selected:hover {
-    color: #2d3436;
+    /* color: #2d3436; */
+    color: #fff;
 }
 
 
@@ -159,6 +160,7 @@
     border-radius: 5px;
     break-inside: avoid;
     margin-bottom: 20px;
+    transition: .3s;
 }
 
 .note-list .note-item:hover {
