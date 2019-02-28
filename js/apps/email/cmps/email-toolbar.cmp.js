@@ -1,5 +1,5 @@
 
-import {eventBus, EMAILS_DELETE} from '../../../event-bus.js';
+import {eventBus, EMAILS_CHECKED_MODIFIED} from '../../../event-bus.js';
 
 export default {
     props: [],
@@ -16,7 +16,7 @@ export default {
     },
     methods: {
         deleteEmails() {
-            // eventBus.$emit(EMAILS_DELETE);
+            eventBus.$emit(EMAILS_CHECKED_MODIFIED, 'delete');
         }
     },
 }

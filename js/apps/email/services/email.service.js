@@ -8,6 +8,7 @@ export default {
     addEmail,
     deleteEmail,
     modifyEmail,
+    modifyChecked
 };
 
 const EMAILS_KEY = 'localEmails';
@@ -55,6 +56,13 @@ function modifyEmail(modifiedEmail) {
         return Promise.resolve('Note was successfully modified');
     }
     return Promise.reject('Note not found');
+}
+
+function modifyChecked(action) {
+    var filteredEmails = emailsDB.filter(email => email.isChecked);
+    if (!filteredEmails) return Promise.reject();
+    
+
 }
 
 function _getEmailIdxById(id) {
