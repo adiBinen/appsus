@@ -1,9 +1,9 @@
 
 export default {
-    props: ['data'],
+    props: ['data', 'isEditable'],
     template: `
         <div class="type-image">
-            <input v-model="data">
+            <input v-model="data" v-show="isEditable">
             <img :src="data" />
         </div>
     `,

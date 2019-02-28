@@ -2,11 +2,11 @@
 // Thanks.
 
 export default {
-    props: ['data'],
+    props: ['data', 'isEditable'],
     template: `
         <div class="type-note">
             <h1>HI I AM A TYPE-NOTE BRO, HERE'S YOUR DATA:</h1>
-            <input :readonly="!isEditing" @click="isEditing = true" @blur="isEditing = false" v-model="data" />
+            <input v-show="isEditable" v-model="data" />
         </div>
     `,
     data() {
@@ -15,8 +15,6 @@ export default {
         };
     },
     methods: {
-        toggleEdit() {
-            this.isEditing = !this.isEditing
-        },
+
     }
 }

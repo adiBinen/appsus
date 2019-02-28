@@ -31,7 +31,7 @@ export default {
                     ></palette-btns>
                 </div>
 
-                <button class="btn btn-edit-note">
+                <button class="btn btn-edit-note" @click="toggleEdit">
                     <i class="fas fa-edit"></i>
                 </button>
         </section>
@@ -39,7 +39,8 @@ export default {
     data() {
         return {
             isPalleteOpen: false,
-            currNote: { ...this.note }
+            currNote: { ...this.note },
+            isEditable: false,
         }
     },
     methods: {
@@ -49,6 +50,10 @@ export default {
         },
         duplicateNote() {
             eventBus.$emit(NOTE_DUPLICATE, this.note.id);
+        },
+        toggleEdit() {
+            this.isEditable = !this.isEditable;
+            this.$emit('toggle-edit', this.isEditable);
         },
         modifyNote(prop, val) {
             if (!val && prop.includes('#')) {

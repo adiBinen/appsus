@@ -16,16 +16,19 @@ export default {
     template: `
         <li class="note-item" :style="noteColor">
             <h1>I AM A NOTE ITEM OF TYPE: {{note.type}}</h1>
-            <component :is="note.type" :data="note.data"></component>
-            <note-edit :note="note"></note-edit>
+            <component :is="note.type" :data="note.data" :is-editable="isEditable"></component>
+            <note-edit @toggle-edit="toggleEdit" :note="note"></note-edit>
         </li>
     `,
     data() {
         return {
-            
+            isEditable: false,
         };
     },
     methods: {
+        toggleEdit() {
+            this.isEditable = !this.isEditable;
+        }
     },
     computed: {
         noteColor() {

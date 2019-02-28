@@ -1,5 +1,5 @@
 export default {
-    props: ['data'],
+    props: ['data', 'isEditable'],
     template: `
         <ul class="type-todo">
             <li 
@@ -8,13 +8,12 @@ export default {
                 :key="todo.id"
                 :class="{marked: todo.isMarked}"
             >
-                <input v-model="todo.txt" :readonly="!isEditable"/>
+                <input v-model="todo.txt" v-show="isEditable"/>
             </li>
         </ul>
     `,
     data() {
         return {
-            isEditable: false,
         };
     }
 }
