@@ -21,7 +21,6 @@ export default {
     },
     methods: {
         colorChanged(color) {
-            // let change = {color, noteId: this.noteId};
             this.$emit('colorChanged', color);
         },
     },

@@ -15,7 +15,7 @@ export default {
                     <i class="fas fa-clone"></i>
                 </button>
                 
-                <button class="btn btn-pin-note" @click="modifyNote(isPinned, 'toggle')">
+                <button class="btn btn-pin-note" @click="modifyNote('isPinned', 'toggle')">
                     <i class="fas fa-thumbtack"></i>
                 </button>
 
@@ -28,7 +28,6 @@ export default {
                         :note-color="note.color"
                         v-if="isPalleteOpen"
                         @colorChanged="modifyNote"
-                        
                     ></palette-btns>
                 </div>
 
@@ -53,12 +52,13 @@ export default {
         },
         modifyNote(prop, val) {
             if (!val && prop.includes('#')) {
+                
                 val = prop;
                 prop = 'color';
             }
-            if (val === 'toggle') val = !val;
-            currNote[prop] = val;
-            eventBus.$emit(NOTE_MODIFIED, {...currNote});
+            if (val === 'toggle') this.currNote.isPinned = !this.currNote.isPinned;
+            else this.currNote[prop] = val;            
+            eventBus.$emit(NOTE_MODIFIED, {...this.currNote});
         }
     },
     created() {
