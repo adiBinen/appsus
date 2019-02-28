@@ -5,20 +5,20 @@ export default {
     props: ['unreadEmails'],
     template: `
             <nav class="global-nav" @click.stop>
-                <button @click.stop="toggleNav">
+                <button @click.stop="toggleNav" title="Hub apps">
                     <i class="material-icons">apps</i>
                 </button>
                 <div class="dropdown-menu" :class="isShown" @click.stop>
                     <router-link title="Home" to="/" exact>
                         <i class="fas fa-home"></i>
                     </router-link>
-                    <router-link to="/email/inbox" title="E-Mail Inbox">
+                    <router-link to="/email/inbox" title="E-Mail inbox">
                         <i class="fas fa-envelope"></i><span class="global-nav-unread-emails" v-if="unreadEmails">{{unreadEmails}}</span>
                     </router-link>
                     <router-link title="Notes" to="/notes"><i class="fas fa-sticky-note"></i></router-link>
                     <router-link title="Books" to="/books"><i class="fas fa-book"></i></router-link>
                 </div>
-                <img class="global-nav-user-img" :src="userImg"/>
+                <img class="global-nav-user-img" :src="userImg" alt="User Profile Image" title="User profile"/>
             </nav>
     `,
     data() {

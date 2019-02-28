@@ -68,10 +68,19 @@ iframe, audio {
     position: relative;
     font-size: 1.2em;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.global-nav button {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+    color: #000;
+}
+
+.global-nav button:hover {
+    color: #000;
 }
 
 .global-nav .dropdown-menu {

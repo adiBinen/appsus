@@ -5,7 +5,7 @@ export default {
         <aside class="email-side-nav">
             <div class="btns-container">
                 <button class="btn-compose" @click="openComposeEmail()">
-                    <i class="material-icons">add_circle_outline</i>
+                    <i class="fas fa-plus"></i>
                 </button>
                 <router-link class="btn-inbox" tag="button" to="/email/inbox" exact>
                     <i class="material-icons">inbox</i><span class="unread-emails">{{unreadEmails}}</span>       
