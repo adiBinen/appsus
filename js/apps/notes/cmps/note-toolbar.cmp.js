@@ -34,6 +34,10 @@ export default {
                 <button class="btn btn-edit-note" @click="toggleEdit">
                     <i class="fas fa-edit"></i>
                 </button>
+
+                <router-link :to="'email/' + true + note.data" tag="button" class="btn btn-compose-email" target='_blank'>
+                    <i class="fas fa-envelope"></i>
+                </router-link>
         </section>
     `,
     data() {
