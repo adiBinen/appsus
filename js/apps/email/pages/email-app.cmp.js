@@ -41,8 +41,6 @@ export default {
         let { compose, body } = this.$route.query;
         this.isComposing = compose;
         this.sentBody = body;
-        console.log(compose, body);
-    
     }
 
 }
