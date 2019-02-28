@@ -53,6 +53,15 @@ a:visited {
     color: none;
 }
 
+img {
+    height: auto;
+    width: 100%;
+}
+
+iframe, audio {
+    width: 100%;
+}
+
 /* GLOBAL CMPS */
 
 .global-nav {
