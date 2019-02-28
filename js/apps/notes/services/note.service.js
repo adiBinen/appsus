@@ -68,6 +68,7 @@ function duplicateNote(noteId) {
         })
 }
 
+
 function modifyNote(modifiedNote) {
     let idx = _getNoteIdxById(modifiedNote.id);
     if (idx !== -1) {

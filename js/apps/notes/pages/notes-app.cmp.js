@@ -5,7 +5,9 @@ import noteList from '../cmps/note-list.cmp.js';
 import { eventBus, 
         NOTE_DELETE, 
         NOTE_DUPLICATE, 
-        NOTE_MODIFIED
+        NOTE_MODIFIED,
+        NOTE_TODO_ADD,
+        NOTE_TODO_REMOVE,
     } from '../../../event-bus.js'
 
 export default {
@@ -56,5 +58,17 @@ export default {
         eventBus.$on(NOTE_MODIFIED, newNote => {            
             noteService.modifyNote(newNote);
         })
+
+        eventBus.$on(NOTE_TODO_ADD, todoToNote => {
+            let note = this.notes.find(note => note.id === todoToNote.id);
+            note.data.push(todoToNote.pointer);
+        })
+
+        eventBus.$on(NOTE_TODO_REMOVE, id => {
+            // REMOVE ME HERE
+            console.log(id);
+        })
+
+
     }
 }
