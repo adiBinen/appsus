@@ -49,7 +49,7 @@ export default {
         })
 
         eventBus.$on(EMAILS_CHECKED_MODIFIED, action => {
-            emailService.modifyChecked(newEmail, action);
+            emailService.modifyChecked(action);
         })
 
 
