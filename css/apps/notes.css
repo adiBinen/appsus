@@ -4,6 +4,7 @@
     "create"
     "notes";
     grid-auto-rows: 65px 65px 1fr;
+    font-family: 'Roboto', sans-serif;
 }
 
 .notes-header {
@@ -72,13 +73,52 @@
 
 /* NOTE LIST - LAYOUT */
 .notes-container {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
+    /* width: 600px; */
+    margin: 0 auto;
+    column-count: 1;
+    padding: 0 5px;
 }
 
-.note-list {
-    column-count: 3;
+@media (min-width: 450px) {
+    .notes-container {
+        width: 400px;
+    }
+    .note-list {
+        column-count: 2;
+    }
 }
+
+@media (min-width: 700px) {
+    .notes-container {
+        width: 650px;
+    }
+    .note-list {
+        column-count: 3;
+    }
+}
+
+/* @media (min-width: 980px) {
+    .notes-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+} */
+
+/* .wrapper {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+@media (max-width: 980px) {
+    .wrapper {
+        width: 760px;
+    }
+} */
+
+
+
 
 .note-list .note-item {
     padding: 10px;
@@ -101,6 +141,7 @@
 
 .color-palette {
     position: absolute;
+    transform: translateY(-45px);
     background-color: #576574;
     padding: 5px;
     border-radius: 10px;

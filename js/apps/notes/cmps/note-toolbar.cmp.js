@@ -1,6 +1,12 @@
 
 import paletteBtns from './palette-btns.cmp.js';
-import { eventBus,NOTE_DELETE, NOTE_DUPLICATE, NOTE_MODIFIED } from '../../../event-bus.js';
+import { eventBus, 
+        NOTE_DELETE, 
+        NOTE_DUPLICATE, 
+        NOTE_MODIFIED, 
+        PALETTE_OPENED, 
+        PALETTE_CLOSED
+    } from '../../../event-bus.js';
 
 
 export default {
@@ -20,7 +26,7 @@ export default {
                 </button>
 
                 <!-- Palette button and menu -->
-                <button class="btn btn-color-note" @click="isPalleteOpen = !isPalleteOpen">
+                <button class="btn btn-color-note" @click="paletteToggled">
                     <i class="fas fa-palette"></i>
                 </button>
                 <div class="color-palette" v-if="isPalleteOpen">
@@ -72,6 +78,11 @@ export default {
             if (val === 'toggle') this.currNote.isPinned = !this.currNote.isPinned;
             else this.currNote[prop] = val;            
             eventBus.$emit(NOTE_MODIFIED, {...this.currNote});
+        },
+        paletteToggled() {
+            this.isPalleteOpen = !this.isPalleteOpen;
+            if (!this.isPalleteOpen) return;
+            eventBus.$emit(PALETTE_OPENED);
         }
     },
     computed: {

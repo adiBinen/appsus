@@ -8,7 +8,7 @@ export default {
                 <button 
                     class="btn-color"
                     v-for="color in palettes"
-                    @click="colorChanged(color)"
+                    @click.stop="colorChanged(color)"
                     :style="{'background-color': color}"
                     :class="{selected: noteColor === color}"
                 ></button>

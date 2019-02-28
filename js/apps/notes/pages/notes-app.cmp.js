@@ -2,12 +2,18 @@ import noteService from '../services/note.service.js';
 import notesHeader from '../cmps/header.cmp.js';
 import noteCreate from '../cmps/note-create.cmp.js';
 import noteList from '../cmps/note-list.cmp.js';
-import { eventBus, NOTE_DELETE, NOTE_DUPLICATE, NOTE_MODIFIED } from '../../../event-bus.js'
+import { eventBus, 
+        NOTE_DELETE, 
+        NOTE_DUPLICATE, 
+        NOTE_MODIFIED,
+        PALETTE_OPENED,
+        PALETTE_CLOSED
+    } from '../../../event-bus.js'
 
 export default {
     components: { notesHeader, noteCreate, noteList },
     template: `
-        <main class="notes-app grid" v-if="notes">
+        <main class="notes-app " v-if="notes">
             <notes-header></notes-header>
             <note-create @note-created="addNote"></note-create>
             <div class="notes-container">
@@ -51,6 +57,10 @@ export default {
 
         eventBus.$on(NOTE_MODIFIED, newNote => {            
             noteService.modifyNote(newNote);
+        })
+
+        eventBus.$on(PALETTE_OPENED, isPaletteOpen => {
+
         })
 
     }
