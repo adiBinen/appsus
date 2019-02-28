@@ -51,8 +51,11 @@ function _createEmails() {
     if (!emails) {
         emails = [];
         for (let i = 0; i < 50; i++) {
-            emails.push(_createEmail());
+            emails.unshift(_createEmail());
         }
+        emails[0].isRead = true;
+        emails[3].isRead = true;
+        emails[6].isRead = true;
         storageService.saveToLocal(EMAILS_KEY, emails);
     }
     emailsDB = emails;

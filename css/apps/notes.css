@@ -16,6 +16,12 @@
     background-color: #badc58;
 }
 
+
+.notes-container {
+    grid-area: notes;
+}
+
+/* NOTE CREATE SECTION */
 .note-create {
     grid-area: create;
     justify-self: center;
@@ -25,8 +31,18 @@
     padding: 20px;
 }
 
-.notes-container {
-    grid-area: notes;
+.note-create .input-container {
+    position: relative;
+    display: flex;
+}
+
+.note-create .input-container button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-70%, 15%);
+    z-index: 3;
+    color: #2ecc71;
 }
 
 .note-create input {

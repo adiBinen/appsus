@@ -3,9 +3,14 @@
 export default {
     template: `
         <section class="note-create">
-            <input ref="input"  type="text"
-                @keyup.enter="createNote" v-model="note.data" :placeholder="setPlaceholder"
-            />
+            <div class="input-container">
+                <input ref="input"  type="text"
+                    @keyup.enter="createNote" v-model="note.data" :placeholder="setPlaceholder"
+                />
+                <button @click="createNote" title="Add Note">
+                    <i class="fab fa-vuejs"></i>
+                </button>
+            </div>
             <button title="Note" @click="changeType('typeNote')">
                 <i class="fas fa-font"></i>
             </button>
@@ -21,9 +26,7 @@ export default {
             <button title="Todo List" @click="changeType('typeTodo')">
                 <i class="fas fa-list"></i>
             </button>
-            <button @click="createNote" title="Add Note">
-                <i class="fab fa-vuejs"></i>
-            </button>
+            
         </section>
     `,
     data() {

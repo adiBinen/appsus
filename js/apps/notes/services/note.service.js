@@ -28,7 +28,8 @@ function getNoteById(id) {
 }
 
 function addNote(type, data) {
-    notesDB.push(_createNote(type, data));
+    if (type === 'typeTodo') data = data.split(',');
+    notesDB.unshift(_createNote(type, data));
     storageService.saveToLocal(NOTES_KEY, notesDB);
     return Promise.resolve(`Note was successfully created.`);
 }
@@ -82,7 +83,6 @@ function _createNotes() {
 }
 
 function _createNote(type, data) {
-    if (type === 'typeTodo') data = data.split(',');
     return {
         // type: 'video' || 'audio' || 'todo' || 'note',
         // data: 'src'   || 'src'   || '[]'   || 'txt',
