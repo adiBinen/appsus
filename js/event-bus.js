@@ -15,3 +15,4 @@ export const NOTE_MODIFIED  = 'note-modified';
 export const NOTE_TODO_ADD  = 'note-add-todo';
 export const NOTE_TODO_REMOVE  = 'note-remove-todo';
 export const NOTE_TODO_TOGGLE_MARK = 'note-mark-todo';
+export const NOTE_TODOS_MODIFY = 'note-modify-todos';

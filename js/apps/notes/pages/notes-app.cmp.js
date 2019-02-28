@@ -10,6 +10,7 @@ import {
     NOTE_TODO_ADD,
     NOTE_TODO_REMOVE,
     NOTE_TODO_TOGGLE_MARK,
+    NOTE_TODOS_MODIFY,
 } from '../../../event-bus.js'
 
 export default {
@@ -67,10 +68,9 @@ export default {
             if (Array.isArray(newNote.data)) newNote.data = newNote.data.filter(todo => {
                 return todo.txt.length > 0;
             });
-            noteService.modifyNote(newNote);
+            noteService.modifyNote(newNote)
+                .then(note => console.log('HI I AM HERE',note));
             // Change note in current instance
-            let idx = this.notes.findIndex(note => note.id === newNote.id);
-            if (idx !== -1) this.notes.splice(idx, 1, newNote);
         })
 
         eventBus.$on(NOTE_TODO_ADD, todoToNote => {
@@ -93,6 +93,12 @@ export default {
             todo.isMarked = !todo.isMarked
             noteService.modifyNote(note);
             this.requestNewNotes();
+        })
+
+        eventBus.$on(NOTE_TODOS_MODIFY, ({noteId, todos}) => {
+            let note = this.notes.find(note => note.id === noteId);
+            note.data = todos;
+            noteService.modifyNote(note);
         })
 
 

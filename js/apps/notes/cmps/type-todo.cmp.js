@@ -36,13 +36,12 @@ export default {
     },
     methods: {
         addTodo() {
-            let todoPointer = {
-                id: utilService.generateId(),
+            this.todos.push({
+                id: '-' + utilService.generateId(),
                 txt: '',
                 isMarked: false,
-            }
-            this.todos.push(todoPointer);
-            this.$emit('add-todo', todoPointer);
+            });
+            this.$emit('add-todo', this.todos[length - 1]);
         },
         removeTodo(id) {
             // Remove todo from notes array in notes-app
@@ -59,4 +58,14 @@ export default {
         },
 
     },
+    watch: {
+        todos: {
+            handler(val) {
+                if (!val) return;
+                this.$emit('modify-todos', val);
+            },
+            deep: true,
+        }
+    }
+
 }
