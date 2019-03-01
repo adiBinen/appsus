@@ -250,26 +250,17 @@
     border: 2.5px solid #d1d2d2;
     border-radius: 3px;
 }
-/* On mouse-over, add a grey background color */
-.checkbox-container:hover input ~ .checkmark {
-    /* box-shadow: 0px 0px 0 3px #5a6576; */
-    border-color: #5a6576;
-}
-/* When the checkbox is checked, add a blue background */
+/* When the checkbox is checked */
 .checkbox-container input:checked ~ .checkmark {
     box-sizing: border-box;
-    /* box-shadow: 0px 0px 0 3px #5a6576;
-    border-radius: 1px; */
     border-color: #5a6576;
     background-color: #5a6576;
 }
-/* Create the indicator (the dot/circle - hidden when not checked) */
 .checkbox-container:after {
     content: "";
     position: absolute;
     display: none;
 }
-/* Show the indicator (dot/circle) when checked */
 .checkbox-container input:checked ~ .checkmark:after {
     font-family: "Font Awesome 5 Free";
     padding-top: 0px;
@@ -279,20 +270,23 @@
     font-size: 12px;
     color: white;
 }
-
 .checkbox-border {
     width: 40px;
     margin-left: 10px;
     padding: 20px;
     border-radius: 50%;
     position: relative;
-    background-color: rgba(255, 0, 0, 0);
-    /* background-color: #f5f7f754; */
+    background-color: rgba(202, 195, 195, 0);
+    transition: .3s;
+}
+.checkbox-border:hover {
+    background-color: rgba(145, 145, 145, 0.151);
+    box-shadow: 0 0 1px black;
+}
+.checkbox-border:hover input ~ .checkmark {
+    border-color: #5a6576;
 }
 
-.checkbox-border:hover {
-    background-color: white;
-}
   
 
 /* compose email */
