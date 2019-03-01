@@ -239,6 +239,7 @@
 
 .type-todo .todo-item div {
     text-overflow: ellipsis;
+    margin-bottom: 5px;
 }
 
 .note-item .type-todo input {
