@@ -31,7 +31,7 @@ function getEmailById(id) {
 }
 
 function getUnreadEmails() {
-    return Promise.resolve(emailsDB.filter(email => !email.isRead).length);
+    return Promise.resolve(emailsDB.filter(email => !email.isRead && !email.isDeleted && !email.isDraft && !email.isSent).length);
 }
 
 function addEmail(data) {
@@ -54,13 +54,13 @@ function modifyEmail(modifiedEmail) {
     if (idx !== -1) {
         emailsDB.splice(idx, 1, modifiedEmail);
         storageService.saveToLocal(EMAILS_KEY, emailsDB);
-        return Promise.resolve('Email was successfully modified');
+        return Promise.resolve('Email was successfully modified.');
     }
-    return Promise.reject('Email not found');
+    return Promise.reject('Error: Email not found');
 }
 
 function modifyChecked(action) {
-    if (!action) Promise.reject('Must pass action');
+    if (!action) Promise.reject('Error: no action has been selected.');
     if (action === 'delete') {
         let emailsToDelete = [];
         emailsDB.forEach(email => {
@@ -87,7 +87,7 @@ function modifyChecked(action) {
         });
         storageService.saveToLocal(EMAILS_KEY, emailsDB);
     }
-    return Promise.resolve('Email modification success');
+    return Promise.resolve('Email was successfully modified.');
 }
 
 function _getEmailIdxById(id) {
