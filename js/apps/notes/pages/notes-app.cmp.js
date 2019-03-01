@@ -1,7 +1,13 @@
+// GLOBAL CMPS
+import userMsg from '../../../cmps/user-msg-global.cmp.js';
+
+// NOTE RELATED COMPONENTS
 import noteService from '../services/note.service.js';
 import notesHeader from '../cmps/header.cmp.js';
 import noteCreate from '../cmps/note-create.cmp.js';
 import noteList from '../cmps/note-list.cmp.js';
+
+// EVENT BUS
 import {
     eventBus,
     NOTE_DELETE,
@@ -9,11 +15,12 @@ import {
     NOTE_MODIFIED,
     NOTE_TODOS_MODIFY,
     NOTE_UPDATE,
+    USER_MSG_SUCCESS,
 } from '../../../event-bus.js'
 
 export default {
     props: ['unreadEmails'],
-    components: { notesHeader, noteCreate, noteList },
+    components: { notesHeader, noteCreate, noteList, userMsg },
     template: `
         <main class="notes-app " v-if="notes">
             <notes-header :unread-emails="unreadEmails"></notes-header>
@@ -24,6 +31,7 @@ export default {
                 <hr v-if ="unpinnedNotes.length >= 1" />
                 <note-list :notes="unpinnedNotes"></note-list>
             </div>
+            <user-msg></user-msg>
         </main>
     `,
     data() {
@@ -54,7 +62,8 @@ export default {
             .then(notes => this.notes = notes);
 
         eventBus.$on(NOTE_DELETE, noteId => {
-            noteService.deleteNote(noteId);
+            noteService.deleteNote(noteId)
+                .then(msg => {eventBus.$emit(USER_MSG_SUCCESS, msg)});
         });
 
         eventBus.$on(NOTE_UPDATE, ({id, data}) => {
@@ -65,7 +74,9 @@ export default {
         });
 
         eventBus.$on(NOTE_DUPLICATE, noteId => {
-            noteService.duplicateNote(noteId);
+            noteService.duplicateNote(noteId)
+                .then(msg => {eventBus.$emit(USER_MSG_SUCCESS, msg)});
+            
         });
 
         eventBus.$on(NOTE_MODIFIED, newNote => {
@@ -74,8 +85,7 @@ export default {
                 return todo.txt.length > 0;
             });
             noteService.modifyNote(newNote)
-                .then(note => console.log('HI I AM HERE', note));
-            // Change note in current instance
+                .then(msg => {eventBus.$emit(USER_MSG_SUCCESS, msg)});
         });
 
         eventBus.$on(NOTE_TODOS_MODIFY, ({ noteId, todos }) => {
@@ -84,7 +94,6 @@ export default {
             noteService.modifyNote(note)
                 .then(this.requestNewNotes);
         });
-
 
     }
 }

@@ -154,6 +154,15 @@
         column-count: 4;
     }
 }
+@media (min-width: 1250px) {
+    .notes-container {
+        width: auto;
+        max-width: 1200px;
+    }
+    .note-list {
+        column-count: 4;
+    }
+}
 
 .note-list .note-item {
     padding: 10px;

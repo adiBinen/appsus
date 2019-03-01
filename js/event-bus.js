@@ -3,6 +3,10 @@ export const eventBus = new Vue();
 // GLOBAL-NAV
 export const GLOBAL_NAV_CLOSE = 'close-global-nav';
 
+// GLOBAL NOTIFICATIONS
+export const USER_MSG_SUCCESS = 'user-alert-success';
+export const USER_MSG_FAILURE = 'user-alert-error';
+
 // EMAIL-APP
 export const UNREAD_EMAILS = 'unread-emails';
 export const EMAIL_READ = 'email-read';

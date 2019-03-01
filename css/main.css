@@ -64,6 +64,8 @@ iframe, audio {
 
 /* GLOBAL CMPS */
 
+    /* GLOBAL NAV */
+
 .global-nav {
     position: relative;
     font-size: 1.2em;
@@ -129,4 +131,49 @@ iframe, audio {
     height: 32px;
     border-radius: 50px;
 }
+
+    /* END GLOBAL NAV */
+
+    /* GLOBAL USER-MSG */
+
+/* USER MSG */
+
+.global-user-msg {
+    border-radius: 5px;
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    width: 35%;
+    height: 50px;
+    z-index: 1000;
+    font-size: 0.8em;
+    visibility: hidden;
+    opacity: 0;
+    color: #fff;
+    background-color: rgba(231, 77, 60, 0.85);
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    transition: opacity .6s ease-in-out;
+}
+
+.global-user-msg.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.global-user-msg .message-container {
+    text-transform: capitalize;
+  
+}
+.global-user-msg.success {
+    background-color: #2ecc70ea;
+}
+
+.global-user-msg .btn {
+    font-size: 1.2em;
+    margin-bottom: 2px;
+}
+    /* END GLOBAL USER MSG */
+
 /* --------- End GLOBAL CMPS --------- */
