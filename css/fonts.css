@@ -4,6 +4,12 @@
 /* Material Icons */
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+
+
 /* Local Fonts */
 @font-face {
     font-family: 'Roboto';

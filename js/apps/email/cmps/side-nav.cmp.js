@@ -5,7 +5,10 @@ export default {
         <aside class="email-side-nav">
             <div class="btns-container">
                 <button class="btn-compose" @click="openComposeEmail()">
-                    <i class="fas fa-plus"></i>
+                <i class="material-icons">
+                    add
+                </i>
+                    <!-- <i class="fas fa-plus"></i> -->
                 </button>
 
                 <router-link class="btn-inbox" tag="button" to="/email/inbox" exact>

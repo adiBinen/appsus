@@ -5,7 +5,7 @@ export default {
     props: ['data', 'isEditable'],
     template: `
         <div class="type-note">
-            <div v-if="!isEditable">{{data}}</div>
+            <div class="note-content" v-if="!isEditable">{{data}}</div>
             <textarea class="edit-note" v-else="isEditable" v-model="dataCopy"></textarea>
         </div>
     `,

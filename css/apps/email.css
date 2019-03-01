@@ -18,7 +18,23 @@
     padding: 0 20px;
     box-shadow: 0 0px 0px .5px #64798fab;
     z-index: 2;
+    box-shadow: 0 0px 0px 0.5px #64798fab;
 }
+
+/* email logo */
+.email-logo > h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #64686d;
+    font-size: 25px;
+}
+
+.email-logo-img {
+    width: 35px;
+    height: auto;
+    margin-right: 10px;
+}
+
 
 /* EMAIL NAV BAR MAGIC */
 
@@ -26,6 +42,8 @@
     grid-area: nav;
     height: 100%;
     position: relative;
+    color: #767676;
+    font-size: .9em;
 }
 
 .email-side-nav .btns-container {
@@ -34,20 +52,17 @@
     align-items: center;
     height: 100%;
     width: 95%;
-    /* border-right: .5px solid grey; */
     transition: .6s ease-in-out;
-    /* box-shadow: 1px -1px 4px #64798fab; */
     box-shadow: 1px 2px 4px #64798fab;
-
 }
 
 .email-side-nav .btns-container button {
     font-family: 'Roboto', sans-serif;
     font-size: 1em;
+    color: #64686d;
 }
 
 .email-side-nav .btns-container .btn-compose {
-    /* box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302), 0 1px 3px 1px rgba(60,64,67,0.149); */
     margin: 30px 0;
     height: 70px;
     border-radius: 30px;
@@ -61,10 +76,12 @@
 
 .email-side-nav .btn-compose i {
     font-size: 2em;
-    
+    color: #137adf;
+    font-weight: 1000;
 }
 .email-side-nav .btns-container > *:not(:first-child) {
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
+    padding: 5px;
 }
 
 .email-side-nav .btn-inbox, .btn-compose, .btn-sent, .btn-trash, .btn-drafts {
@@ -90,7 +107,8 @@
 }
 
 .email-side-nav .btns-container:hover .btn-inbox .unread-emails {
-    transform: translate(200%, -50%);
+    /* transform: translate(200%, -50%); */
+    transform: translate(400%, -50%);
     background-color: transparent;
     color: #333;
 }
@@ -120,20 +138,22 @@
 }
 
 .email-side-nav .btns-container:hover .btn-inbox {
-    background-color: #fce8e6;
-    color: #d93025;
+    background-color: #e6e9fc;
+    /* background-color: #fce8e6; */
+    color: #1171e2;
+    /* color: #d93025; */
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
 }
 
 .email-side-nav .btns-container:hover .btn-compose {
     box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302), 0 1px 3px 1px rgba(60,64,67,0.149);
- 
 }
 
 .email-side-nav .btns-container:hover .btn-inbox::after {
     content: "Inbox";
-    color: #d93025;
+    color:#1171e2;
+    /* color: #d93025; */
     font-weight: bold;
     padding-left: 20px;
     opacity: 1;
@@ -146,18 +166,21 @@
     content: "Sent";
     padding-left: 20px;
     vertical-align: -10px;
+    color: #767676;
 }
 
 .email-side-nav .btns-container:hover .btn-drafts::after {
     content: "Drafts";
     padding-left: 20px;
     vertical-align: 5px;
+    color: #767676;
 }
 
 .email-side-nav .btns-container:hover .btn-trash::after {
     content: "Trash";
     padding-left: 20px;
     vertical-align: 5px;
+    color: #767676;
 }
 
 
@@ -169,23 +192,56 @@
 
 /* email list */
 
+/* email toolbar */
+.email-toolbar {
+    height: 50px;
+    padding: 10px;
+}
+.email-toolbar > button {
+    font-size: 15px;
+    padding: 5px;
+    margin-left: 15px;
+    color: #767676;
+}
+.email-toolbar > button:hover {
+    color: black;
+}
+
+.boolbar-btn-border {
+    width: 30px;
+    margin-left: 10px;
+    padding: 20px;
+    border-radius: 50%;
+    position: relative;
+    background-color: rgba(202, 195, 195, 0);
+    transition: .3s;
+}
+.boolbar-btn-border:hover {
+    background-color: rgba(145, 145, 145, 0.151);
+}
+
 /* email preview */
 .email-preview {
     cursor: pointer;
     padding: 15px 0;
     background-color: #f5f7f7;
     font-size: .85em;
-
     height: 50px;
     align-items: center;
 }
 
-.email-preview:not(:first-child) {
+.email-preview {
     box-shadow: 0 0px 0px .5px #64798fab;  
 }
 
 .unread {
     background-color: #fff;
+}
+.unread .subject {
+    font-weight: bold;
+}
+.unread .sender {
+    font-weight: bold;
 }
 
 .email-preview:hover {
@@ -197,14 +253,14 @@
 .email-preview > * {
     text-align: center;
 }
-/* .email-preview > *:not(.body) {
-    width: 10%;
-} */
+.email-preview > *:not(:first-child){
+    text-align: center;
+    line-height: 20px;
+}
 .email-preview .subject {
     white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis;
-    font-weight: bold;
     text-align: center;
     width: 20%;
     padding-right: 5px;
@@ -227,8 +283,12 @@
     }
 }
 
-.email-preview .date, .email-preview .sender {
+.email-preview .sender {
     width: 80px;
+}
+.email-preview .date {
+    width: 120px;
+    padding-right: 20px;
 }
 .email-preview .checkbox-container {
     position: absolute;

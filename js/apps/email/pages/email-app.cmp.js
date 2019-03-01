@@ -75,7 +75,6 @@ export default {
                 this.draftEmail = null;
                 return;
             }
-            console.log('im hereeee');
 
             emailService.modifyEmail(emailDraftToSave)
                 .then((msg) => {
@@ -84,7 +83,6 @@ export default {
                     this.sentBody = null;
                     this.draftEmail = null;
                 })
-
         }
     },
     watch: {

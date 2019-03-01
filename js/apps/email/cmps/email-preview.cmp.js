@@ -5,7 +5,12 @@ import { eventBus, EMAIL_MODIFIED, EMAIL_DRAFT_COMPOSING } from '../../../event-
 export default {
     props: ['email','draftState'],
     template: ` 
-        <router-link tag="li" :to="(draftState)? '/email/#/drafts' : email.id" exact class="email-preview flex" :class="setUnread" @click.native="startComposeEmail">
+        <router-link 
+            tag="li" 
+            :to="(draftState)? '/email/#/drafts' : email.id" exact 
+            class="email-preview flex" :class="setUnread" 
+            @click.native="startComposeEmail">
+            
             <div class="checkbox-border" @click.stop="checkedEmail">
                 <label class="checkbox-container" @click.stop="">
                     <input type="checkbox" @click.stop="checkedEmail" :checked="isChecked">

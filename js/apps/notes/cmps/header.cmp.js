@@ -5,8 +5,11 @@ export default {
     components: { globalNav },
     template: `
             <header class="notes-header">
-                <h1>Notes App</h1>
-                <global-nav :unread-emails="unreadEmails"></global-nav>
+            <div class="email-logo flex align-center">
+                <img class="email-logo-img" src="./img/NotesLogo.png">
+                <h1>NotesHub</h1>
+            </div>
+            <global-nav :unread-emails="unreadEmails"></global-nav>
             </header>
     `,
 }

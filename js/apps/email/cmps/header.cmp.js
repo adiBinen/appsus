@@ -6,7 +6,10 @@ export default {
     components: { navGlobal},
     template: `
         <header class="email-header">
-            <h1>E-Mail App</h1>
+            <div class="email-logo flex align-center">
+                <img class="email-logo-img" src="./img/emailLogo.jpg">
+                <h1>MailsHub</h1>
+            </div>
             <nav-global :unread-emails="unreadEmails"></nav-global>
         </header>
     `,

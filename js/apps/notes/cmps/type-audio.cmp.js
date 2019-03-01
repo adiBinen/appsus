@@ -4,7 +4,7 @@ export default {
     template: `
         <div class="type-audio">
             <input v-model="dataCopy" v-show="isEditable">
-            <audio controls :src="data"></audio>
+            <audio class="note-content" controls :src="data"></audio>
         </div>
     `,
     data() {

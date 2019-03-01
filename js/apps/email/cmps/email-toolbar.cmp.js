@@ -4,17 +4,17 @@ import {eventBus, EMAILS_CHECKED_MODIFIED} from '../../../event-bus.js';
 export default {
     props: [],
     template: ` 
-        <section class="email-toolbar">
-            <button @click="goBack">
+        <section class="email-toolbar flex">
+            <button class="boolbar-btn-border" @click="goBack">
                 <i class="fas fa-arrow-left"></i>
             </button>
-            <button @click="deleteEmails">
+            <button class="boolbar-btn-border" @click="deleteEmails">
                 <i class="fas fa-trash-alt"></i>
             </button>
-            <button @click="unreadEmails">
+            <button class="boolbar-btn-border" @click="unreadEmails">
                 <i class="fas fa-envelope"></i>
             </button>
-            <button @click="readEmails">
+            <button class="boolbar-btn-border" @click="readEmails">
                 <i class="fas fa-envelope-open"></i>
             </button>
         </section>
