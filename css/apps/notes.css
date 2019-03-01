@@ -228,12 +228,17 @@
     cursor: pointer;
     padding: 5px;
     margin-bottom: 5px;
+    position: relative;
 }
 
 .note-item .type-todo .todo-item {
     max-width: 170px;
     display: flex;
     align-items: center;
+}
+
+.type-todo .todo-item div {
+    text-overflow: ellipsis;
 }
 
 .note-item .type-todo input {
@@ -247,5 +252,10 @@
 
 .note-item .type-todo i {
     padding: 0;
+}
+
+.note-item .type-todo .btn-remove-todo {
+    position: absolute;
+    right: 0;
 }
 

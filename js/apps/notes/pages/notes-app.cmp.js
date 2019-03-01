@@ -7,9 +7,6 @@ import {
     NOTE_DELETE,
     NOTE_DUPLICATE,
     NOTE_MODIFIED,
-    NOTE_TODO_ADD,
-    NOTE_TODO_REMOVE,
-    NOTE_TODO_TOGGLE_MARK,
     NOTE_TODOS_MODIFY,
 } from '../../../event-bus.js'
 
@@ -57,11 +54,11 @@ export default {
 
         eventBus.$on(NOTE_DELETE, noteId => {
             noteService.deleteNote(noteId);
-        })
+        });
 
         eventBus.$on(NOTE_DUPLICATE, noteId => {
             noteService.duplicateNote(noteId);
-        })
+        });
 
         eventBus.$on(NOTE_MODIFIED, newNote => {
             // Filter empty todos
@@ -71,36 +68,14 @@ export default {
             noteService.modifyNote(newNote)
                 .then(note => console.log('HI I AM HERE', note));
             // Change note in current instance
-        })
-
-        eventBus.$on(NOTE_TODO_ADD, todoToNote => {
-            let note = this.notes.find(note => note.id === todoToNote.id);
-            note.data.push(todoToNote.pointer);
-            noteService.modifyNote(note)
-                .then(this.requestNewNotes);
-        })
-
-        eventBus.$on(NOTE_TODO_REMOVE, todosToNote => {
-            let note = this.notes.find(note => note.id === todosToNote.id);
-            note.data = todosToNote.pointer;
-            noteService.modifyNote(note)
-                .then(this.requestNewNotes);
-        })
-
-        eventBus.$on(NOTE_TODO_TOGGLE_MARK, ({ noteId, todoId }) => {
-            let note = this.notes.find(note => note.id === noteId);
-            let todo = note.data.find(todo => todo.id === todoId);
-            todo.isMarked = !todo.isMarked
-            noteService.modifyNote(note)
-                .then(this.requestNewNotes);
-        })
+        });
 
         eventBus.$on(NOTE_TODOS_MODIFY, ({ noteId, todos }) => {
             let note = this.notes.find(note => note.id === noteId);
             note.data = todos;
             noteService.modifyNote(note)
                 .then(this.requestNewNotes);
-        })
+        });
 
 
     }
