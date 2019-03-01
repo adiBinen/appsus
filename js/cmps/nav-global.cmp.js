@@ -47,7 +47,7 @@ export default {
             this.isToggled = false;
             document.getElementById('app').removeEventListener('click', function closeNav() {
                 eventBus.$emit(GLOBAL_NAV_CLOSE);
-                });
+            });
         });
     }
 }

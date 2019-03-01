@@ -1,6 +1,6 @@
 import emailService from '../services/email.service.js';
 import utilService from '../../../services/util.service.js';
-import {eventBus, EMAIL_MODIFIED} from '../../../event-bus.js';
+import {eventBus, EMAIL_MODIFIED, UNREAD_EMAILS} from '../../../event-bus.js';
 
 export default {
     template: `
@@ -31,6 +31,7 @@ export default {
         setTimeout(() => {
             this.email.isRead = true;
             eventBus.$emit(EMAIL_MODIFIED, { ...this.email });
+            eventBus.$emit(UNREAD_EMAILS);
         }, 1000)
     },
 }
