@@ -16,7 +16,9 @@ export default {
                     v-if="emailsToDisplay && emails"
                     v-for="email in emailsToDisplay" 
                     :key="email.id" 
-                    :email="email">
+                    :email="email"
+                    :draft-state="draftState"
+                >
                 </email-preview>
             </ul>
         </section>
@@ -25,30 +27,40 @@ export default {
         return {
             emails: null,
             filterBy: this.$route.params.filterBy,
+            draftState: false,
         }
     },
     computed: {
         emailsToDisplay() {
             if (!this.emails) return;
-            console.log(this.filterBy);
             let filter;
-            if (this.filterBy === 'trash') filter = 'isDeleted';
-            else if (this.filterBy === 'sent') filter = 'isSent';
-            else if (this.filterBy === 'drafts') filter = 'isDraft';
-            else return this.emails.filter(email => !email.isDeleted && !email.isDraft && !email.isSent);
+            if (this.filterBy === '#/trash') {
+                filter = 'isDeleted';
+                this.draftState = false;
+            }
+            else if (this.filterBy === '#/sent') {
+                filter = 'isSent';
+                this.draftState = false;
+            }
+            else if (this.filterBy === '#/drafts') {
+                filter = 'isDraft';
+                this.draftState = true;
+            }
+            else {
+                this.draftState = false;
+                return this.emails.filter(email => !email.isDeleted && !email.isDraft && !email.isSent);
+            }
 
             return this.emails.filter(email => email[filter]);
-        }
+        },
     },
     watch: {
         $route(to, from) {
-            this.filterBy = to.params.filterBy;
-            console.log(this.filterBy);
-            
-
+            this.filterBy = to.hash;
         }
     },
     created() {
+        this.filterBy = this.$route.hash;
         emailService.query()
             .then(emails => {
                 this.emails = emails;

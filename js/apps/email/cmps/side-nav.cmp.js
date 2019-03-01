@@ -12,15 +12,15 @@ export default {
                     <i class="material-icons">inbox</i><span class="unread-emails">{{unreadEmails}}</span>       
                 </router-link>
 
-                <router-link class="btn-sent" tag="button" :to="'/email/' + 'sent'" exact>
+                <router-link class="btn-sent" tag="button" :to="'/email/#/' + 'sent'" exact>
                     <i class="material-icons">send</i>
                 </router-link>
 
-                <router-link class="btn-drafts" tag="button" :to="'/email/' + 'drafts'" exact>
+                <router-link class="btn-drafts" tag="button" :to="'/email/#/' + 'drafts'" exact>
                     <i class="material-icons">drafts</i>
                 </router-link>
 
-                <router-link class="btn-trash" tag="button" :to="'/email/' + 'trash'" exact>
+                <router-link class="btn-trash" tag="button" :to="'/email/#/' + 'trash'" exact>
                     <i class="material-icons">delete</i>
                 </router-link>
             </div>

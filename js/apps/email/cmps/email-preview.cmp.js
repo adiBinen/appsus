@@ -3,9 +3,9 @@ import utilService from '../../../services/util.service.js'
 import { eventBus, EMAIL_MODIFIED } from '../../../event-bus.js';
 
 export default {
-    props: ['email'],
+    props: ['email','draftState'],
     template: ` 
-        <router-link tag="li" :to="'/email/#' + email.id" exact class="email-preview flex" :class="setUnread">
+        <router-link tag="li" :to="(draftState)? '/email/#/drafts' : email.id" exact class="email-preview flex" :class="setUnread" @click.native="hello">
             <div class="checkbox-border" @click.stop="checkedEmail">
                 <label class="checkbox-container" @click.stop="">
                     <input type="checkbox" @click.stop="checkedEmail" :checked="isChecked">
@@ -34,6 +34,9 @@ export default {
         checkedEmail() {
             this.email.isChecked = !this.email.isChecked;
             eventBus.$emit(EMAIL_MODIFIED, { ...this.email });
+        },
+        startComposeEmail() {
+            // EVENT BUS TO COMPOSE EMAIL
         }
     },
     computed: {
