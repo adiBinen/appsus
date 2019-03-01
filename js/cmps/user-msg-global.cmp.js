@@ -6,7 +6,7 @@ export default {
             <div class="message-container">
                 {{msg}}
             </div>
-            <button class="btn btn-close-user-msg">
+            <button @click="isOn = false" class="btn btn-close-user-msg">
                 <i class="fas fa-window-close"></i>
             </button>
         </aside>
@@ -21,19 +21,17 @@ export default {
     created() {
         eventBus.$on(USER_MSG_SUCCESS, successMsg => {
             // Set success msg
-            console.log(successMsg);
             this.isOn = true;
             this.msg = successMsg;
             this.isSuccess = true;
-            setTimeout(() => this.isOn = false, 1500)
+            setTimeout(() => this.isOn = false, 2200)
         });
 
         eventBus.$on(USER_MSG_FAILURE, failureMsg => {
-            console.log(failureMsg);
             this.isOn = true;
             this.msg = failureMsg;
             this.isSuccess = false;
-            setTimeout(() => this.isOn = false, 1500);
+            setTimeout(() => this.isOn = false, 2200);
         });
 
         // // TESTING
