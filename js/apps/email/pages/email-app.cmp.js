@@ -14,7 +14,8 @@ import {
         EMAIL_MODIFIED, 
         EMAILS_CHECKED_MODIFIED,
         UNREAD_EMAILS,
-        USER_MSG_SUCCESS
+        USER_MSG_SUCCESS,
+        EMAIL_START_COMPOSING
         } from '../../../event-bus.js';
 
 
@@ -74,5 +75,10 @@ export default {
                 eventBus.$emit(UNREAD_EMAILS);
             })
         })
+
+        eventBus.$on(EMAIL_START_COMPOSING, emailBody => {
+            this.sentBody = emailBody;
+            this.openComposeEmail();
+        });
     }
 }
