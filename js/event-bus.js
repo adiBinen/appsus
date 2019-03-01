@@ -12,4 +12,5 @@ export const EMAILS_CHECKED_MODIFIED = 'emails-checked-modified';
 export const NOTE_DELETE = 'note-delete';
 export const NOTE_DUPLICATE = 'note-duplicate';
 export const NOTE_MODIFIED  = 'note-modified';
+export const NOTE_UPDATE  = 'note-update';
 export const NOTE_TODOS_MODIFY = 'note-modify-todos';

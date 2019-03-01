@@ -8,6 +8,7 @@ import {
     NOTE_DUPLICATE,
     NOTE_MODIFIED,
     NOTE_TODOS_MODIFY,
+    NOTE_UPDATE,
 } from '../../../event-bus.js'
 
 export default {
@@ -54,6 +55,13 @@ export default {
 
         eventBus.$on(NOTE_DELETE, noteId => {
             noteService.deleteNote(noteId);
+        });
+
+        eventBus.$on(NOTE_UPDATE, ({id, data}) => {
+            let note = this.notes.find(note => note.id === id);
+            note.data = data;
+            noteService.modifyNote(note)
+                .then(this.requestNewNotes);
         });
 
         eventBus.$on(NOTE_DUPLICATE, noteId => {

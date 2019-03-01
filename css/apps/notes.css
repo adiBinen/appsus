@@ -239,6 +239,7 @@
 
 .type-todo .todo-item div {
     text-overflow: ellipsis;
+    margin-bottom: 5px;
 }
 
 .note-item .type-todo input {
@@ -259,3 +260,21 @@
     right: 0;
 }
 
+/* TYPE NOTE */
+
+.note-item .type-note {
+    display: flex;
+    text-align: left;
+}
+
+
+.note-item .type-note .edit-note {
+    max-height: 130px;
+    max-width: 180px;
+    min-width: 180px;
+    background: none;
+    outline: none;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}
