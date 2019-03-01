@@ -6,6 +6,7 @@ export default {
     getEmailById,
     getUnreadEmails,
     addEmail,
+    saveEmailToDraft,
     deleteEmail,
     modifyEmail,
     modifyChecked
@@ -27,7 +28,7 @@ function query() {
 function getEmailById(id) {
     let email = emailsDB.find(email => email.id === id);
     if (email) return Promise.resolve(email);
-    else return Promise.reject('Error: Email not found');
+    else return Promise.reject('Error: Email was not found.');
 }
 
 function getUnreadEmails() {
@@ -35,10 +36,35 @@ function getUnreadEmails() {
 }
 
 function addEmail(data) {
+    if (data.id) {
+        return sendDraftEmail(data);
+    }
     let {sender, recipient, subject, body} = data;
     emailsDB.unshift(_createEmail(sender, recipient, subject, body));
     storageService.saveToLocal(EMAILS_KEY, emailsDB);
     return Promise.resolve(`E-Mail was successfully sent to ${recipient}.`);
+}
+
+function sendDraftEmail(data) {
+    let idx = _getEmailIdxById(data.id);
+    if (idx === -1) return Promise.reject('Error: Email was not found, send draft email');
+    emailsDB.splice(idx, 1);
+    let {sender, recipient, subject, body} = data;
+    let newEmail = _createEmail(sender, recipient, subject, body);
+    newEmail.isSent = true;
+    emailsDB.unshift(newEmail);
+    storageService.saveToLocal(EMAILS_KEY, emailsDB);
+    return Promise.resolve(`Email was successfully sent to ${recipient}.`);
+}
+
+function saveEmailToDraft(draftData) {
+    let {sender, recipient, subject, body} = draftData;
+    let newEmail = _createEmail(sender, recipient, subject, body);
+    newEmail.isDraft = true;
+    newEmail.isRead = true;
+    emailsDB.unshift(newEmail);
+    storageService.saveToLocal(EMAILS_KEY, emailsDB);
+    return Promise.resolve(`Email was saved to draft.`);
 }
 
 function deleteEmail(id) {

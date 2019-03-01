@@ -1,6 +1,6 @@
 
 import utilService from '../../../services/util.service.js'
-import { eventBus, EMAIL_MODIFIED, EMAIL_START_COMPOSING } from '../../../event-bus.js';
+import { eventBus, EMAIL_MODIFIED, EMAIL_DRAFT_COMPOSING } from '../../../event-bus.js';
 
 export default {
     props: ['email','draftState'],
@@ -37,7 +37,7 @@ export default {
         },
         startComposeEmail() {
             if (!this.draftState) return;
-            eventBus.$emit(EMAIL_START_COMPOSING, this.email.body);
+            eventBus.$emit(EMAIL_DRAFT_COMPOSING, {...this.email});
         }
     },
     computed: {

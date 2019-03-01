@@ -12,7 +12,7 @@ export const UNREAD_EMAILS = 'unread-emails';
 export const EMAIL_READ = 'email-read';
 export const EMAIL_MODIFIED = 'emails-modified';
 export const EMAILS_CHECKED_MODIFIED = 'emails-checked-modified';
-export const EMAIL_START_COMPOSING = 'emails-start-composing';
+export const EMAIL_DRAFT_COMPOSING = 'emails-draft-composing';
 
 // NOTES-APP
 export const NOTE_DELETE = 'note-delete';

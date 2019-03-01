@@ -9,14 +9,14 @@ import emailCompose from '../cmps/email-comopse.cmp.js';
 import emailService from '../services/email.service.js';
 
 // EVENT BUS
-import { 
-        eventBus, 
-        EMAIL_MODIFIED, 
-        EMAILS_CHECKED_MODIFIED,
-        UNREAD_EMAILS,
-        USER_MSG_SUCCESS,
-        EMAIL_START_COMPOSING
-        } from '../../../event-bus.js';
+import {
+    eventBus,
+    EMAIL_MODIFIED,
+    EMAILS_CHECKED_MODIFIED,
+    UNREAD_EMAILS,
+    USER_MSG_SUCCESS,
+    EMAIL_DRAFT_COMPOSING
+} from '../../../event-bus.js';
 
 
 export default {
@@ -35,7 +35,14 @@ export default {
             <transition name="fade" mode="out-in">
                 <router-view class="email-content"></router-view>
             </transition>
-            <email-compose v-if="isComposing" @closeComposeEmail="closeComposeEmail" :username="username" :body="sentBody"></email-compose>
+            <email-compose 
+                v-if="isComposing"
+                @closeComposeEmail="closeComposeEmail" 
+                @email-sent="emailSent"
+                :username="username" 
+                :body="sentBody" 
+                :draft-email="draftEmail">
+            </email-compose>
             <user-msg></user-msg>
         </main>
     `,
@@ -44,25 +51,49 @@ export default {
             username: 'adi',
             emails: null,
             isComposing: null,
-            sentBody: null
+            sentBody: null,
+            draftEmail: null
         };
     },
     methods: {
+        emailSent() {
+            this.isComposing = false;
+            this.sentBody = null;
+            this.draftEmail = null;
+        },
         openComposeEmail() {
             this.isComposing = true;
         },
-        closeComposeEmail() {
-            this.isComposing = false;
-            this.sentBody = null;
+        closeComposeEmail(emailDraftToSave) {
+            if (emailDraftToSave && !emailDraftToSave.id) {
+                emailService.saveEmailToDraft(emailDraftToSave)
+                    .then((msg) => {
+                        eventBus.$emit(USER_MSG_SUCCESS, msg);
+                    })
+                this.isComposing = false;
+                this.sentBody = null;
+                this.draftEmail = null;
+                return;
+            }
+            console.log('im hereeee');
+
+            emailService.modifyEmail(emailDraftToSave)
+                .then((msg) => {
+                    eventBus.$emit(USER_MSG_SUCCESS, msg);
+                    this.isComposing = false;
+                    this.sentBody = null;
+                    this.draftEmail = null;
+                })
+
         }
     },
     watch: {
-        $route(to, from) {
-            console.log(to, from); // emails/$#$#$/?compose=CONTENT
-        }
+        // $route(to, from) {
+        //     console.log(to, from); // emails/$#$#$/?compose=CONTENT
+        // }
     },
     created() {
-        let { compose, body} = this.$route.query;
+        let { compose, body } = this.$route.query;
         this.isComposing = compose;
         this.sentBody = body;
 
@@ -72,13 +103,13 @@ export default {
 
         eventBus.$on(EMAILS_CHECKED_MODIFIED, action => {
             emailService.modifyChecked(action)
-            .then(() => {
-                eventBus.$emit(UNREAD_EMAILS);
-            })
+                .then(() => {
+                    eventBus.$emit(UNREAD_EMAILS);
+                })
         })
 
-        eventBus.$on(EMAIL_START_COMPOSING, emailBody => {
-            this.sentBody = emailBody;
+        eventBus.$on(EMAIL_DRAFT_COMPOSING, draftEmail => {
+            this.draftEmail = draftEmail;
             this.openComposeEmail();
         });
     }
