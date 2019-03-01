@@ -1,5 +1,4 @@
 import utilService from '../../../services/util.service.js';
-import { eventBus, NOTE_TODO_REMOVE } from '../../../event-bus.js';
 
 export default {
     props: ['data', 'isEditable'],
@@ -36,32 +35,32 @@ export default {
     },
     methods: {
         addTodo() {
-            this.todos.push({
+            let todoPointer = {
                 id: '-' + utilService.generateId(),
                 txt: '',
                 isMarked: false,
-            });
-            this.$emit('add-todo', this.todos[length - 1]);
+            }
+            this.todos.push(todoPointer);
+            // this.$emit('add-todo', todoPointer);
         },
         removeTodo(id) {
-            // Remove todo from notes array in notes-app
-            eventBus.$emit(NOTE_TODO_REMOVE, id);
-            // Remove todo from this instance
             let idx = this.todos.findIndex(todo => todo.id === id);
             this.todos.splice(idx, 1);
+            // let todosPointer = { ...this.todos };
+            // this.$emit('remove-todo', todosPointer);
         },
         toggleMarked(id) {
             if (this.isEditable) return;
             let todo = this.todos.find(todo => todo.id === id);
             todo.isMarked = !todo.isMarked;
-            this.$emit('mark-todo', id);
+            // this.$emit('mark-todo', id);
         },
 
     },
     watch: {
         todos: {
             handler(val) {
-                if (!val) return;
+                console.log(val)
                 this.$emit('modify-todos', val);
             },
             deep: true,

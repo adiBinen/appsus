@@ -69,22 +69,22 @@ export default {
                 return todo.txt.length > 0;
             });
             noteService.modifyNote(newNote)
-                .then(note => console.log('HI I AM HERE',note));
+                .then(note => console.log('HI I AM HERE', note));
             // Change note in current instance
         })
 
         eventBus.$on(NOTE_TODO_ADD, todoToNote => {
             let note = this.notes.find(note => note.id === todoToNote.id);
             note.data.push(todoToNote.pointer);
+            noteService.modifyNote(note)
+                .then(this.requestNewNotes);
         })
 
-        eventBus.$on(NOTE_TODO_REMOVE, id => {
-            this.notes.forEach(note => {
-                if (Array.isArray(note.data)) {
-                    let idx = note.data.findIndex(todo => todo.id === id);
-                    note.data.splice(idx, 1);
-                }
-            })
+        eventBus.$on(NOTE_TODO_REMOVE, todosToNote => {
+            let note = this.notes.find(note => note.id === todosToNote.id);
+            note.data = todosToNote.pointer;
+            noteService.modifyNote(note)
+                .then(this.requestNewNotes);
         })
 
         eventBus.$on(NOTE_TODO_TOGGLE_MARK, ({ noteId, todoId }) => {
@@ -95,7 +95,7 @@ export default {
                 .then(this.requestNewNotes);
         })
 
-        eventBus.$on(NOTE_TODOS_MODIFY, ({noteId, todos}) => {
+        eventBus.$on(NOTE_TODOS_MODIFY, ({ noteId, todos }) => {
             let note = this.notes.find(note => note.id === noteId);
             note.data = todos;
             noteService.modifyNote(note)
