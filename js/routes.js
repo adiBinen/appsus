@@ -20,7 +20,7 @@ const routes = [
             { path: ':emailId', component: emailDisplay },
             { path: '#/:filterBy', component: emailList },
             { path: '#search/:term', component: emailList },
-        ],
+        ], 
     },
     { path: '', component: emailApp },
     {

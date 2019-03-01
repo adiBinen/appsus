@@ -124,6 +124,8 @@
     color: #d93025; 
     font-weight: 1000;
 }
+
+
 .email-side-nav .btns-container > *:not(:first-child) {
     /* margin-bottom: 10px; */
     padding: 5px;

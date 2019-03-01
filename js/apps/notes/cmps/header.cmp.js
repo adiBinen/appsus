@@ -5,10 +5,10 @@ export default {
     components: { globalNav },
     template: `
             <header class="notes-header">
-            <div class="email-logo flex align-center">
+            <router-link to="/notes" tag="div" class="email-logo flex align-center">
                 <img class="email-logo-img" src="./img/note.svg">
                 <h1>NotesHub</h1>
-            </div>
+            </router-link>
             <global-nav :unread-emails="unreadEmails"></global-nav>
             </header>
     `,

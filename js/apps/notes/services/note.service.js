@@ -82,13 +82,18 @@ function _createNotes() {
         let video2 = _createNote('typeVideo', 'https://www.youtube.com/watch?v=JVZTP_kX5BE'); // WILL BE TURNED INTO EMBED
         let audio = _createNote('typeAudio', './sound/win.mp3');
         let note = _createNote('typeNote', 'Hi there I am a note');
-        let todo = _createNote('typeTodo', [
+        let todo1 = _createNote('typeTodo', [
+            { id: '-' + utilService.generateId(), txt: 'Code during day', isMarked: true },
+            { id: '-' + utilService.generateId(), txt: 'Code during night', isMarked: true },
+            { id: '-' + utilService.generateId(), txt: 'jump off a cliff', isMarked: false },
+        ]);
+        let todo2 = _createNote('typeTodo', [
             { id: '-' + utilService.generateId(), txt: 'Go walk', isMarked: false },
             { id: '-' + utilService.generateId(), txt: 'Go swim', isMarked: false },
-            { id: '-' + utilService.generateId(), txt: 'Go jump', isMarked: false },
+            { id: '-' + utilService.generateId(), txt: 'Go run', isMarked: false },
         ]);
         let img = _createNote('typeImage', './img/my-meme.jpg');
-        notes.push(video1, audio, img, note, todo, video2);
+        notes.push(video1, audio, img, note, todo1, video2, todo2);
         notes[0].isPinned = true;
         notes[4].isPinned = true;
         storageService.saveToLocal(NOTES_KEY, notes);

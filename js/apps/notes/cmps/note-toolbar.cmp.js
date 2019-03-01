@@ -13,19 +13,19 @@ export default {
     props: ['note'],
     template: `
         <section class="btn-note-container">
-                <button class="btn btn-delete-note" @click="deleteNote()">
+                <button title="Delete" class="btn btn-delete-note" @click="deleteNote()">
                     <i class="fas fa-trash-alt"></i>
                 </button>
-                <button class="btn btn-copy-note" @click="duplicateNote()">
+                <button title="Duplicate" class="btn btn-copy-note" @click="duplicateNote()">
                     <i class="fas fa-clone"></i>
                 </button>
                 
-                <button ref="pin" class="btn btn-pin-note" @click="modifyNote('isPinned', 'toggle')">
+                <button title="Pin" ref="pin" class="btn btn-pin-note" @click="modifyNote('isPinned', 'toggle')">
                     <i class="fas fa-thumbtack"></i>
                 </button>
 
                 <!-- Palette button and menu -->
-                <button class="btn btn-color-note" >
+                <button title="Color palette" class="btn btn-color-note" >
                     <i class="fas fa-palette"></i>
                 </button>
                 <div class="color-palette" 
@@ -36,18 +36,19 @@ export default {
                     ></palette-btns>
                 </div>
 
-                <button v-if="!isEditable" class="btn btn-edit-note" @click="toggleEdit">
+                <button title="Edit" v-if="!isEditable" class="btn btn-edit-note" @click="toggleEdit">
                     <i class="fas fa-edit"></i>
                 </button>
 
-                <button v-else="isEditable" class="btn btn-save-note" @click="saveNote">
+                <button title="Save" v-else="isEditable" class="btn btn-save-note" @click="saveNote">
                     <i class="fas fa-save"></i>
                 </button>
 
                 <router-link 
                     :to="'/email/inbox?compose=true&body=' + emailData" 
                     tag="button" 
-                    class="btn btn-compose-email" 
+                    class="btn btn-compose-email"
+                    title="E-mail note"
                 >
                     <i class="fas fa-envelope"></i>
                 </router-link>

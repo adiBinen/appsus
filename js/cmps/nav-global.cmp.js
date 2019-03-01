@@ -9,14 +9,14 @@ export default {
                     <i class="material-icons">apps</i>
                 </button>
                 <div class="dropdown-menu" :class="isShown" @click.stop>
-                    <router-link title="Home" to="/" exact>
+                    <router-link title="MainHub" to="/" exact>
                         <i class="fas fa-home"></i>
                     </router-link>
-                    <router-link to="/email/inbox" title="E-Mail inbox">
+                    <router-link to="/email/inbox" title="MailsHub">
                         <i class="fas fa-envelope"></i><span class="global-nav-unread-emails" v-if="unreadEmails">{{unreadEmails}}</span>
                     </router-link>
-                    <router-link title="Notes" to="/notes"><i class="fas fa-sticky-note"></i></router-link>
-                    <router-link title="Books" to="/books"><i class="fas fa-book"></i></router-link>
+                    <router-link title="NotesHub" to="/notes"><i class="fas fa-sticky-note"></i></router-link>
+                    <router-link title="BooksHub" to="/books"><i class="fas fa-book"></i></router-link>
                 </div>
                 <img class="global-nav-user-img" :src="userImg" alt="User Profile Image" title="User profile"/>
             </nav>
