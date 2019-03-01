@@ -6,7 +6,7 @@ export default {
     template: `
             <header class="notes-header">
             <div class="email-logo flex align-center">
-                <img class="email-logo-img" src="./img/NotesLogo.png">
+                <img class="email-logo-img" src="./img/note.svg">
                 <h1>NotesHub</h1>
             </div>
             <global-nav :unread-emails="unreadEmails"></global-nav>

@@ -76,7 +76,8 @@
 
 .email-side-nav .btn-compose i {
     font-size: 2em;
-    color: #137adf;
+    /* color: #137adf; */
+    color: #d93025; 
     font-weight: 1000;
 }
 .email-side-nav .btns-container > *:not(:first-child) {
@@ -138,10 +139,10 @@
 }
 
 .email-side-nav .btns-container:hover .btn-inbox {
-    background-color: #e6e9fc;
-    /* background-color: #fce8e6; */
-    color: #1171e2;
-    /* color: #d93025; */
+    /* background-color: #e6e9fc; */
+    background-color: #fce8e6;
+    /* color: #1171e2; */
+    color: #d93025;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
 }
@@ -152,8 +153,8 @@
 
 .email-side-nav .btns-container:hover .btn-inbox::after {
     content: "Inbox";
-    color:#1171e2;
-    /* color: #d93025; */
+    /* color:#1171e2; */
+    color: #d93025;
     font-weight: bold;
     padding-left: 20px;
     opacity: 1;

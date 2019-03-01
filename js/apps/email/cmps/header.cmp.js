@@ -7,7 +7,8 @@ export default {
     template: `
         <header class="email-header">
             <div class="email-logo flex align-center">
-                <img class="email-logo-img" src="./img/emailLogo.jpg">
+                <img class="email-logo-img" src="./img/email.svg">
+                
                 <h1>MailsHub</h1>
             </div>
             <nav-global :unread-emails="unreadEmails"></nav-global>
