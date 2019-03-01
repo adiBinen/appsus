@@ -17,8 +17,8 @@ const routes = [
         children: [
             { path: '', component: emailList },
             { path: 'inbox', component: emailList },
-            { path: ':filterBy', component: emailList },
-            { path: ':emailId', component: emailDisplay },
+            { path: ':filterBy?', component: emailList },
+            { path: '#/:emailId?', component: emailDisplay },
         ],
     },
     { path: '', component: emailApp },

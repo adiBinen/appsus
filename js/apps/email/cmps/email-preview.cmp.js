@@ -5,7 +5,7 @@ import { eventBus, EMAIL_MODIFIED } from '../../../event-bus.js';
 export default {
     props: ['email'],
     template: ` 
-        <router-link tag="li" :to="email.id" exact class="email-preview flex" :class="setUnread">
+        <router-link tag="li" :to="'/email/#' + email.id" exact class="email-preview flex" :class="setUnread">
             <div class="checkbox-border" @click.stop="checkedEmail">
                 <label class="checkbox-container" @click.stop="">
                     <input type="checkbox" @click.stop="checkedEmail" :checked="isChecked">
