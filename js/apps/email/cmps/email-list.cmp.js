@@ -30,11 +30,10 @@ export default {
     computed: {
         emailsToDisplay() {
             if (!this.emails) return;
-            console.log(this.filterBy);
             let filter;
-            if (this.filterBy === 'trash') filter = 'isDeleted';
-            else if (this.filterBy === 'sent') filter = 'isSent';
-            else if (this.filterBy === 'drafts') filter = 'isDraft';
+            if (this.filterBy === '#/trash') filter = 'isDeleted';
+            else if (this.filterBy === '#/sent') filter = 'isSent';
+            else if (this.filterBy === '#/drafts') filter = 'isDraft';
             else return this.emails.filter(email => !email.isDeleted && !email.isDraft && !email.isSent);
 
             return this.emails.filter(email => email[filter]);
@@ -42,10 +41,7 @@ export default {
     },
     watch: {
         $route(to, from) {
-            this.filterBy = to.params.filterBy;
-            console.log(this.filterBy);
-            
-
+            this.filterBy = to.hash;
         }
     },
     created() {
