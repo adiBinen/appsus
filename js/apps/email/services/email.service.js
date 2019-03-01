@@ -19,7 +19,7 @@ var emailsDB;
 
 _createEmails();
 
-function query() {
+function query(filterBy) {
     return Promise.resolve(emailsDB);
 }
 

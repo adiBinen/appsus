@@ -24,7 +24,7 @@ export default {
         <main class="email-app grid">
             <main-header :unread-emails="unreadEmails"></main-header>
             <side-nav :unread-emails="unreadEmails" @openComposeEmail="openComposeEmail()"></side-nav>
-            <router-view  class="email-content"></router-view>
+            <router-view class="email-content"></router-view>
             <email-compose v-if="isComposing" @closeComposeEmail="closeComposeEmail" :username="username" :body="sentBody"></email-compose>
         </main>
     `,
