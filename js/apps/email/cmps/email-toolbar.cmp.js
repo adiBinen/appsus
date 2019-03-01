@@ -8,7 +8,7 @@ export default {
             <button title="Go back" class="boolbar-btn-border" @click="goBack">
                 <i class="fas fa-arrow-left"></i>
             </button>
-            <button title="Delete e-mails" class="boolbar-btn-border" @click="deleteEmails">
+            <button title="Move to trash" class="boolbar-btn-border" @click="deleteEmails">
                 <i class="fas fa-trash-alt"></i>
             </button>
             <button title="Mark as unread" class="boolbar-btn-border" @click="unreadEmails">

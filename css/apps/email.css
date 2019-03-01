@@ -69,7 +69,12 @@
     right: 30px;
     top: 10px;
     display: none;
+    transition: color .3s;
 }
+.email-header .search-bar .btn-clear-search:hover {
+    color: #d93025;
+}
+
 
 .email-header .search-bar .btn-clear-search.show {
     display: block;
