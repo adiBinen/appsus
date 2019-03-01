@@ -40,21 +40,21 @@ function addNote(type, data) {
 
 function deleteNote(id) {
     let idx = notesDB.findIndex(note => note.id === id);
-    if (idx === -1) return Promise.reject('Failed to delete e-mail.')
+    if (idx === -1) return Promise.reject('Failed to delete the note.')
     notesDB.splice(idx, 1);
     storageService.saveToLocal(NOTES_KEY, notesDB);
     return Promise.resolve('Note was successfully deleted.');
 }
 
 function duplicateNote(noteId) {
-    getNoteById(noteId)
+    return getNoteById(noteId)
         .then((note) => {
             let idx = notesDB.findIndex(note => note.id === noteId);
             let copyNote = { ...note };
             copyNote.id = utilService.generateId();
             notesDB.splice(idx, 0, copyNote);
             storageService.saveToLocal(NOTES_KEY, notesDB);
-            return Promise.resolve();
+            return Promise.resolve('Note was successfully duplicated.');
         })
 }
 
@@ -66,7 +66,7 @@ function modifyNote(modifiedNote) {
         storageService.saveToLocal(NOTES_KEY, notesDB);
         return Promise.resolve('Note was successfully modified');
     }
-    return Promise.reject('Note not found');
+    return Promise.reject('Error: Note not found');
 }
 
 function _getNoteIdxById(id) {
