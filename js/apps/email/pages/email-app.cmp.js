@@ -44,7 +44,7 @@ export default {
             username: 'adi',
             emails: null,
             isComposing: null,
-            sentBody: null,
+            sentBody: null
         };
     },
     methods: {
@@ -53,6 +53,7 @@ export default {
         },
         closeComposeEmail() {
             this.isComposing = false;
+            this.sentBody = null;
         }
     },
     watch: {
@@ -61,7 +62,7 @@ export default {
         }
     },
     created() {
-        let { compose, body } = this.$route.query;
+        let { compose, body} = this.$route.query;
         this.isComposing = compose;
         this.sentBody = body;
 
