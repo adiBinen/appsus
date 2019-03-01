@@ -8,6 +8,12 @@ export default {
             <button @click="deleteEmails">
                 <i class="fas fa-trash-alt"></i>
             </button>
+            <button>
+                <i class="fas fa-envelope"></i>
+            </button>
+            <button @click="unreadEmails">
+                <i class="fas fa-envelope-open"></i>
+            </button>
         </section>
     `,
     data() {
@@ -17,6 +23,9 @@ export default {
     methods: {
         deleteEmails() {
             eventBus.$emit(EMAILS_CHECKED_MODIFIED, 'delete');
+        },
+        unreadEmails() {
+            eventBus.$emit(EMAILS_CHECKED_MODIFIED, 'unread');
         }
     },
 }

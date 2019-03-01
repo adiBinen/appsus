@@ -49,6 +49,8 @@ function deleteEmail(id) {
 }
 
 function modifyEmail(modifiedEmail) {
+    console.log(modifiedEmail);
+    
     let idx = _getEmailIdxById(modifiedEmail.id);
     if (idx !== -1) {
         emailsDB.splice(idx, 1, modifiedEmail);
@@ -59,12 +61,35 @@ function modifyEmail(modifiedEmail) {
 }
 
 function modifyChecked(action) {
+    debugger
     var filteredEmails = emailsDB.filter(email => email.isChecked);
+    console.log(filteredEmails);
+    
     if (!filteredEmails) return Promise.reject();
-    if (action === 'delete') {
-        filteredEmails.forEach(email => {
-            deleteEmail(email.id);
-        });
+    switch (action) {
+        case 'delete':
+            filteredEmails.forEach(email => {
+                deleteEmail(email.id);
+            });
+            break;
+        case 'unread':
+            let newEmails = filteredEmails.map(email => {
+                email.isRead = false;
+                email.isChecked = false;
+            });
+            emailsDB = newEmails;
+            return Promise.resolve();
+            break;
+        case 'read':
+            let newEmails2 = filteredEmails.map(email => {
+                email.isRead = true;
+                emailsDB = newEmails2;
+                return Promise.resolve();
+            });
+            break;
+            
+        default:
+            break;
     }
 }
 
