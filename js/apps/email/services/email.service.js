@@ -55,41 +55,38 @@ function modifyEmail(modifiedEmail) {
     if (idx !== -1) {
         emailsDB.splice(idx, 1, modifiedEmail);
         storageService.saveToLocal(EMAILS_KEY, emailsDB);
-        return Promise.resolve('Note was successfully modified');
+        return Promise.resolve('Email was successfully modified');
     }
-    return Promise.reject('Note not found');
+    return Promise.reject('Email not found');
 }
 
 function modifyChecked(action) {
-    debugger
-    var filteredEmails = emailsDB.filter(email => email.isChecked);
-    console.log(filteredEmails);
-    
-    if (!filteredEmails) return Promise.reject();
-    switch (action) {
-        case 'delete':
-            filteredEmails.forEach(email => {
-                deleteEmail(email.id);
-            });
-            break;
-        case 'unread':
-            let newEmails = filteredEmails.map(email => {
+
+    if (action === 'delete') {
+        let emailsToDelete = [];
+        emailsDB.forEach(email => {
+            if (email.isChecked) {
+                if (email.isDeleted) {
+                    emailsToDelete.push(email);
+                } else {
+                    email.isChecked = false;
+                    email.isDeleted = true;
+                }
+            }
+        });
+        if (emailsToDelete.length) {
+            emailsToDelete.forEach(email => deleteEmail(email.id));
+        }
+    } else {
+        emailsDB.forEach(email => {
+            if (action === 'unread' && email.isChecked) {
                 email.isRead = false;
-                email.isChecked = false;
-            });
-            emailsDB = newEmails;
-            return Promise.resolve();
-            break;
-        case 'read':
-            let newEmails2 = filteredEmails.map(email => {
+            } else if (action === 'read' && email.isChecked) {
                 email.isRead = true;
-                emailsDB = newEmails2;
-                return Promise.resolve();
-            });
-            break;
-            
-        default:
-            break;
+            }
+            email.isChecked = false;
+        });
+        storageService.saveToLocal(EMAILS_KEY, emailsDB);
     }
 }
 
@@ -132,6 +129,9 @@ function _createEmail(sender = "Adi", recipient = "Simon", subject = 'Hi there, 
         body: body,
         isRead: false,
         isChecked: false,
+        isDeleted: false,
+        isDraft: false,
+        isSent: false,
         sentAt: Date.now() - 1000 * 60 * 60 * 24 * 500,
     }
 }

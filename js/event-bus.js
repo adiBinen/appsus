@@ -5,6 +5,7 @@ export const GLOBAL_NAV_CLOSE = 'close-global-nav';
 
 // EMAIL-APP
 export const UNREAD_EMAILS = 'unread-emails';
+export const EMAIL_READ = 'email-read';
 export const EMAIL_MODIFIED = 'emails-modified';
 export const EMAILS_CHECKED_MODIFIED = 'emails-checked-modified';
 
