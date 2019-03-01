@@ -48,9 +48,7 @@ function deleteEmail(id) {
     return Promise.resolve('E-Mail was successfully deleted.');
 }
 
-function modifyEmail(modifiedEmail) {
-    console.log(modifiedEmail);
-    
+function modifyEmail(modifiedEmail) {    
     let idx = _getEmailIdxById(modifiedEmail.id);
     if (idx !== -1) {
         emailsDB.splice(idx, 1, modifiedEmail);
