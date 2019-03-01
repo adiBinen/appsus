@@ -78,7 +78,8 @@ function _createNotes() {
     if (!notes) {
         notes = [];
         // Dummy Data
-        let video = _createNote('typeVideo', 'https://www.youtube.com/embed/tgbNymZ7vqY');
+        let video1 = _createNote('typeVideo', 'https://www.youtube.com/embed/tgbNymZ7vqY');
+        let video2 = _createNote('typeVideo', 'https://www.youtube.com/watch?v=JVZTP_kX5BE'); // WILL BE TURNED INTO EMBED
         let audio = _createNote('typeAudio', './sound/win.mp3');
         let note = _createNote('typeNote', 'Hi there I am a note');
         let todo = _createNote('typeTodo', [
@@ -87,7 +88,7 @@ function _createNotes() {
             { id: '-' + utilService.generateId(), txt: 'Go jump', isMarked: false },
         ]);
         let img = _createNote('typeImage', './img/my-meme.jpg');
-        notes.push(video, audio, img, note, todo);
+        notes.push(video1, audio, img, note, todo, video2);
         notes[0].isPinned = true;
         notes[4].isPinned = true;
         storageService.saveToLocal(NOTES_KEY, notes);

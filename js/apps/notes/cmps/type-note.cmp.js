@@ -6,15 +6,23 @@ export default {
     template: `
         <div class="type-note">
             <div v-if="!isEditable">{{data}}</div>
-            <input v-else="isEditable" v-model="data" />
+            <textarea class="edit-note" v-else="isEditable" v-model="dataCopy"></textarea>
         </div>
     `,
     data() {
         return {
             isEditing: false,
+            dataCopy: this.data,
         };
     },
     methods: {
 
+    },
+    watch: {
+        dataCopy: {
+            handler(val) {
+                this.$emit('update-data', val);
+            }
+        }
     }
 }
