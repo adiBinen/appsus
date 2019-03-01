@@ -58,9 +58,11 @@ export default {
         }
     },
     created() {
+        // Get notes from server
         noteService.query()
             .then(notes => this.notes = notes);
 
+        // EVENT LISTENERS
         eventBus.$on(NOTE_DELETE, noteId => {
             noteService.deleteNote(noteId)
                 .then(msg => {eventBus.$emit(USER_MSG_SUCCESS, msg)});
@@ -94,6 +96,17 @@ export default {
             noteService.modifyNote(note)
                 .then(this.requestNewNotes);
         });
+
+
+        // See if URL contains a premade note (from a sibling app - /notes?content=XXXX)
+        let { content } = this.$route.query;
+        if (content) {
+            let externalNote = {
+                type: 'typeNote',
+                data: content,
+            };
+            this.addNote(externalNote);
+        }
 
     }
 }

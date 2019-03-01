@@ -6,6 +6,11 @@ export default {
     template: `
         <section v-if="email" class="email-display">
             <header class="email-display-header">
+                <div class="future-toolbar">
+                    <router-link tag="button" class="email-to-note" :to="'/notes?content=' + email.body" >
+                        <i class="fas fa-thumbtack"></i>
+                    </router-link>
+                </div>
                 <h1 class="subject">{{email.subject}}</h1>
             </header>
             <div class="sent-date">{{formattedDate}}</div>
