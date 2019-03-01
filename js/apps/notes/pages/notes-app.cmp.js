@@ -42,7 +42,7 @@ export default {
     methods: {
         addNote(note) {
             noteService.addNote(note.type, note.data)
-                .then(res => console.log(res));
+                .then(msg => {eventBus.$emit(USER_MSG_SUCCESS, msg)});
         },
         requestNewNotes() {
             noteService.query()
