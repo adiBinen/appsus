@@ -19,8 +19,9 @@ var emailsDB;
 
 _createEmails();
 
-function query(filterBy) {
+function query() {
     return Promise.resolve(emailsDB);
+    
 }
 
 function getEmailById(id) {
@@ -98,9 +99,14 @@ function _createEmails() {
     if (!emails) {
         // DUMMY DATA SECTION
         emails = [];
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 10; i++) {
             emails.unshift(_createEmail());
         }
+        emails[1].isDeleted = true;
+        emails[4].isDraft = true;
+        emails[4].isRead = true;
+        emails[3].isSent = true;
+        emails[5].isSent = true;
         emails[0].isRead = true;
         emails[0].sentAt = Date.now();
         emails[0].sender = 'Simon'
