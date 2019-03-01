@@ -61,7 +61,7 @@ function modifyEmail(modifiedEmail) {
 }
 
 function modifyChecked(action) {
-
+    if (!action) Promise.reject('Must pass action');
     if (action === 'delete') {
         let emailsToDelete = [];
         emailsDB.forEach(email => {
@@ -88,6 +88,7 @@ function modifyChecked(action) {
         });
         storageService.saveToLocal(EMAILS_KEY, emailsDB);
     }
+    return Promise.resolve('Email modification success');
 }
 
 function _getEmailIdxById(id) {

@@ -7,7 +7,8 @@ import emailService from '../services/email.service.js';
 import { 
         eventBus, 
         EMAIL_MODIFIED, 
-        EMAILS_CHECKED_MODIFIED
+        EMAILS_CHECKED_MODIFIED,
+        UNREAD_EMAILS
         } from '../../../event-bus.js';
 
 
@@ -53,7 +54,10 @@ export default {
         })
 
         eventBus.$on(EMAILS_CHECKED_MODIFIED, action => {
-            emailService.modifyChecked(action);
+            emailService.modifyChecked(action)
+            .then(() => {
+                eventBus.$emit(UNREAD_EMAILS);
+            })
         })
     }
 }
