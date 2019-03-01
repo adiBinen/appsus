@@ -7,7 +7,10 @@ export default {
     },
     template: `
         <header class="homepage-header">
-            <h1>Homepage</h1>
+            <div class="logo flex align-center">
+                <img src="./img/wifi.svg" />
+                <h1>MainHub</h1>
+            </div>
             <nav-global :unread-emails="unreadEmails"></nav-global>
         </header> 
     `,

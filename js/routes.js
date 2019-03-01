@@ -19,6 +19,7 @@ const routes = [
             { path: 'inbox', component: emailList },
             { path: ':emailId', component: emailDisplay },
             { path: '#/:filterBy', component: emailList },
+            { path: '#search/:term', component: emailList },
         ],
     },
     { path: '', component: emailApp },

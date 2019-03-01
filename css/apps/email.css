@@ -22,6 +22,12 @@
 }
 
 /* email logo */
+
+.email-logo {
+    cursor: pointer;
+    user-select: none;
+}
+
 .email-logo > h1 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
@@ -35,6 +41,39 @@
     margin-right: 10px;
 }
 
+.email-header .search-bar {
+    order: 1;
+    position: relative;
+    display: flex;
+}
+
+.email-header .search-bar-input {
+    width: 30vw;
+    padding: 10px 15px;
+    border: .5px solid #64798fab;
+    outline: none;
+    border-radius: 3px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    background-color: #ecebe5;
+    transition: background-color .3s ease-in;
+}
+
+.email-header .search-bar-input:focus {
+    background-color: #fff;
+    box-shadow: 1px 2px 4px #64798fab;
+}
+
+.email-header .search-bar .btn-clear-search {
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    display: none;
+}
+
+.email-header .search-bar .btn-clear-search.show {
+    display: block;
+}
 
 /* EMAIL NAV BAR MAGIC */
 
@@ -332,9 +371,9 @@
 }
 .checkbox-container input:checked ~ .checkmark:after {
     font-family: "Font Awesome 5 Free";
-    padding-top: 0px;
     font-weight: 900;
     content: "\f00c";
+    padding-top: 0px;
     display: block;
     font-size: 12px;
     color: white;
@@ -380,7 +419,7 @@
 /* EMAIL DISPLAY */
 
 .email-display {
-    height: 100%;
+    padding: 20px 0px 0px 65px;
 }
 .email-display > *:not(:first-child) {
     /* box-shadow: 0 0px 0px .5px #64798fab; */

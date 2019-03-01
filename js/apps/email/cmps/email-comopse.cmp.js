@@ -1,5 +1,6 @@
 
 import emailService from '../../email/services/email.service.js';
+import { eventBus, USER_MSG_SUCCESS } from '../../../event-bus.js';
 
 export default {
     props: ['username', 'body', 'draftEmail'],
@@ -7,11 +8,12 @@ export default {
         <section class="email-compose">
             <header>
                 <p>New message</p>
-                <button @click="closeComposeEmail()">X</button>
+                <button title="Close draft" @click="closeComposeEmail"><i class="fas fa-times"></i></button>
+                <button title="Discard draft" @click="discardDraft(email.id)"><i class="fas fa-trash-alt"></i></button>
             </header>
-            <form @submit.prevent.stop="sendEmail()" class="flex">
+            <form @submit.prevent.stop="sendEmail" class="flex">
                 <input 
-                    type="text" 
+                    type="email" 
                     class="recipient-input" 
                     placeholder="To" 
                     v-model="email.recipient" required>
@@ -37,8 +39,7 @@ export default {
             // this.closeComposeEmail();
             this.$emit('email-sent');
             emailService.addEmail({...this.email})
-                .then(console.log('success')
-                );
+                .then(msg => eventBus.$emit(USER_MSG_SUCCESS, msg));
             this.email = {
                 sender: this.username,
                 recipient: null,
@@ -48,6 +49,9 @@ export default {
         },
         closeComposeEmail() {
             this.$emit('closeComposeEmail', {...this.email});
+        },
+        discardDraft(id) {
+            this.$emit('discardDraft', id);
         }
     },
     computed: {

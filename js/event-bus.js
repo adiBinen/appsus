@@ -8,6 +8,7 @@ export const USER_MSG_SUCCESS = 'user-alert-success';
 export const USER_MSG_FAILURE = 'user-alert-error';
 
 // EMAIL-APP
+export const EMAILS_SEARCHBAR = 'emails-searchbar'
 export const UNREAD_EMAILS = 'unread-emails';
 export const EMAIL_READ = 'email-read';
 export const EMAIL_MODIFIED = 'emails-modified';

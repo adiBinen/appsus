@@ -95,6 +95,8 @@ function modifyChecked(action) {
                     emailsToDelete.push(email);
                 } else {
                     email.isChecked = false;
+                    email.isSent = false;
+                    email.isDraft = false;
                     email.isDeleted = true;
                 }
             }
@@ -135,23 +137,23 @@ function _createEmails() {
         emails[5].isSent = true;
         emails[0].isRead = true;
         emails[0].sentAt = Date.now();
-        emails[0].sender = 'Simon'
+        emails[0].sender = 'Simon I.'
         emails[3].isRead = true;
-        emails[3].sender = 'Simon'
+        emails[3].sender = 'Simon I.'
         emails[6].isRead = true;
-        emails[6].sender = 'Simon'
+        emails[6].sender = 'Adi B.'
         emails[7].sentAt = Date.now() - 1000 * 60 * 60 * 24;
-        emails[7].sender = 'Simon'
+        emails[7].sender = 'Adi B.'
         emails[8].sentAt = Date.now() - 1000 * 60 * 60 * 24 * 3;
-        emails[8].sender = 'Simon'
+        emails[8].sender = 'Simon I.'
         emails[9].sentAt = Date.now() - 1000 * 60 * 60 * 24 * 365 * 5;
-        emails[9].sender = 'Simon'
+        emails[9].sender = 'Simon I.'
         storageService.saveToLocal(EMAILS_KEY, emails);
     }
     emailsDB = emails;
 }
 
-function _createEmail(sender = "Adi", recipient = "Simon", subject = 'Hi there, whats app? bla bla bla', body = LOREM_TXT) {
+function _createEmail(sender = "Adi B.", recipient = "Simon I.", subject = 'Deep in the night, I am looking for some fun!', body = LOREM_TXT) {
     return {
         id: utilService.generateId(),
         sender: sender,

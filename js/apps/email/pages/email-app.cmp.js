@@ -38,7 +38,8 @@ export default {
             <email-compose 
                 v-if="isComposing"
                 @closeComposeEmail="closeComposeEmail" 
-                @email-sent="emailSent"
+                @email-sent="sentEmail"
+                @discardDraft="discardDraft"
                 :username="username" 
                 :body="sentBody" 
                 :draft-email="draftEmail">
@@ -48,7 +49,7 @@ export default {
     `,
     data() {
         return {
-            username: 'adi',
+            username: 'Adi B.',
             emails: null,
             isComposing: null,
             sentBody: null,
@@ -56,7 +57,7 @@ export default {
         };
     },
     methods: {
-        emailSent() {
+        sentEmail() {
             this.isComposing = false;
             this.sentBody = null;
             this.draftEmail = null;
@@ -83,6 +84,15 @@ export default {
                     this.sentBody = null;
                     this.draftEmail = null;
                 })
+        },
+        discardDraft(id) {
+            this.isComposing = false;
+            this.sentBody = null;
+            this.draftEmail = null;
+            if (id) {
+                emailService.deleteEmail(id)
+                    .then(msg => eventBus.$emit(USER_MSG_SUCCESS, msg));
+            } else eventBus.$emit(USER_MSG_SUCCESS, 'Draft was successfully removed.')
         }
     },
     watch: {
