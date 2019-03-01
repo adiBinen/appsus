@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,17 @@
     <link rel="stylesheet" href="css/main.css">
     <title>Appsus</title>
 </head>
+
 <body>
     <div id="app">
-        <router-view :unread-emails="unreadEmails"></router-view>
+        <transition name="fade" mode="out-in">
+            <router-view :unread-emails="unreadEmails"></router-view>
+        </transition>
     </div>
 
     <script src="./lib/vue/vue.js"></script>
     <script src="./lib/vue/vue-router.js"></script>
     <script type="module" src="./js/main.js"></script>
 </body>
+
 </html>
