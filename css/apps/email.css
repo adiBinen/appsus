@@ -493,21 +493,27 @@
     border-color: #5a6576;
 }
 
-  
-
 /* compose email */
 .email-compose {
     grid-template-rows: 40px 1fr;
     position: absolute;
     bottom: 0;
-    right: 100px;
-    height: 400px;
-    width: 500px;
+    /* right: 100px; */
+    height: 100%;
+    width: 100%;
     z-index: 100;
     background-color: white;
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
     box-shadow: 0 0 4px 0px black;
+}
+
+@media (min-width: 650px) {
+    .email-compose {
+        right: 100px;
+        height: 400px;
+        width: 500px;
+    }
 }
 
 .email-compose > .compose-header {
@@ -554,11 +560,41 @@
 
 /* EMAIL DISPLAY */
 
-.email-display {
-    padding: 20px 0px 0px 65px;
+.email-display > .display-toolbar {
+    height: 50px;
+    padding: 10px;
+    border-bottom: .5px solid #4040404d;
 }
-.email-display > *:not(:first-child) {
-    /* box-shadow: 0 0px 0px .5px #64798fab; */
+
+.display-toolbar > :first-child {
+    transform: rotate(45deg);
 }
+
+.display-content {
+    grid-template-columns: 1fr 130px;
+    grid-template-rows: repeat(3, 1fr);
+    padding: 10px;
+}
+
+.display-content > .sent-date {
+    grid-row-start: 1;
+    grid-column-start: 2;
+    text-align: center;
+}
+.display-content > .subject {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.display-content > .sent-from {
+    grid-row-start: 2;
+    grid-column-start: 1;
+}
+.display-content > .email-body {
+    grid-row-start: 3;
+    grid-column: 1 / span 2;
+}
+
 
 /* EMAIL-PREVIEW-CONTENT */
