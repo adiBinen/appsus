@@ -451,6 +451,11 @@
 .email-toolbar {
     height: 50px;
     padding: 10px;
+    z-index: 1;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    box-shadow: 0px 1px 5px #d9dee4;
 }
 .email-toolbar > button {
     font-size: 15px;
@@ -530,7 +535,6 @@
 .email-preview:hover {
     box-shadow: 0px 1px 5px -1px black;
     position: relative;
-    z-index: 1;
 }
 .email-preview > *:not(:first-child){
     text-align: left;
@@ -760,6 +764,11 @@
 .compose-header > button {
     color: #aeaeae;
     padding: 10px;
+    transition: .3s;
+}
+
+.compose-header > button:hover {
+    color: white;
 }
 
 .compose-header > p {

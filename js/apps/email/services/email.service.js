@@ -127,7 +127,7 @@ function _createEmails() {
     if (!emails) {
         // DUMMY DATA SECTION
         emails = [];
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 20; i++) {
             emails.unshift(_createEmail());
         }
         emails[1].isDeleted = true;

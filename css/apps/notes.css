@@ -347,9 +347,9 @@
 .color-palette {
     display: none;
     position: absolute;
-    transform: translate(20%,50%);
-    min-width: 190px;
-    max-width: 190px;
+    /* transform: translate(20%,50%); */
+    transform: translate(-2.5%,90%);
+    width: 350px;
     background-color: #576574;
     padding: 5px;
     border-radius: 10px;
@@ -358,24 +358,25 @@
 }
 @media (min-width: 450px) {
     .color-palette {
-        transform: translate(2%,50%);
+        transform: translate(4%,60%);
+        width: 190px;
     }
 }
 
 @media (min-width: 700px) {
     .color-palette {
-        transform: translate(-2%,50%);
+        transform: translate(-2%,60%);
     }
 }
 
 @media (min-width: 980px) {
     .color-palette {
-        transform: translate(5%,50%);
+        transform: translate(3%,60%);
     }
 }
 @media (min-width: 1250px) {
     .color-palette {
-        transform: translate(20%,50%);
+        transform: translate(20%,60%);
     }
 }
 
@@ -388,12 +389,20 @@
 }
 
 .palette-btns .btn-color {
-    width: 15px;
-    height: 15px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     box-shadow: 0 0 1px 1px black;
     margin-right: 3px;
 }
+
+@media (min-width: 450px) {
+    .palette-btns .btn-color {
+        width: 15px;
+        height: 15px;
+    }
+}
+
 .palette-btns .btn-color.selected {
     box-shadow: 0 0 1px 1px #fff;
 }
