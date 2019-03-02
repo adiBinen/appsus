@@ -69,9 +69,14 @@ iframe, audio {
 .global-nav button {
     width: 32px;
     height: 32px;
-    margin-right: 20px;
     color: #000;
     padding-top: 7px;
+}
+
+@media (min-width: 650px) {
+    .global-nav button {
+        margin-right: 20px;
+    }
 }
 
 .global-nav button:hover {

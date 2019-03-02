@@ -126,8 +126,6 @@
     padding-top: 10px;
 }
 
-.email-header .btn-toggle-nav:focus {
-}
 
 @media (min-width: 650px) {
     .email-header .btn-toggle-nav {
@@ -229,7 +227,7 @@
 
 .email-side-nav .btns-container:hover .btn-inbox .unread-emails {
     /* transform: translate(200%, -50%); */
-    transform: translate(400%, -50%);
+    transform: translate(50px, -50%);
     background-color: transparent;
     color: #333;
 }

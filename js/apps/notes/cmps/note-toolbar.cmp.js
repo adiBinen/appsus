@@ -91,6 +91,9 @@ export default {
         emailData() {
             let data;
             switch (this.note.type) {
+                case 'typeNote':
+                    data = `${this.note.data}`;
+                    break;
                 case 'typeImage':
                     data = `Check out this Image: ${this.note.data}`
                     break;
