@@ -28,6 +28,7 @@ export default {
     components: { notesHeader, noteCreate, noteList, userMsg, confirmBox },
     template: `
         <main class="notes-app " v-if="notes">
+            IPHONE CAN YOU SEE ME?
             <notes-header :unread-emails="unreadEmails" :notes="notes"></notes-header>
             <note-create @note-created="addNote"></note-create>
             <div class="notes-container">

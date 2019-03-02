@@ -81,7 +81,7 @@ function _createNotes() {
         let video1 = _createNote('typeVideo', 'https://www.youtube.com/embed/tgbNymZ7vqY');
         let video2 = _createNote('typeVideo', 'https://www.youtube.com/watch?v=JVZTP_kX5BE'); // WILL BE TURNED INTO EMBED
         let audio = _createNote('typeAudio', './sound/win.mp3');
-        let note = _createNote('typeNote', 'Hi there I am a note');
+        let note = _createNote('typeNote', 'Hi there, I am a note.');
         let todo1 = _createNote('typeTodo', [
             { id: '-' + utilService.generateId(), txt: 'Code during day', isMarked: true },
             { id: '-' + utilService.generateId(), txt: 'Code during night', isMarked: true },
