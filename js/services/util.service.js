@@ -48,9 +48,10 @@ function formatDate(timestamp) {
 }
 
 function getPastelPalette() {
-    return ['#fff','#f98a8d','#fdcc87', '#fffd7f', '#c9ff9b', '#a5ffef', '#89dcfc', '#88b9fd', '#debbfe', '#dddddd'];
+    return ['#fff','#f78882','#fff06f', '#d2fc8d', '#caf2f9', '#a9cffb','#d5b3fc', '#fed1e9', '#eac8a8', '#e8ebee'];
+    // return ['#fff','#f98a8d','#fdcc87', '#fffd7f', '#c9ff9b', '#a5ffef', '#89dcfc', '#88b9fd', '#debbfe', '#dddddd'];
 }
 
 function getRandomPastel() {
-    return getPastelPalette()[getRandomIntInclusive(1,5)];
+    return getPastelPalette()[getRandomIntInclusive(1,8)];
 }
