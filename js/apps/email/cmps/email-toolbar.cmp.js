@@ -5,16 +5,16 @@ export default {
     props: [],
     template: ` 
         <section class="email-toolbar flex">
-            <button title="Go back" class="boolbar-btn-border" @click="goBack">
+            <button title="Go back" class="toolbar-btn-border" @click="goBack">
                 <i class="fas fa-arrow-left"></i>
             </button>
-            <button title="Move to trash" class="boolbar-btn-border" @click="deleteEmails">
+            <button title="Move to trash" class="toolbar-btn-border" @click="deleteEmails">
                 <i class="fas fa-trash-alt"></i>
             </button>
-            <button title="Mark as unread" class="boolbar-btn-border" @click="unreadEmails">
+            <button title="Mark as unread" class="toolbar-btn-border" @click="unreadEmails">
                 <i class="fas fa-envelope"></i>
             </button>
-            <button title="Mark as read" class="boolbar-btn-border" @click="readEmails">
+            <button title="Mark as read" class="toolbar-btn-border" @click="readEmails">
                 <i class="fas fa-envelope-open"></i>
             </button>
         </section>

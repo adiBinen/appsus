@@ -15,7 +15,8 @@ import {
     EMAILS_CHECKED_MODIFIED,
     UNREAD_EMAILS,
     USER_MSG_SUCCESS,
-    EMAIL_DRAFT_COMPOSING
+    EMAIL_DRAFT_COMPOSING,
+    EMAIL_DELETED
 } from '../../../event-bus.js';
 
 
@@ -119,6 +120,11 @@ export default {
         eventBus.$on(EMAIL_DRAFT_COMPOSING, draftEmail => {
             this.draftEmail = draftEmail;
             this.openComposeEmail();
+        });
+
+        eventBus.$on(EMAIL_DELETED, emailId => {
+            emailService.deleteEmail(emailId)
+                .then(msg => eventBus.$emit(USER_MSG_SUCCESS, msg));
         });
     }
 }

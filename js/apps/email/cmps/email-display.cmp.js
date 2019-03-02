@@ -1,6 +1,6 @@
 import emailService from '../services/email.service.js';
 import utilService from '../../../services/util.service.js';
-import { eventBus, EMAIL_MODIFIED, UNREAD_EMAILS } from '../../../event-bus.js';
+import { eventBus, EMAIL_MODIFIED, UNREAD_EMAILS, EMAIL_DELETED } from '../../../event-bus.js';
 
 export default {
     template: `
@@ -9,6 +9,12 @@ export default {
                 <router-link tag="button" class="email-to-note" :to="'/notes?content=' + email.body" >
                     <i class="fas fa-thumbtack"></i>
                 </router-link>
+                <button title="Go back" class="display-btn-border" @click="goBack">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <button title="Move to trash" class="display-btn-border" @click="deleteEmail()">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
             </div>
             <div class="display-content grid">
                 <div class="sent-date">{{formattedDate}}</div>
@@ -22,6 +28,15 @@ export default {
         return {
             email: null,
         };
+    },
+    methods: {
+        goBack() {
+            this.$router.go(-1);
+        },
+        deleteEmail() {
+            eventBus.$emit(EMAIL_DELETED, this.email.id);
+            this.goBack();
+        }
     },
     computed: {
         formattedDate() {

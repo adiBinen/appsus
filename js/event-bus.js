@@ -14,6 +14,7 @@ export const EMAIL_READ = 'email-read';
 export const EMAIL_MODIFIED = 'emails-modified';
 export const EMAILS_CHECKED_MODIFIED = 'emails-checked-modified';
 export const EMAIL_DRAFT_COMPOSING = 'emails-draft-composing';
+export const EMAIL_DELETED = 'email-deleted';
 
 // NOTES-APP
 export const NOTES_CLEAR_SEARCH = 'notes-clear-search'

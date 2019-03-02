@@ -68,7 +68,7 @@ function saveEmailToDraft(draftData) {
 }
 
 function deleteEmail(id) {
-    let idx = emailsDB.findIndex(email => email.id === id);
+    let idx = _getEmailIdxById(id);
     if (idx === -1) return Promise.reject('Failed to delete e-mail.')
     emailsDB.splice(idx, 1);
     storageService.saveToLocal(EMAILS_KEY, emailsDB);
