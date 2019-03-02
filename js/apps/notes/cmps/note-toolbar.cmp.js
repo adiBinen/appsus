@@ -12,7 +12,7 @@ export default {
     components: { paletteBtns },
     props: ['note'],
     template: `
-        <section class="btn-note-container">
+        <section class="btn-note-container grid">
                 <button title="Delete" class="btn btn-delete-note" @click="deleteNote()">
                     <i class="fas fa-trash-alt"></i>
                 </button>

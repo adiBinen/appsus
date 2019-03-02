@@ -17,18 +17,20 @@ export default {
                     <span class="checkmark"></span>
                 </label>
             </div>
-            <div class="sender">
-                {{email.sender}}
-            </div>
-            <div class="subject">
-                {{email.subject}}
-            </div>
-            <div class="body">
-                {{email.body}}
-            </div>
-            <div class="date">
-                {{formattedDate}}
-            </div>
+            <!-- <div class="email-details flex"> -->
+                <div class="sender">
+                    {{email.sender}}
+                </div>
+                <div class="subject">
+                    {{email.subject}}
+                </div>
+                <div class="body">
+                    {{email.body}}
+                </div>
+                <div class="date">
+                    {{formattedDate}}
+                </div>
+            <!-- </div> -->
         </router-link>
     `,
     data() {

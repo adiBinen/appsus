@@ -278,8 +278,6 @@
     box-shadow: 0 0px 0px .5px #64798fab;  
 }
 
-@media (min-width: 550px) {
-}
 
 .unread {
     background-color: #fff;

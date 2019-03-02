@@ -213,15 +213,19 @@
 /* END NOTE LIST LAYOUT */
 
 
-
-/* palette */
-
+/* notes buttons toolbar */
 .btn-note-container {
+    grid-template-columns: repeat(6, 1fr);
     position: relative;
     opacity: 0;
     transition: .3s;
 }
+.btn-note-container > button {
+    font-size: .8em;
+    padding: 0;
+}
 
+/* palette */
 .color-palette {
     display: none;
     position: absolute;
