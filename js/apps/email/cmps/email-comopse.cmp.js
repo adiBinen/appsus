@@ -19,10 +19,10 @@ export default {
                 <input type="text" class="subject-input" placeholder="Subject" v-model="email.subject">
                 <textarea type="text" class="subject-input" v-model="email.body"></textarea>
                 <div class="compose-toolbar flex space-between">
+                    <button class="compose-send-btn" type="submit">Send</button>    
                     <button title="Discard draft" @click="discardDraft(email.id)">
                         <i class="fas fa-trash-alt"></i>
                     </button>
-                    <button class="compose-send-btn" type="submit">Send</button>
                 </div>
             </form>
         </section>

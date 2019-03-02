@@ -1,16 +1,16 @@
 import emailService from '../services/email.service.js';
 import utilService from '../../../services/util.service.js';
-import {eventBus, EMAIL_MODIFIED, UNREAD_EMAILS} from '../../../event-bus.js';
+import { eventBus, EMAIL_MODIFIED, UNREAD_EMAILS } from '../../../event-bus.js';
 
 export default {
     template: `
         <section v-if="email" class="email-display">
+            <div class="future-toolbar">
+                <router-link tag="button" class="email-to-note" :to="'/notes?content=' + email.body" >
+                    <i class="fas fa-thumbtack"></i>
+                </router-link>
+            </div>
             <header class="email-display-header">
-                <div class="future-toolbar">
-                    <router-link tag="button" class="email-to-note" :to="'/notes?content=' + email.body" >
-                        <i class="fas fa-thumbtack"></i>
-                    </router-link>
-                </div>
                 <h1 class="subject">{{email.subject}}</h1>
             </header>
             <div class="sent-date">{{formattedDate}}</div>
@@ -29,7 +29,7 @@ export default {
         }
     },
     created() {
-        let emailId = this.$route.params.emailId;        
+        let emailId = this.$route.params.emailId;
         emailService.getEmailById(emailId)
             .then(email => this.email = email);
 
