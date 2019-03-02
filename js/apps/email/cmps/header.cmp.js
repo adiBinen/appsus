@@ -8,8 +8,10 @@ export default {
     template: `
         <header class="email-header">
             <router-link to="/emails" tag="div" class="email-logo flex align-center">
+                <button @click.stop="toggleSideNav" class="btn btn-toggle-nav">
+                    <i class="fas fa-bars"></i>
+                 </button>
                 <img class="email-logo-img" src="./img/email.svg">
-                
                 <h1>MailsHub</h1>
             </router-link>
             <nav-global :unread-emails="unreadEmails"></nav-global>
@@ -21,4 +23,9 @@ export default {
             emails: null,
         };
     },
+    methods: {
+        toggleSideNav() {
+            this.$emit('toggle-nav');
+        }
+    }
 }
