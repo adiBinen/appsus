@@ -353,7 +353,7 @@
     
     .email-side-nav .btns-container .btn-inbox .unread-emails {
         /* transform: translate(200%, -50%); */
-        transform: translate(400%, -50%);
+        transform: translate(50px, -50%);
         background-color: transparent;
         color: #333;
     }
