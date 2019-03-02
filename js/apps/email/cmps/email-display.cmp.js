@@ -6,12 +6,15 @@ export default {
     template: `
         <section v-if="email" class="email-display">
             <div class="display-toolbar flex">
-                <router-link tag="button" class="email-to-note display-btn-border" :to="'/notes?content=' + email.body" >
-                    <i class="fas fa-thumbtack"></i>
-                </router-link>
                 <button title="Go back" class="display-btn-border" @click="goBack">
                     <i class="fas fa-arrow-left"></i>
                 </button>
+                <router-link tag="button" 
+                title="Add to notes"
+                class="email-to-note display-btn-border" 
+                :to="'/notes?content=' + email.body" >
+                    <i class="fas fa-thumbtack"></i>
+                </router-link>
                 <button title="Move to trash" class="display-btn-border" @click="deleteEmail()">
                     <i class="fas fa-trash-alt"></i>
                 </button>
