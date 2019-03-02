@@ -3,6 +3,10 @@ export const eventBus = new Vue();
 // GLOBAL-NAV
 export const GLOBAL_NAV_CLOSE = 'close-global-nav';
 
+// GLOBAL CONFIRM BOX
+export const TO_CONFIRM = 'init-confirm-box';
+export const NOTE_DELETE_ANS = 'note-delete-promise';
+
 // GLOBAL NOTIFICATIONS
 export const USER_MSG_SUCCESS = 'user-alert-success';
 export const USER_MSG_FAILURE = 'user-alert-error';

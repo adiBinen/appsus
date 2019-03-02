@@ -33,10 +33,6 @@ export default {
             this.isSuccess = false;
             setTimeout(() => this.isOn = false, 2200);
         });
-
-        // // TESTING
-        // setTimeout(() => {eventBus.$emit(USER_MSG_SUCCESS, 'HI')}, 2000);
-        // setTimeout(() => {eventBus.$emit(USER_MSG_FAILURE, 'BYE')}, 7000);
     },
     computed: {
         setClass() {

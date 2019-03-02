@@ -1,5 +1,6 @@
 // GLOBAL CMPS
 import userMsg from '../../../cmps/user-msg-global.cmp.js';
+import confirmBox from '../../../cmps/confirm.cmp.js';
 
 // NOTE RELATED COMPONENTS
 import noteService from '../services/note.service.js';
@@ -16,12 +17,15 @@ import {
     NOTE_TODOS_MODIFY,
     NOTE_UPDATE,
     USER_MSG_SUCCESS,
+    USER_MSG_FAILURE,
     NOTES_CLEAR_SEARCH,
+    TO_CONFIRM,
+    NOTE_DELETE_ANS
 } from '../../../event-bus.js'
 
 export default {
     props: ['unreadEmails'],
-    components: { notesHeader, noteCreate, noteList, userMsg },
+    components: { notesHeader, noteCreate, noteList, userMsg, confirmBox },
     template: `
         <main class="notes-app " v-if="notes">
             <notes-header :unread-emails="unreadEmails" :notes="notes"></notes-header>
@@ -36,6 +40,7 @@ export default {
                 <note-list v-if="!searchTerm" :notes="unpinnedNotes"></note-list>
             </div>
             <user-msg></user-msg>
+            <confirm-box></confirm-box>
         </main>
     `,
     data() {
@@ -87,8 +92,24 @@ export default {
         // EVENT LISTENERS
         eventBus.$on(NOTE_DELETE, noteId => {
             noteService.deleteNote(noteId)
-                .then(msg => { eventBus.$emit(USER_MSG_SUCCESS, msg) });
+                    .then(msg => { eventBus.$emit(USER_MSG_SUCCESS, msg) });
         });
+
+        // Confirm box with promise?
+        //     eventBus.$emit(TO_CONFIRM, { msg: 'Are you sure you wish to delete this note?', type: 'note-confirm-delete' });
+        //     eventBus.$on(NOTE_DELETE_ANS, (prms) => {
+        //         prms
+        //         .then(msg => {
+                    
+        //             eventBus.$off(NOTE_DELETE_ANS);
+        //         })
+        //         .catch(msg => {
+        //             eventBus.$off(NOTE_DELETE_ANS);
+        //             eventBus.$emit(USER_MSG_FAILURE, msg);
+        //             })
+        //     })
+
+        // });
 
         eventBus.$on(NOTE_UPDATE, ({ id, data }) => {
             let note = this.notes.find(note => note.id === id);
