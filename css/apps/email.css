@@ -127,11 +127,17 @@
 
 .email-side-nav .btns-container .btn-compose {
     margin: 30px 0;
-    height: 70px;
+    height: 60px;
     border-radius: 30px;
     transition: box-shadow .08s linear,min-width .15s cubic-bezier(0.4,0.0,0.2,1);
 }
 
+.email-side-nav .btns-container:hover .btn-compose {
+    align-self: start;
+    margin-left: 5px;
+
+    width: 75%;
+}
 .email-side-nav .btns-container:hover .btn-compose:hover {
     box-shadow: 0px 0px 6px 1px #64798fab;
     background-color: #f5f7f7;
