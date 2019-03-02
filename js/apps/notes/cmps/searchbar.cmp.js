@@ -39,11 +39,14 @@ export default {
             let term = this.term.toLowerCase();
             return this.notes.map(note => {
                 if (note.type === 'typeTodo') {
-                    let todoTerm = note.data.filter(todo => (todo.txt.toLowerCase().includes(term)))[0];
-                    if (todoTerm) return todoTerm.txt.slice(0,25);
+                    let todoTerms = note.data.filter(todo => (todo.txt.toLowerCase().includes(term)));
+                    if (todoTerms.length) {
+                        todoTerms = todoTerms.map(todo => todo.txt.slice(0,25));
+                        return todoTerms;
+                    }
                 }
                 else if (note.data.toLowerCase().includes(term)) return note.data.slice(0,25);
-            }).slice(0, 5);
+            }).flat().slice(0, 7);
         },
         hasClicked() {
             return this.isTyping;

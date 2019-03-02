@@ -85,7 +85,7 @@ function _createNotes() {
         let todo1 = _createNote('typeTodo', [
             { id: '-' + utilService.generateId(), txt: 'Code during day', isMarked: true },
             { id: '-' + utilService.generateId(), txt: 'Code during night', isMarked: true },
-            { id: '-' + utilService.generateId(), txt: 'jump off a cliff', isMarked: false },
+            { id: '-' + utilService.generateId(), txt: 'Jump off a cliff', isMarked: false },
         ]);
         let todo2 = _createNote('typeTodo', [
             { id: '-' + utilService.generateId(), txt: 'Go walk', isMarked: false },

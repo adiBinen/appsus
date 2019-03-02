@@ -6,7 +6,7 @@ export default {
     template: `
         <section class="note-create">
             <div class="input-container" v-if="note.type !== 'typeTodo'">
-                <input ref="input"  type="text" autofocus
+                <input ref="input-normal"  type="text" autofocus
                     @keyup.enter="createNote" v-model="note.data" :placeholder="setPlaceholder" 
                 />
                 <button @click="createNote" title="Add Note">
@@ -15,7 +15,7 @@ export default {
             </div>
             <div v-else class="todo-input">
                 <div class="input-container" v-for="(todo, index) in todos">
-                    <input :ref="todo.id"  type="text" autofocus
+                    <input :ref="'input-todo' + index"  type="text" autofocus
                         @keyup.enter="createNote" v-model="todo.txt" :placeholder="setPlaceholder" 
                     />
                     <button title="Remove Todo" class="remove-todo" @click="removeTodo(todo.id)" v-if="index !== (todos.length - 1)">
@@ -69,8 +69,11 @@ export default {
         changeType(type) {
             // Avoid bugs
             if (this.note.type === type) return;
-            if (type === 'typeTodo') this.todos = [{ id: utilService.generateId(), txt: '' }];
             this.note.type = type;
+            if (type === 'typeTodo') {
+                this.todos = [{ id: utilService.generateId(), txt: '' }];
+            }
+            else setTimeout(() => this.$refs['input-normal'].focus(), 500);
         },
         addTodo() {
             this.todos.push({ id: utilService.generateId(), txt: '' });
@@ -90,13 +93,7 @@ export default {
             this.note.data = '';
             this.todos = this.todos = [{ id: utilService.generateId(), txt: '' }];
             // If we are not on todo, focus on input again!
-            if (this.note.type !== 'typeTodo') this.$refs.input.focus();
-            else {
-                // get the todos id and focus on it
-                let todoId = this.todos[0].id;
-                console.log(this.$refs)
-                // this.$nextTick(() => this.$refs[todoId].focus())
-            }
+            if (this.note.type !== 'typeTodo') this.$refs['input-normal'].focus();
         },
     },
     computed: {
