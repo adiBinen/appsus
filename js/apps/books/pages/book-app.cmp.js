@@ -46,6 +46,11 @@ export default {
             this.filterBy = filterBy;
         }
     },
+    watch: {
+        $route(to, from) {
+            console.log(to, from)
+        }
+    },
     computed: {
         filterBooks() {
             let filteredBooks =  this.books.slice();

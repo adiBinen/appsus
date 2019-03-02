@@ -74,7 +74,6 @@ export default {
     created() {
         bookService.getBookById(this.$route.params.bookId)
             .then(book => this.book = book);
-        console.log(this.$route);
     },
     methods: {
         goBack() {
