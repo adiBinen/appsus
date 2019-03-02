@@ -16,6 +16,8 @@ import {
     NOTE_TODOS_MODIFY,
     NOTE_UPDATE,
     USER_MSG_SUCCESS,
+    NOTES_CLEAR_SEARCH,
+    NOTES_SEARCHBAR,
 } from '../../../event-bus.js'
 
 export default {
@@ -23,15 +25,16 @@ export default {
     components: { notesHeader, noteCreate, noteList, userMsg },
     template: `
         <main class="notes-app " v-if="notes">
-            <notes-header :unread-emails="unreadEmails"></notes-header>
+            <notes-header :unread-emails="unreadEmails" :notes="notes"></notes-header>
             <note-create @note-created="addNote"></note-create>
             <div class="notes-container">
+                <note-list v-if="searchTerm" :notes="searchedNotes"></note-list>
                 <!-- <hr v-if ="pinnedNotes.length >= 1"/> -->
-                <h3 v-if ="pinnedNotes.length >= 1" class="notes-sections">Pinned</h3>
-                <note-list :notes="pinnedNotes"></note-list>
+                <h3 v-if ="!searchTerm && pinnedNotes.length >= 1" class="notes-sections">Pinned</h3>
+                <note-list v-if="!searchTerm" :notes="pinnedNotes"></note-list>
                 <!-- <hr v-if ="unpinnedNotes.length >= 1" /> -->
-                <h3 v-if ="pinnedNotes.length >= 1" class="notes-sections">Others</h3>
-                <note-list :notes="unpinnedNotes"></note-list>
+                <h3 v-if ="!searchTerm && pinnedNotes.length >= 1" class="notes-sections">Others</h3>
+                <note-list v-if="!searchTerm" :notes="unpinnedNotes"></note-list>
             </div>
             <user-msg></user-msg>
         </main>
@@ -39,12 +42,13 @@ export default {
     data() {
         return {
             notes: null,
+            searchTerm: null,
         };
     },
     methods: {
         addNote(note) {
             noteService.addNote(note.type, note.data)
-                .then(msg => {eventBus.$emit(USER_MSG_SUCCESS, msg)});
+                .then(msg => { eventBus.$emit(USER_MSG_SUCCESS, msg) });
         },
         requestNewNotes() {
             noteService.query()
@@ -57,20 +61,37 @@ export default {
         },
         unpinnedNotes() {
             return this.notes.filter((note) => !note.isPinned)
+        },
+        searchedNotes() {
+            let term = this.searchTerm.toLowerCase();
+            return this.notes.filter(note => {
+                if (note.type === 'typeTodo') {
+                    if (note.data.some(todo => (todo.txt.toLowerCase().includes(term)))) return true;
+                } else {
+                    return note.data.toLowerCase().includes(term);
+                }
+            })
+        }
+    },
+    watch: {
+        $route(to, from) {
+            this.searchTerm = to.hash.replace(/#search\//, '').toLowerCase();
         }
     },
     created() {
         // Get notes from server
         noteService.query()
-            .then(notes => this.notes = notes);
+            .then(notes => {
+                this.notes = notes;
+            });
 
         // EVENT LISTENERS
         eventBus.$on(NOTE_DELETE, noteId => {
             noteService.deleteNote(noteId)
-                .then(msg => {eventBus.$emit(USER_MSG_SUCCESS, msg)});
+                .then(msg => { eventBus.$emit(USER_MSG_SUCCESS, msg) });
         });
 
-        eventBus.$on(NOTE_UPDATE, ({id, data}) => {
+        eventBus.$on(NOTE_UPDATE, ({ id, data }) => {
             let note = this.notes.find(note => note.id === id);
             note.data = data;
             noteService.modifyNote(note)
@@ -79,8 +100,8 @@ export default {
 
         eventBus.$on(NOTE_DUPLICATE, noteId => {
             noteService.duplicateNote(noteId)
-                .then(msg => {eventBus.$emit(USER_MSG_SUCCESS, msg)});
-            
+                .then(msg => { eventBus.$emit(USER_MSG_SUCCESS, msg) });
+
         });
 
         eventBus.$on(NOTE_MODIFIED, newNote => {
@@ -89,7 +110,7 @@ export default {
                 return todo.txt.length > 0;
             });
             noteService.modifyNote(newNote)
-                .then(msg => {eventBus.$emit(USER_MSG_SUCCESS, msg)});
+                .then(msg => { eventBus.$emit(USER_MSG_SUCCESS, msg) });
         });
 
         eventBus.$on(NOTE_TODOS_MODIFY, ({ noteId, todos }) => {
@@ -99,6 +120,9 @@ export default {
                 .then(this.requestNewNotes);
         });
 
+        eventBus.$on(NOTES_CLEAR_SEARCH, () => {
+            this.searchTerm = null;
+        });
 
         // See if URL contains a premade note (from a sibling app - /notes?content=XXXX)
         let { content } = this.$route.query;
