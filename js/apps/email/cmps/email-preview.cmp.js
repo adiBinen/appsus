@@ -8,29 +8,27 @@ export default {
         <router-link 
             tag="li" 
             :to="(draftState)? '/email/#/drafts' : email.id" exact 
-            class="email-preview flex" :class="setUnread" 
+            class="email-preview" :class="setUnread" 
             @click.native="startComposeEmail">
             
-            <div class="checkbox-border" @click.stop="checkedEmail">
+            <div title="Check e-mail" class="checkbox-border" @click.stop="checkedEmail">
                 <label class="checkbox-container" @click.stop="">
                     <input type="checkbox" @click.stop="checkedEmail" :checked="isChecked">
                     <span class="checkmark"></span>
                 </label>
             </div>
-            <!-- <div class="email-details flex"> -->
-                <div class="sender">
+                <div title="Sender" class="sender">
                     {{email.sender}}
                 </div>
-                <div class="subject">
+                <div title="Subject" class="subject">
                     {{email.subject}}
                 </div>
-                <div class="body">
+                <div title="Body" class="body">
                     {{email.body}}
                 </div>
-                <div class="date">
+                <div title="Sent at" class="date">
                     {{formattedDate}}
                 </div>
-            <!-- </div> -->
         </router-link>
     `,
     data() {
