@@ -389,6 +389,9 @@
 .btn-color-note:focus ~ .color-palette {
     display: block;
 }
+.btn-color-note:active ~ .color-palette {
+    display: block;
+}
 
 .color-palette:hover {
     display: block;
