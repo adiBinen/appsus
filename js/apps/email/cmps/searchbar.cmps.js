@@ -26,7 +26,6 @@ export default {
     },
     methods: {
         searchTerm() {
-            this.clearSearch();
             this.$router.push({ path: `/emails/#search/${this.term}` });
         },
         clearSearch() {
