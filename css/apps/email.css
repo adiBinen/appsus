@@ -26,7 +26,6 @@
     align-items: center;
     flex-wrap: wrap;
     padding: 0 20px;
-    box-shadow: 0 0px 0px .5px #64798fab;
     z-index: 3;
     box-shadow: 0 0px 0px 0.5px #64798fab;
 }
@@ -140,7 +139,7 @@
     position: fixed;
     color: #767676;
     font-size: .9em;
-    z-index: 5;
+    z-index: 2;
     top: 101px;
     transform: translate(-500px, 0);
     transition: transform .6s;
@@ -151,9 +150,9 @@
         grid-area: nav;
         height: 100%;
         position: relative;
-        z-index: 2;
+        z-index: 3;
         transform: translate(0, 0);
-        top: 0;
+        top: 1px;
         transition: none;
     }
 }

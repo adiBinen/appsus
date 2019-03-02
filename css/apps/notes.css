@@ -16,6 +16,7 @@
 
 .notes-app button {
     color: #555;
+    transition: color .3s;
 }
 
 .notes-app button:hover {

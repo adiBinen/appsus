@@ -157,6 +157,7 @@ iframe, audio {
     height: 50px;
     z-index: 1000;
     font-size: 0.8em;
+    padding: 5px;
     visibility: hidden;
     opacity: 0;
     color: #fff;

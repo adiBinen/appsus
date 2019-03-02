@@ -8,7 +8,7 @@ export default {
         <section class="email-compose grid">
             <header class="compose-header flex align-center space-between">
                 <p>New message</p>
-                <button title="Close draft" @click="closeComposeEmail"><i class="fas fa-times"></i></button>
+                <button title="Close & save draft" @click="closeComposeEmail"><i class="fas fa-times"></i></button>
             </header>
             <form @submit.prevent.stop="sendEmail" class="compose-email-form grid">
                 <input 

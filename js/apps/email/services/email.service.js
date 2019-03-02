@@ -47,7 +47,7 @@ function addEmail(data) {
 
 function sendDraftEmail(data) {
     let idx = _getEmailIdxById(data.id);
-    if (idx === -1) return Promise.reject('Error: Email was not found, send draft email');
+    if (idx === -1) return Promise.reject('Error: Email was not found, draft email required');
     emailsDB.splice(idx, 1);
     let {sender, recipient, subject, body} = data;
     let newEmail = _createEmail(sender, recipient, subject, body);
@@ -64,7 +64,7 @@ function saveEmailToDraft(draftData) {
     newEmail.isRead = true;
     emailsDB.unshift(newEmail);
     storageService.saveToLocal(EMAILS_KEY, emailsDB);
-    return Promise.resolve(`Email was saved to draft.`);
+    return Promise.resolve(`Draft was saved.`);
 }
 
 function deleteEmail(id) {
