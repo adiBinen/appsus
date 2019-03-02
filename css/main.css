@@ -62,6 +62,10 @@ iframe, audio {
     width: 100%;
 }
 
+.main-app {
+    grid-template-rows: minmax(100vh, 1fr);
+}
+
 /* GLOBAL CMPS */
 
     /* GLOBAL NAV */

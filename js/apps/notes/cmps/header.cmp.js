@@ -8,8 +8,8 @@ export default {
             <router-link to="/notes" tag="div" class="email-logo flex align-center">
                 <img class="email-logo-img" src="./img/note.svg">
                 <h1>NotesHub</h1>
+                <search-bar @click.stop :notes="notes"></search-bar>
             </router-link>
-            <search-bar :notes="notes"></search-bar>
             <global-nav :unread-emails="unreadEmails"></global-nav>
             </header>
     `,
