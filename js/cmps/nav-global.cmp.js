@@ -6,17 +6,21 @@ export default {
     template: `
             <nav class="global-nav" @click.stop>
                 <button @click.stop="toggleNav" title="Hub apps">
-                    <i class="material-icons">apps</i>
+                    <!-- <i class="material-icons">apps</i> -->
+                    <img src="./img/apps.svg"/>
                 </button>
                 <div class="dropdown-menu" :class="isShown" @click.stop>
                     <router-link title="MainHub" to="/" exact>
-                        <i class="fas fa-home"></i>
+                        <img src="./img/wifi.svg"/>
                     </router-link>
-                    <router-link to="/email/inbox" title="MailsHub">
-                        <i class="fas fa-envelope"></i><span class="global-nav-unread-emails" v-if="unreadEmails">{{unreadEmails}}</span>
+                    <router-link class="email-icon" to="/email/inbox" title="MailsHub">
+                        <img src="./img/email.svg"/>
+                        <span class="global-nav-unread-emails" v-if="unreadEmails">{{unreadEmails}}</span>
                     </router-link>
-                    <router-link title="NotesHub" to="/notes"><i class="fas fa-sticky-note"></i></router-link>
-                    <router-link title="BooksHub" to="/books"><i class="fas fa-book"></i></router-link>
+                    <router-link title="NotesHub" to="/notes"><img src="./img/note.svg"/></router-link>
+                    <router-link title="BooksHub" to="#"><img src="./img/books.svg"/></router-link>
+                    <router-link title="LocationsHub" to="#"><img src="./img/map-location.svg"/></router-link>
+                    <router-link title="WikiTubeHub" to="#"><img src="./img/wikitube.svg"/></router-link>
                 </div>
                 <img class="global-nav-user-img" :src="userImg" alt="User Profile Image" title="User profile"/>
             </nav>
