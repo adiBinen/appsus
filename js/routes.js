@@ -26,7 +26,7 @@ const routes = [
     {
         path: '/notes', component: notesApp,
         children: [
-
+            {path: '#search/:term', component: notesApp}
         ]
     },
 ]
