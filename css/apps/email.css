@@ -778,6 +778,7 @@
     grid-column-start: 2;
     text-align: right;
     align-self: center;
+    font-size: .85em;
 }
 .display-content > .subject {
     grid-row-start: 1;
