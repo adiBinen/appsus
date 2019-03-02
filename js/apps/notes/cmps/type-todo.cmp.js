@@ -20,7 +20,7 @@ export default {
                     <i class="fas fa-minus"></i>
                 </button>
             </li>
-            <button v-if="isEditable" @click="addTodo">
+            <button class="btn-add-todo" v-if="isEditable" @click="addTodo">
                 <i class="fas fa-plus"></i>
             </button>
         </ul>
