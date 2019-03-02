@@ -27,9 +27,11 @@
 }
 
 .notes-header .search-bar-input {
+    margin-left: 20px;
     width: 30vw;
     padding: 10px 15px;
-    border: .5px solid #64798fab;
+    border: none;
+    /* border: .5px solid #64798fab; */
     outline: none;
     border-radius: 3px;
     font-family: 'Roboto', sans-serif;
@@ -40,7 +42,7 @@
 
 .notes-header .search-bar-input:focus {
     background-color: #fff;
-    box-shadow: 1px 2px 4px #64798fab;
+    box-shadow: 0px 0px 1px 1px #64798fab;
 }
 
 .notes-header .search-bar .btn-clear-search {
@@ -95,20 +97,20 @@
 
 .note-create .input-container button {
     position: absolute;
-    top: 0;
+    top: 2px;
     right: 0;
     transform: translate(-70%, 15%);
     z-index: 3;
-    color: #2ecc71;
+    color: #333;
 }
 
 .note-create .todo-input button.add-todo {
     position: absolute;
-    top: 0;
+    top: 2px;
     right: 0;
     transform: translate(-140%, 15%);
     z-index: 3;
-    color: #2ecc71;
+    color: #aed357;
     transition: .3s;
 }
 
@@ -118,7 +120,7 @@
     right: 0;
     transform: translate(-70%, 15%);
     z-index: 3;
-    color: #2ecc71;
+    color: #d93025;
     transition: .3s;
 }
 
@@ -128,19 +130,17 @@
 
 .note-create input {
     margin-right: 20px;
-    width: 200px;
-    padding: 5px;
+    width: 300px;
+    padding: 8px;
+    border-radius: 3px;
     outline: none;
-    border: 1px solid #333;
-    background-color: #333;
-    color: #fff;
+    border: none;
+    background-color: #fff;
+    box-shadow: 0px 0px 4px 0px #64798f;
+    color: #333;
     transition: .6s;
 }
 
-.note-create input:focus {
-    background-color: #fff;
-    color: #333;
-}
 
 .note-create button {
     font-size: 1.125em;

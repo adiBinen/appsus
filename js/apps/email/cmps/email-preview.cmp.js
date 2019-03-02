@@ -7,7 +7,7 @@ export default {
     template: ` 
         <router-link 
             tag="li" 
-            :to="(draftState)? '/email/#/drafts' : email.id" exact 
+            :to="(draftState)? '/email/#/drafts' : '/email/' + email.id" exact 
             class="email-preview" :class="setUnread" 
             @click.native="startComposeEmail">
             
