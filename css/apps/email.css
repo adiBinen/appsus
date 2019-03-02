@@ -127,7 +127,6 @@
 
 
 .email-side-nav .btns-container > *:not(:first-child) {
-    /* margin-bottom: 10px; */
     padding: 5px;
 }
 
@@ -269,16 +268,17 @@
 
 /* email preview */
 .email-preview {
+    flex-direction: row;
+    height: 50px;
     cursor: pointer;
     padding: 15px 0;
     background-color: #f5f7f7;
     font-size: .85em;
-    height: 50px;
     align-items: center;
+    box-shadow: 0 0px 0px .5px #64798fab;  
 }
 
-.email-preview {
-    box-shadow: 0 0px 0px .5px #64798fab;  
+@media (min-width: 550px) {
 }
 
 .unread {
