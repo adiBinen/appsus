@@ -76,7 +76,7 @@
 .email-header .search-bar .btn-clear-search {
     position: absolute;
     right: 30px;
-    top: 10px;
+    top: 12px;
     display: none;
     transition: color .3s;
 }
