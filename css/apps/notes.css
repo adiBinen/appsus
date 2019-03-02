@@ -41,6 +41,11 @@
     padding: 10px 0;
 }
 
+.email-logo-img {
+    width: 35px;
+    height: auto;
+}
+
 .notes-header .email-logo h1 {
     grid-area: h1;
 }

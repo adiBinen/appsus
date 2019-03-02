@@ -55,7 +55,7 @@ iframe, audio {
 
 /* GLOBAL CMPS */
 
-    /* GLOBAL NAV */
+/* GLOBAL NAV */
 
 .global-nav {
     position: relative;
@@ -64,6 +64,11 @@ iframe, audio {
     justify-content: space-evenly;
     align-items: center;
     order: 3;
+}
+
+.global-nav-img {
+    width: 20px;
+    height: auto;
 }
 
 .global-nav button {

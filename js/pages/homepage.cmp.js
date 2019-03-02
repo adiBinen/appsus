@@ -6,12 +6,16 @@ export default {
     template: ` 
         <main class="homepage">
             <main-header :unread-emails="unreadEmails"></main-header>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil laboriosam excepturi molestias quae atque nesciunt eveniet ad illo ipsa, harum, dicta quia eius, quo libero impedit rerum distinctio non qui.
-            </p>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil laboriosam excepturi molestias quae atque nesciunt eveniet ad illo ipsa, harum, dicta quia eius, quo libero impedit rerum distinctio non qui.
-            </p>
+            <div class="homepage-container">            
+                    <h1 class="our-app">Our App</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis consectetur optio cumque, dignissimos, possimus animi quia totam est voluptatibus quasi fugiat, fuga velit nostrum impedit unde. Vero enim perferendis dolor.
+                    </p>
+                </div>
+                <div class="icon">
+                    <i class="fab fa-vuejs"></i>
+                </div>
+            </div>
         </main class="homepage">
     `,
 

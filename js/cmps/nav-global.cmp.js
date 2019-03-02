@@ -7,7 +7,7 @@ export default {
             <nav class="global-nav" @click.stop>
                 <button @click.stop="toggleNav" title="Hub apps">
                     <!-- <i class="material-icons">apps</i> -->
-                    <img src="./img/apps.svg"/>
+                    <img class="global-nav-img" src="./img/apps.svg"/>
                 </button>
                 <div class="dropdown-menu" :class="isShown" @click.stop>
                     <router-link title="MainHub" to="/" exact>
