@@ -579,10 +579,7 @@
     }
     
        @media (min-width: 650px) {
-          
-          
            .email-preview .subject {
-              
                width: 20%;
            }
            .email-preview .body {
@@ -595,7 +592,6 @@
                 width: 120px;
                 text-align: center;
            } 
-           
        }
        @media (min-width: 1200px)
        {
@@ -742,7 +738,7 @@
 
 .email-display > .display-toolbar {
     height: 50px;
-    padding: 10px;
+    align-items: baseline;
     border-bottom: .5px solid #4040404d;
 }
 
@@ -751,25 +747,28 @@
 }
 
 .display-toolbar > * {
-    height: 30px;
-    width: 30px;
+    font-size: 15px;
+    padding: 5px;
+    margin-left: 15px;
+    color: #767676;
 }
 
 .display-btn-border {
-    width: 30px;
+    width: 40px;
     margin-left: 10px;
-    padding: 20px;
+    padding: 10px;
     border-radius: 50%;
     position: relative;
     background-color: rgba(202, 195, 195, 0);
     transition: .3s;
 }
 .display-btn-border:hover {
+    color: black;
     background-color: rgba(145, 145, 145, 0.151);
 }
 
 .display-content {
-    grid-template-columns: 1fr 130px;
+    grid-template-columns: 3fr 1fr;
     grid-template-rows: 2fr, 2fr, 3fr;
     padding: 20px;
 }

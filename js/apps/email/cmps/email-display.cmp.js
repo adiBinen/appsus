@@ -5,8 +5,8 @@ import { eventBus, EMAIL_MODIFIED, UNREAD_EMAILS, EMAIL_DELETED } from '../../..
 export default {
     template: `
         <section v-if="email" class="email-display">
-            <div class="display-toolbar flex align-center">
-                <router-link tag="button" class="email-to-note" :to="'/notes?content=' + email.body" >
+            <div class="display-toolbar flex">
+                <router-link tag="button" class="email-to-note display-btn-border" :to="'/notes?content=' + email.body" >
                     <i class="fas fa-thumbtack"></i>
                 </router-link>
                 <button title="Go back" class="display-btn-border" @click="goBack">
