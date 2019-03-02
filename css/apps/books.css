@@ -1,0 +1,625 @@
+
+.book-app {
+    grid-template-areas:
+    "app-header"
+    "app-content"
+    "app-footer";
+    grid-template-rows: 50px minmax(calc(100vh - 50px - 20px), 1fr) 20px;
+    grid-row-gap: 1.2em;
+    grid-column-gap: 1.2em;
+}
+
+/* app header */
+.book-app header {
+    grid-area: app-header;
+    font-family: 'Maven Pro',sans-serif;
+    background-color: #e6e6e6;
+    color: #333;
+    padding: 5px 20px 0 20px;
+    box-shadow: 0 0 5px 2px black;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.book-app header h1 {
+    font-size: 2em;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+@media (min-width: 750px) {
+    .book-app header {
+        position: static;
+        width: auto;
+        z-index: 0;
+    }
+}
+
+.book-app > section {
+    grid-area: app-content;
+}
+
+/* Footer */
+
+.book-app footer {
+    grid-area: app-footer;
+    background-color: #333;
+}
+
+.book-app footer h3 {
+    color: #e3e3e3;
+    padding-left: 5px;
+}
+
+/* Nav */
+/* .header-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    width: 25vw;
+    top: 48px;
+    height: 100vh;
+    background-color: #f78fb3e8;
+    right: 0;
+    transform: translateX(200px);
+    visibility: hidden; opacity: 0;
+    transition: .6s ease-in-out;
+}
+
+.header-nav.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.header-nav > * {
+    font-size: 1.1em;
+    transition: .3s;
+}
+
+.header-nav > *:first-child {
+    margin: 10px 0;
+}
+
+.header-nav > * {
+    margin-bottom: 10px;
+}
+.header-nav > *:hover {
+    color: #fff;
+}
+
+.btn-nav-toggle {
+    font-size: 1.2em;
+    transition: .3s;
+}
+
+.btn-nav-toggle:hover {
+    color: #e3e3e3;
+}
+
+@media(min-width: 750px){
+    .header-nav {
+        background-color: inherit;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        position: static;
+        z-index: 0;
+        right: none;
+        height: auto;
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .btn-nav-toggle {
+        display: none;
+    }
+    .header-nav > *, .header-nav > *:first-child {
+        font-size: 1em;
+        margin: 0;
+    }
+} */
+
+/* BOOK APP PAGE */
+/* Book filter */
+
+.book-filter {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0;
+    box-shadow: 0 0 2px 0px black;
+}
+
+.book-filter .form-filter {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+}
+
+.book-filter .form-filter > * {
+    margin: 0 5px;
+    margin-bottom: 5px;
+}
+
+.book-filter .input-title {
+    border: 1px solid #333;
+    outline-color: #333;
+    padding: 5px;
+}
+
+.book-filter .input-price {
+    width: 200px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+@media (min-width: 860px) {
+    .book-filter {
+        margin: 20px 0;
+        }
+    .book-filter .form-filter {
+        flex-direction: row;
+    }
+}
+
+/* Book-list */
+
+.book-list {
+    margin: 10px 0;
+    grid-area: book-list;
+    grid-template-columns: repeat(auto-fill, 150px);
+    grid-template-rows: auto;
+    justify-content: center;
+    grid-gap: 1.2em;
+}
+
+/* Book Preview */
+
+.book-preview {
+    cursor: pointer;
+    position: relative;
+    height: 230px;
+    width: 150px;
+    border-radius: 5px;
+    transition: box-shadow .3s;
+}
+
+@media (min-width: 860px) {
+    .book-list {
+        grid-template-columns: repeat(auto-fill, 250px);
+    }
+    .book-preview {
+        height: 320px;
+        width: 250px;
+    }
+}
+
+.book-preview:hover {
+    box-shadow: 0 0 3px 1px #333;
+    transform: translateY(-10px);
+}
+
+.book-preview .book-image-container {
+    border-radius: 5px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.book-preview .book-details-container {
+    border-radius: 5px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'Maven Pro', sans-serif;
+    color: #fff;
+    background-color: rgba(51, 51, 51, 0.85);
+    transition: opacity .3s;
+}
+
+.book-preview .book-details-container .book-title {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+}
+
+.book-preview .book-details-container .book-price {
+    font-size: 1.2em;
+}
+
+.book-preview:hover .book-details-container {
+    opacity: .9;
+    visibility: visible;
+}
+
+.book-preview .book-title {
+    text-transform: capitalize;
+} 
+
+/* Book Details */
+
+.book-details {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 10px;
+}
+
+.book-details > * {
+    margin: 15px;
+}
+
+
+.book-details .details-content > * {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.book-details .details-content span, .details-content > p {
+    font-weight: normal;
+}
+
+
+.book-details .book-title {
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Maven Pro', sans-serif;
+    text-transform: capitalize;
+}
+
+.book-details .book-subtitle {
+    text-transform: capitalize;
+    font-size: 1.5em;
+}
+
+.book-details .book-locale span{
+    text-transform: uppercase;
+}
+
+.book-details .book-description {
+    font-weight: normal;
+
+    min-height: 4em;
+    margin-bottom: 50px;
+}
+
+.book-details .book-description::first-letter {
+    text-transform: capitalize;
+}
+
+.book-details .book-description:hover {
+    cursor: pointer;
+}
+
+.book-details .book-description.short:hover::after {
+    content: 'Read More...';
+    color: #636e72;
+}
+
+.book-details .book-description.long:hover::after {
+    content: '...Read Less';
+    color: #636e72;
+}
+
+
+@media (min-width: 860px) {
+    .book-details {
+        flex-direction: row;
+        text-align: start;
+        margin-left: 8vw;
+    }
+    .book-details .book-image {
+        width: auto;
+    }
+    .book-details .book-description {
+        text-align: justify;
+        max-width: 400px;
+    }
+}
+
+/* Book Reviews */
+
+
+.book-container hr {
+    width: 80%;
+    border-color: #333; 
+}
+
+.book-reviews-container {
+    align-items: center;
+}
+
+/* Add book review */
+
+.add-book-review {
+    font-family: 'Lato', sans-serif;
+}
+
+
+.add-book-review input {
+    margin-bottom: 5px;
+    width: 200px;
+    padding: 5px;
+    outline: #333;
+
+}
+
+.add-book-review .review-rating {
+    margin-bottom: 5px;
+}
+
+.review-stars {
+    font-size: 1.3em;
+    width: 300px;
+    color: #f7b731;
+    -webkit-text-stroke: 1px #333;
+    margin-right: 1px;
+}
+
+.add-book-review .review-rating .btn {
+    font-size: 1.2em;
+    transition: .3s;
+}
+
+
+.review-rating .btn-dec-star {
+    color: #eb3b5a;
+}
+
+.review-rating .btn-dec-star:hover {
+    color: #333;
+}
+
+.review-rating .btn-inc-star {
+    color: #2d98da;
+}
+
+.review-rating .btn-inc-star:hover {
+    color: #333;
+}
+
+.add-book-review .btn-submit {
+    align-self: center;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #33d9b2;
+    color: #000;
+    transition: .3s;
+}
+
+.add-book-review .btn-submit:hover {
+    background-color: #218c74;
+    color: #fff;
+}
+
+.add-book-review textarea {
+    min-width: 300px;
+    max-width: 300px;
+    min-height: 100px;
+    max-height: 300px;
+}
+
+.add-book-review textarea:focus, .add-book.review input:focus {
+    outline: #333;
+}
+
+/* Book review list */
+
+.review-list {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    
+}
+
+.review-list .review-container {
+    position: relative;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #333;
+
+}
+
+.review-list span {
+    font-weight: normal;
+}
+
+.review-list p span {
+    font-weight: bold;
+}
+
+.review-list p {
+    margin: 10px 0;
+    font-weight: normal;
+}
+
+.review-list .btn-delete-review {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.5em;
+    color: #b33939;
+    transform: translate(0,-5px);
+    transition: .3s;
+}
+
+.btn-delete-review:hover {
+    color: #333;
+}
+
+/* Book Add Page */
+
+.book-google-add {
+    grid-template-columns: 20vw 1fr 10vw;
+    grid-auto-rows: min-content;
+    grid-row-gap: 1em;
+    justify-content: baseline;
+    align-items: baseline;
+}
+
+.book-google-add .btn-back{
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.book-google-add h1 {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 1.5em;
+}
+
+.book-google-add .book-add-input {
+    grid-column: 2;
+    grid-row: 3;
+    width: 50%;
+    outline: #000;
+    padding: 5px;
+}
+
+.book-google-add .book-add-input:focus {
+    outline: #333;
+}
+
+.book-google-add ul {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.li-google-book.marked {
+    text-decoration: line-through;
+}
+
+.btn-gbook-add {
+    font-size: 1.2em;
+}
+
+
+/* Buttons */
+
+/* 
+.btn-back {
+    align-self: flex-start;
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 1.3em;
+    padding: 5px;
+    color: #333;
+}
+
+.btn-back, .btn-back > * {
+    transition: .3s;
+}
+
+.btn-back:hover i {
+    transform: translateX(-5px);
+}
+
+.btn-back:hover span {
+    text-decoration: underline;
+} */
+
+.btn-filter {
+    border-radius: 5px;
+    background-color: #0984e3;
+    align-self: center;
+    color: #e3e3e3;
+    width: 58px;
+    height: 30px;
+    transition: .3s;
+}
+
+.btn-filter:hover {
+    background-color: #74b9ff;
+    color: #333;
+}
+
+.btn-add-review {
+    align-self: flex-end;
+    padding: 10px;
+    margin-right: 10vw;
+    margin-bottom: 20px;
+    background-color: #26de81;
+    border-radius: 2px;
+    transition: .3s;
+}
+
+.btn-add-review:hover {
+    color: #fff;
+    background-color: #20bf6b;
+}
+
+.btn-add-review.red {
+    background-color: #ff5252;
+    color: #000;
+}
+
+.btn-add-review.red:hover {
+    background-color: #b33939;
+    color: #fff;
+}
+
+.btn-filter-toggle {
+    font-size: 1.05em;
+    margin-bottom: 5px;
+}
+
+.btn-filter-toggle span {
+    font-size: 1.2em;
+}
+
+.btn-filter-toggle .fa-toggle-on {
+    color: #2ecc71;
+}
+
+.btn-filter-toggle .fa-toggle-off {
+    color: #e74c3c;
+}
+
+/* Badges */
+
+.badge {
+    border-radius: 50px;
+    background-color: #2d3436;
+    color: #e3e3e3;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 5px 8px;
+}
+
+
+/* Vue transitions */
+
+.list-enter-active, .list-leave-active {
+    transition: all 1s;
+}
+
+.list-enter, .list-leave-to {
+opacity: 0;
+transform: translateY(30px);
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .6s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    transition: opacity .6s;
+}

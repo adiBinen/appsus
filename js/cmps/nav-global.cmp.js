@@ -18,7 +18,7 @@ export default {
                         <span class="global-nav-unread-emails" v-if="unreadEmails">{{unreadEmails}}</span>
                     </router-link>
                     <router-link title="NotesHub" to="/notes"><img src="./img/note.svg"/></router-link>
-                    <router-link title="BooksHub" to="#"><img src="./img/books.svg"/></router-link>
+                    <router-link title="BooksHub" to="/books"><img src="./img/books.svg"/></router-link>
                     <router-link title="LocationsHub" to="#"><img src="./img/map-location.svg"/></router-link>
                     <router-link title="WikiTubeHub" to="#"><img src="./img/wikitube.svg"/></router-link>
                 </div>

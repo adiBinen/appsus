@@ -1,13 +1,18 @@
 // MAIN PAGES
 import homepage from './pages/homepage.cmp.js';
 
-// EMAIL APP PAGES AND CMPS
+// EMAIL APP
 import emailApp from './apps/email/pages/email-app.cmp.js';
 import emailList from './apps/email/cmps/email-list.cmp.js';
 import emailDisplay from './apps/email/cmps/email-display.cmp.js';
 
 // NOTES APP
 import notesApp from './apps/notes/pages/notes-app.cmp.js';
+
+// BOOKS APP
+import booksApp from './apps/books/pages/book-app.cmp.js';
+import bookDetails from './apps/books/pages/book-details.cmp.js'
+import bookAdd from './apps/books/pages/book-app.cmp.js';
 
 const routes = [
     { path: '/', component: homepage },
@@ -20,13 +25,21 @@ const routes = [
             { path: ':emailId', component: emailDisplay },
             { path: '#/:filterBy', component: emailList },
             { path: '#search/:term', component: emailList },
-        ], 
+        ],
     },
     { path: '', component: emailApp },
     {
         path: '/notes', component: notesApp,
         children: [
-            {path: '#search/:term', component: notesApp}
+            { path: '#search/:term', component: notesApp }
+        ]
+    },
+    {
+        path: '/books', component: booksApp,
+        children: [
+            { path: '#/book:bookId/:bookName?', component: bookDetails },
+            { path: '#/book-add', component: bookAdd },
+
         ]
     },
 ]
