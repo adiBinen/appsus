@@ -1,4 +1,4 @@
-import { eventBus, NOTES_SEARCHBAR, NOTES_CLEAR_SEARCH } from "../../../event-bus.js";
+import { eventBus, NOTES_CLEAR_SEARCH } from "../../../event-bus.js";
 
 export default {
     props: ['notes'],

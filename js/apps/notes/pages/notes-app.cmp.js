@@ -17,7 +17,6 @@ import {
     NOTE_UPDATE,
     USER_MSG_SUCCESS,
     NOTES_CLEAR_SEARCH,
-    NOTES_SEARCHBAR,
 } from '../../../event-bus.js'
 
 export default {
