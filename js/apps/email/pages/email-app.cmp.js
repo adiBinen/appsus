@@ -30,8 +30,8 @@ export default {
     },
     template: `
         <main class="email-app grid">
-            <main-header :unread-emails="unreadEmails"></main-header>
-            <side-nav :unread-emails="unreadEmails" @openComposeEmail="openComposeEmail()"></side-nav>
+            <main-header @toggle-nav="toggleNav" :unread-emails="unreadEmails"></main-header>
+            <side-nav :unread-emails="unreadEmails" @openComposeEmail="openComposeEmail()" :class="navToggle"></side-nav>
             <transition name="fade" mode="out-in">
                 <router-view class="email-content"></router-view>
             </transition>
@@ -53,7 +53,8 @@ export default {
             emails: null,
             isComposing: null,
             sentBody: null,
-            draftEmail: null
+            draftEmail: null,
+            isNavToggled: false,
         };
     },
     methods: {
@@ -93,6 +94,14 @@ export default {
                 emailService.deleteEmail(id)
                     .then(msg => eventBus.$emit(USER_MSG_SUCCESS, msg));
             } else eventBus.$emit(USER_MSG_SUCCESS, 'Draft was successfully removed.')
+        },
+        toggleNav() {
+            this.isNavToggled = !this.isNavToggled;
+        }
+    },
+    computed: {
+        navToggle() {
+            return {show: this.isNavToggled};
         }
     },
     watch: {
