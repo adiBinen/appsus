@@ -5,17 +5,17 @@ import { eventBus, EMAIL_MODIFIED, UNREAD_EMAILS } from '../../../event-bus.js';
 export default {
     template: `
         <section v-if="email" class="email-display">
-            <div class="future-toolbar">
+            <div class="display-toolbar flex align-center">
                 <router-link tag="button" class="email-to-note" :to="'/notes?content=' + email.body" >
                     <i class="fas fa-thumbtack"></i>
                 </router-link>
             </div>
-            <header class="email-display-header">
+            <div class="display-content grid">
+                <div class="sent-date"><span>Sent At: </span>{{formattedDate}}</div>
                 <h1 class="subject">{{email.subject}}</h1>
-            </header>
-            <div class="sent-date">{{formattedDate}}</div>
-            <h2><span>From: </span>{{email.sender}}</h2>
-            <p>{{email.body}}</p>
+                <h2 class="sent-from"><span>From: </span>{{email.sender}}</h2>
+                <p class="email-body">{{email.body}}</p>
+            </div>
         </section>
     `,
     data() {
