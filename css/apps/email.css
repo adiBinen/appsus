@@ -420,9 +420,6 @@
         vertical-align: 5px;
         color: #767676;
     }
-    
-    
-
 }
 
 
@@ -474,7 +471,7 @@
 /* MOBILE GRID */
 .email-preview {
     display: grid;
-    grid-template: 50px 1fr 1fr / 50px 1fr 100px;
+    grid-template: 30px 30px 30px / 50px 1fr 100px;
 }
 
 .checkbox-border {
@@ -502,83 +499,66 @@
     grid-column-start: 3;
 }
 
+.email-preview {
+    flex-direction: row;
+    cursor: pointer;
+    padding: 15px 10px;
+    background-color: #f5f7f7;
+    font-size: .85em;
+    align-items: center;
+    box-shadow: 0 0px 0px .5px #64798fab;  
+}
+
+.unread {
+    background-color: #fff;
+}
+.unread .subject {
+    font-weight: bold;
+}
+.unread .sender {
+    font-weight: bold;
+}
+.email-preview:hover {
+    box-shadow: 0px 1px 5px -1px black;
+    position: relative;
+    z-index: 1;
+}
+.email-preview > *:not(:first-child){
+    text-align: left;
+    line-height: 20px;
+}
+.email-preview .subject {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 5px;
+}
+.email-preview .body {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    padding-right: 15px;
+}
+.email-preview .sender {
+    width: 80px;
+}
+.email-preview .date {
+    justify-self: end;
+}
+/* .email-preview .checkbox-container {
+    position: absolute;
+    top: 12px;
+    left: -4px;
+} */
+
 /* EMAIL-PREVIEW-DESKTOP-IS-THE-BEST-THING */
-
-
-
-
-    .email-preview {
-        
-        flex-direction: row;
-        cursor: pointer;
-        padding: 15px 10px;
-        background-color: #f5f7f7;
-        font-size: .85em;
-        align-items: center;
-        box-shadow: 0 0px 0px .5px #64798fab;  
-    }
-    
-    @media (min-width: 650px) {
+       @media (min-width: 650px) {
         .email-preview {
             display: flex;
             height: 50px;
             padding: 15px 0;
         }
-    }
-    
-    .unread {
-        background-color: #fff;
-    }
-    .unread .subject {
-        font-weight: bold;
-    }
-    .unread .sender {
-        font-weight: bold;
-    }
-    
-    .email-preview:hover {
-        box-shadow: 0px 1px 5px -1px black;
-        position: relative;
-        z-index: 1;
-    }
-    
-    .email-preview > *:not(:first-child){
-        text-align: left;
-        line-height: 20px;
-    }
-
-    .email-preview .subject {
-        white-space: nowrap; 
-        overflow: hidden;
-        text-overflow: ellipsis;
-     
-
-        padding-right: 5px;
-    }
-    .email-preview .body {
-        white-space: nowrap; 
-        overflow: hidden;
-        text-overflow: ellipsis;
-        text-align: left;
-        padding-right: 15px;
-    }
-    
-    .email-preview .sender {
-        width: 80px;
-    }
-
-    .email-preview .date {
-        justify-self: end;
-    }
-   
-  
-    .email-preview .checkbox-container {
-        position: absolute;
-        top: 12px;
-        left: -4px;
-    }
-    
-       @media (min-width: 650px) {
            .email-preview .subject {
                width: 20%;
            }
@@ -601,13 +581,18 @@
        }
 
 
-/* EMAIL-PREVIEW-DESKTOP-IS-SAD */
+/* EMAIL CHECKBOX */
 .checkbox-container {
+    position: absolute;
+    top: 18px;
+    left: 8px;
     display: block;
     margin-bottom: 12px;
     cursor: pointer;
     font-size: 22px;
     user-select: none;
+    align-self: center;
+    justify-self: center;
 }
 .checkbox-container input {
     position: absolute;
@@ -618,11 +603,11 @@
 }
 .checkmark {
     position: absolute;
-    top: 0;
-    left: 15px;
-    height: 17px;
-    width: 17px;
-    border: 2.5px solid #d1d2d2;
+    top: -7px;
+    left: 3px;
+    height: 25px;
+    width: 25px;
+    border: 2.5px solid #5a6576;
     border-radius: 3px;
 }
 /* When the checkbox is checked */
@@ -642,15 +627,16 @@
     content: "\f00c";
     padding-top: 0px;
     display: block;
-    font-size: 12px;
+    font-size: 21px;
     color: white;
 }
 .checkbox-border {
     width: 40px;
     margin-left: 10px;
-    padding: 20px;
+    padding: 23px;
     border-radius: 50%;
     position: relative;
+    left: -13px;
     background-color: rgba(202, 195, 195, 0);
     transition: .3s;
 }
@@ -660,6 +646,71 @@
 }
 .checkbox-border:hover input ~ .checkmark {
     border-color: #5a6576;
+}
+
+@media (min-width: 650px) {
+    .checkbox-container {
+        display: block;
+        margin-bottom: 12px;
+        cursor: pointer;
+        top: 12px;
+        left: -3px;
+        font-size: 22px;
+        user-select: none;
+    }
+    .checkbox-container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 15px;
+        height: 17px;
+        width: 17px;
+        border: 2.5px solid #d1d2d2;
+        border-radius: 3px;
+    }
+    /* When the checkbox is checked */
+    .checkbox-container input:checked ~ .checkmark {
+        box-sizing: border-box;
+        border-color: #5a6576;
+        background-color: #5a6576;
+    }
+    .checkbox-container:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+    .checkbox-container input:checked ~ .checkmark:after {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f00c";
+        padding-top: 0px;
+        display: block;
+        font-size: 12px;
+        color: white;
+    }
+    .checkbox-border {
+        width: 40px;
+        margin-left: 10px;
+        padding: 20px;
+        border-radius: 50%;
+        position: relative;
+        left: -5px;
+        background-color: rgba(202, 195, 195, 0);
+        transition: .3s;
+    }
+    .checkbox-border:hover {
+        background-color: rgba(145, 145, 145, 0.151);
+        box-shadow: 0 0 1px black;
+    }
+    .checkbox-border:hover input ~ .checkmark {
+        border-color: #5a6576;
+    }
 }
 
 /* compose email */
@@ -742,7 +793,7 @@
     border-bottom: .5px solid #4040404d;
 }
 
-.display-toolbar > :first-child {
+.display-toolbar > :nth-child(2) {
     transform: rotate(45deg);
 }
 
