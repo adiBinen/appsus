@@ -133,16 +133,17 @@
 
 @media (min-width: 450px) {
     .notes-container {
-        width: 410px;
+        max-width: 500px;
     }
     .note-list {
         column-count: 2;
     }
 }
 
-@media (min-width: 700px) {
+@media (min-width: 701px) {
     .notes-container {
-        width: 650px;
+        max-width: 680px;
+        margin: 0 auto;
     }
     .note-list {
         column-count: 3;
@@ -172,6 +173,7 @@
     font-size: .75em;
     margin-bottom: 20px;
     color: #576574;
+    text-transform: uppercase;
 }
 
 .note-protection {
@@ -217,24 +219,59 @@
 .btn-note-container {
     grid-template-columns: repeat(6, 1fr);
     position: relative;
+    min-height: 50px;
     opacity: 0;
     transition: .3s;
+    margin-top: 5px;
 }
 .btn-note-container > button {
-    font-size: .8em;
+    font-size: 1.2em;
     padding: 0;
+}
+
+@media (min-width: 450px) {
+    .btn-note-container {
+        min-height: auto;
+    }
+    .btn-note-container > button {
+        font-size: .8em;
+    }
 }
 
 /* palette */
 .color-palette {
     display: none;
     position: absolute;
-    transform: translateY(-55px);
+    transform: translate(20%,50%);
+    min-width: 190px;
+    max-width: 190px;
     background-color: #576574;
     padding: 5px;
     border-radius: 10px;
     box-shadow: 0 0 1px 1px #333;
     z-index: 2;
+}
+@media (min-width: 450px) {
+    .color-palette {
+        transform: translate(2%,50%);
+    }
+}
+
+@media (min-width: 700px) {
+    .color-palette {
+        transform: translate(-2%,50%);
+    }
+}
+
+@media (min-width: 980px) {
+    .color-palette {
+        transform: translate(5%,50%);
+    }
+}
+@media (min-width: 1250px) {
+    .color-palette {
+        transform: translate(20%,50%);
+    }
 }
 
 .btn-color-note:focus ~ .color-palette {
