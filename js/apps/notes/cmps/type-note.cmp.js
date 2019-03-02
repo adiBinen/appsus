@@ -5,9 +5,18 @@ export default {
     props: ['data', 'isEditable'],
     template: `
         <div class="type-note">
+            <div class="note-symbol">
+                <i class="fas fa-font"></i>
+            </div>
             <div class="note-content" v-if="!isEditable">{{data}}</div>
             <!-- <textarea class="edit-note" v-else="isEditable" v-model="dataCopy"></textarea> -->
-            <div contenteditable="true" class="edit-note" v-else="isEditable" @input="update">{{dataCopy}}</div>
+            <div 
+                contenteditable="true" 
+                class="edit-note" 
+                v-else="isEditable" 
+                @input="update">
+                    {{dataCopy}}                
+            </div>
         </div>
     `,
     data() {

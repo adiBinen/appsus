@@ -4,6 +4,9 @@ export default {
     props: ['data', 'isEditable'],
     template: `
         <ul class="type-todo">
+            <div class="note-symbol">
+                <i class="fas fa-list"></i>
+            </div>
             <li 
                 class="todo-item"
                 v-for="todo in todos" 

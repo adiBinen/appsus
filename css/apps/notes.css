@@ -33,7 +33,7 @@
     align-items: center;
     padding: 20px;
     box-shadow: 0px 3px 3px 1px #e6e6e6;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 
@@ -127,6 +127,10 @@
     padding: 0 5px;
 }
 
+.note-list {
+    margin-bottom: 35px;
+}
+
 @media (min-width: 450px) {
     .notes-container {
         width: 410px;
@@ -164,6 +168,17 @@
     }
 }
 
+.notes-sections {
+    font-size: .75em;
+    margin-bottom: 20px;
+    color: #576574;
+}
+
+.note-protection {
+    border: 5px solid transparent;
+    break-inside: avoid;
+}
+
 .note-list .note-item {
     padding: 10px;
     text-align: center;
@@ -175,12 +190,24 @@
     transition: .3s;
 }
 
+.note-item .note-symbol {
+    float: right;
+    padding: 5px;
+    color: #64686d;
+    font-size: .9em;
+}
+
 .note-item .note-content {
     padding: 10px;
 }
 
 .note-list .note-item:hover {
     box-shadow: 0 1px 2px 0 rgba(60,64,67,0.30), 0 1px 3px 1px rgba(60,64,67,0.15);
+}
+
+.note-item:hover .btn-note-container {
+    opacity: 1;
+    transition: .3s;
 }
 
 /* END NOTE LIST LAYOUT */
@@ -191,6 +218,8 @@
 
 .btn-note-container {
     position: relative;
+    opacity: 0;
+    transition: .3s;
 }
 
 .color-palette {
@@ -239,13 +268,13 @@
 
 .note-item .type-todo {
     user-select: none;
-    cursor: pointer;
     padding: 5px;
     margin-bottom: 5px;
     position: relative;
 }
 
 .note-item .type-todo .todo-item {
+    cursor: pointer;
     max-width: 170px;
     display: flex;
     align-items: center;

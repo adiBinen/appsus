@@ -15,17 +15,19 @@ export default {
     components: { typeNote, typeVideo, typeAudio, typeImage, typeTodo, noteToolbar },
     props: ['note'],
     template: `
-        <li class="note-item" :style="noteColor">
-            <component 
-                :is="note.type" 
-                :data="note.data" 
-                :is-editable="isEditable"
-                @modify-todos="modifyTodos"
-                @update-data="updateData"
-            >
-            </component>
-            <note-toolbar @toggle-edit="toggleEdit" :note="note"></note-toolbar>
-        </li>
+        <div class="note-protection">
+            <li class="note-item" :style="noteColor">
+                    <component 
+                        :is="note.type" 
+                        :data="note.data" 
+                        :is-editable="isEditable"
+                        @modify-todos="modifyTodos"
+                        @update-data="updateData"
+                    >
+                    </component>
+                <note-toolbar @toggle-edit="toggleEdit" :note="note"></note-toolbar>
+            </li>
+        </div>
     `,
     data() {
         return {

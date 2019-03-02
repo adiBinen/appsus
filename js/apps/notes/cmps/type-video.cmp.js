@@ -3,6 +3,9 @@ export default {
     props: ['data', 'isEditable'],
     template: `
         <div class="note-type type-video">
+            <div class="note-symbol">
+                <i class="fab fa-youtube"></i>
+            </div>
             <input v-model="dataCopy" v-show="isEditable">
             <iframe controls :src="url"></iframe>
         </div>

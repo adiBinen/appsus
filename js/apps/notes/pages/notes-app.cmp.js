@@ -27,8 +27,10 @@ export default {
             <note-create @note-created="addNote"></note-create>
             <div class="notes-container">
                 <!-- <hr v-if ="pinnedNotes.length >= 1"/> -->
+                <h3 v-if ="pinnedNotes.length >= 1" class="notes-sections">Pinned Notes</h3>
                 <note-list :notes="pinnedNotes"></note-list>
-                <hr v-if ="unpinnedNotes.length >= 1" />
+                <!-- <hr v-if ="unpinnedNotes.length >= 1" /> -->
+                <h3 v-if ="pinnedNotes.length >= 1" class="notes-sections">Other Notes</h3>
                 <note-list :notes="unpinnedNotes"></note-list>
             </div>
             <user-msg></user-msg>
