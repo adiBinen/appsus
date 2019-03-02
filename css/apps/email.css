@@ -498,21 +498,57 @@
 
 /* compose email */
 .email-compose {
+    grid-template-rows: 40px 1fr;
     position: absolute;
     bottom: 0;
     right: 100px;
     height: 400px;
     width: 500px;
-    border: .5px solid black;
     z-index: 100;
     background-color: white;
-}
-.email-compose > form {
-    flex-direction: column;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    box-shadow: 0 0 4px 0px black;
 }
 
-.email-compose > header {
-    background-color: gray;
+.email-compose > .compose-header {
+    background-color: #404040;
+    padding: 5px 0;
+    color: white;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.compose-header > button {
+    color: #aeaeae;
+    padding: 10px;
+}
+
+.compose-header > p {
+    margin-left: 10px;
+    font-size: .85em;
+}
+
+.compose-email-form {
+    grid-template-rows: 30px 30px 1fr 60px;
+    padding: 0 10px;
+}
+
+.compose-email-form > * {
+    padding: 15px 10px;
+    outline: none;
+    border: none;
+}
+
+.compose-email-form > input {
+    border-bottom: .5px solid #4040404d;
+}
+
+.compose-send-btn {
+    border-radius: 2px;
+    width: 70px;
+    background-color: #ec4c5d;
+    color: white;
 }
 
 /* EMAIL DISPLAY */

@@ -5,13 +5,12 @@ import { eventBus, USER_MSG_SUCCESS } from '../../../event-bus.js';
 export default {
     props: ['username', 'body', 'draftEmail'],
     template: `
-        <section class="email-compose">
-            <header>
+        <section class="email-compose grid">
+            <header class="compose-header flex align-center space-between">
                 <p>New message</p>
                 <button title="Close draft" @click="closeComposeEmail"><i class="fas fa-times"></i></button>
-                <button title="Discard draft" @click="discardDraft(email.id)"><i class="fas fa-trash-alt"></i></button>
             </header>
-            <form @submit.prevent.stop="sendEmail" class="flex">
+            <form @submit.prevent.stop="sendEmail" class="compose-email-form grid">
                 <input 
                     type="email" 
                     class="recipient-input" 
@@ -19,7 +18,12 @@ export default {
                     v-model="email.recipient" required>
                 <input type="text" class="subject-input" placeholder="Subject" v-model="email.subject">
                 <textarea type="text" class="subject-input" v-model="email.body"></textarea>
-                <button type="submit">Send</button>
+                <div class="compose-toolbar flex space-between">
+                    <button title="Discard draft" @click="discardDraft(email.id)">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button class="compose-send-btn" type="submit">Send</button>
+                </div>
             </form>
         </section>
     `,
