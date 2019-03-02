@@ -510,9 +510,14 @@
 
 @media (min-width: 650px) {
     .email-compose {
-        right: 100px;
+        right: 50px;
         height: 400px;
         width: 500px;
+    }
+}
+@media (min-width: 800px) {
+    .email-compose {
+        right: 100px;
     }
 }
 
@@ -560,6 +565,10 @@
 
 /* EMAIL DISPLAY */
 
+.email-display {
+    padding: 20px;
+}
+
 .email-display > .display-toolbar {
     height: 50px;
     padding: 10px;
@@ -572,8 +581,8 @@
 
 .display-content {
     grid-template-columns: 1fr 130px;
-    grid-template-rows: repeat(3, 1fr);
-    padding: 10px;
+    grid-template-rows: 50px 50px 1fr;
+    padding: 20px;
 }
 
 .display-content > .sent-date {

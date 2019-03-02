@@ -11,7 +11,7 @@ export default {
                 </router-link>
             </div>
             <div class="display-content grid">
-                <div class="sent-date"><span>Sent At: </span>{{formattedDate}}</div>
+                <div class="sent-date">{{formattedDate}}</div>
                 <h1 class="subject">{{email.subject}}</h1>
                 <h2 class="sent-from"><span>From: </span>{{email.sender}}</h2>
                 <p class="email-body">{{email.body}}</p>
