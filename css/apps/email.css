@@ -4,13 +4,13 @@
     grid-template-areas: 
     "header header"
     "content content";
-
+    grid-template-rows: 65px calc(100vh - 65px);
     font-family: 'Roboto', sans-serif;
 }
 
 @media (min-width: 650px) {
     .email-app {
-        grid-template-rows: 65px calc(100vh - 65px);
+        
         grid-template-columns: 45px 2fr;
         grid-template-areas: 
         "header header"
