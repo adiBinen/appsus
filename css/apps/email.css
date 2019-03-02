@@ -538,6 +538,7 @@
     outline: none;
     border: none;
     resize: none;
+    font-family: 'Roboto', sans-serif;
 }
 
 .compose-email-form > input {
