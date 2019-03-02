@@ -80,10 +80,11 @@ iframe, audio {
 }
 
 .global-nav button {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     margin-right: 20px;
     color: #000;
+    padding-top: 7px;
 }
 
 .global-nav button:hover {
@@ -92,8 +93,8 @@ iframe, audio {
 
 .global-nav .dropdown-menu {
     position: absolute;
-    background-color: #ffffffab;
-    box-shadow: 0 0 1px 1px black;
+    background-color: #ffffff;
+    box-shadow: 0 0 1px 0px #64798f;
     z-index: 10;
     visibility: hidden;
     opacity: 0;
@@ -103,16 +104,23 @@ iframe, audio {
     width: 200px;
     padding: 5px;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .global-nav .dropdown-menu a {
     color: #333;
-    font-size: 1.8em;
+    width: 48px;
+    height: 48px;
+    padding: 5px;
+}
+
+.global-nav .dropdown-menu a.email-icon {
+    position: relative;
 }
 
 .global-nav .dropdown-menu a:hover {
-    color: #d63031;
+    box-shadow: 0 0 1px 0px black;
 }
 
 .global-nav .dropdown-menu.show {
@@ -126,9 +134,9 @@ iframe, audio {
     color: #fff;
     background-color: rgba(207, 48, 48);
     border-radius: 50px;
-    padding: 2px;
-    font-size: .60em;
-    transform: translate(-30.5px,-3px);
+    padding: 5px;
+    font-size: .7em;
+    transform: translate(26px,-46px);
 }
 
 .global-nav-user-img {
