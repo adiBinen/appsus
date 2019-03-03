@@ -2,7 +2,7 @@
 export default {
     props: ['unreadEmails'],
     template: `
-        <aside class="email-side-nav">
+        <aside class="email-side-nav" @click.stop>
             <div class="btns-container">
                 <button class="btn-compose" @click="openComposeEmail()">
                 <i class="material-icons">
