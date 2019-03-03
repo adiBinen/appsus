@@ -6,7 +6,7 @@ export default {
             <div class="note-symbol">
                 <i class="fab fa-youtube"></i>
             </div>
-            <input v-model="dataCopy" v-show="isEditable">
+            <input class="type-edit" v-model="dataCopy" v-show="isEditable">
             <iframe controls :src="url"></iframe>
         </div>
     `,

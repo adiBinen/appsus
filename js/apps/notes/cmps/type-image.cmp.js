@@ -6,7 +6,7 @@ export default {
             <div class="note-symbol">
                 <i class="fas fa-image"></i>
             </div>
-            <input v-model="dataCopy" v-show="isEditable">
+            <input class="type-edit" v-model="dataCopy" v-show="isEditable">
             <img :src="data" />
         </div>
     `,

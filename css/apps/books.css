@@ -143,6 +143,15 @@
     align-items: center;
     padding: 5px 0;
     box-shadow: 0 0 2px 0px black;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+@media(min-width: 750px) {
+    .book-filter{
+        margin: 0;
+    margin-bottom: 20px;
+
+    }
 }
 
 .book-filter .form-filter {

@@ -4,7 +4,7 @@
     grid-template-areas: 
     "header header"
     "content content";
-    grid-template-rows: 80px calc(100vh - 80px);
+    grid-template-rows: 85px calc(100vh - 85px);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -70,6 +70,7 @@
     display: flex;
     align-self: center;
     margin: 0 auto;
+    margin-bottom: 5px;
 }
 
 .email-header .search-bar-input {
@@ -147,7 +148,7 @@
     color: #767676;
     font-size: .9em;
     z-index: 2;
-    top: 101px;
+    top: 106px;
     transform: translate(-500px, 0);
     transition: transform .6s;
 }

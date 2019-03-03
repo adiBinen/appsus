@@ -6,7 +6,7 @@ export default {
             <div class="note-symbol">
                 <i class="fas fa-headphones"></i>
             </div>
-            <input v-model="dataCopy" v-show="isEditable">
+            <input class="type-edit" v-model="dataCopy" v-show="isEditable">
             <audio class="note-content" controls :src="data"></audio>
         </div>
     `,
