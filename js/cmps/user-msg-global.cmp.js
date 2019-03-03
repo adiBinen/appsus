@@ -18,7 +18,12 @@ export default {
             isSuccess: false,
         }
     },
-    created() {
+    computed: {
+        setClass() {
+            return {success: this.isSuccess, show: this.isOn};
+        }
+    },
+    mounted() {
         eventBus.$on(USER_MSG_SUCCESS, successMsg => {
             // Set success msg
             this.isOn = true;
@@ -34,10 +39,10 @@ export default {
             setTimeout(() => this.isOn = false, 2200);
         });
     },
-    computed: {
-        setClass() {
-            return {success: this.isSuccess, show: this.isOn};
-        }
-    },
+    beforeDestroy() {
+        eventBus.$off(USER_MSG_SUCCESS);
+
+        eventBus.$off(USER_MSG_FAILURE);
+    }
 
 }

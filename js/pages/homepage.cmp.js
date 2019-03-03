@@ -39,13 +39,13 @@ export default {
                             <img class="profile-img" src="./img/about/simon.jpg" />
                             <h4>Simon Ron Ifergan</h4>
                             <div class="btns-social-container flex">
-                                <a href="https://www.facebook.com/Simon.Ifergan" target="_blank">
+                                <a href="https://www.facebook.com/Simon.Ifergan" title="Simon's Facebook profile page" target="_blank">
                                         <i class="fab fa-facebook-square"></i>
                                 </a>
-                                <a href="https://github.com/simonifergan" target="_blank">
+                                <a href="https://github.com/simonifergan" title="Simon's Github page" target="_blank">
                                     <i class="fab fa-github-square"></i>
                                 </a>
-                                <a href="www.linkedin.com/in/simonifergan" target="_blank">
+                                <a href="www.linkedin.com/in/simonifergan" title="Simon's Linkedin profile page" target="_blank">
                                     <i class="fab fa-linkedin"></i>
                                 </a>
                             </div>
@@ -54,13 +54,13 @@ export default {
                             <img class="profile-img" src="./img/about/adi.png" />
                             <h4>Adi Binenbaum</h4>
                             <div class="btns-social-container flex">
-                                <a href="https://www.facebook.com/adi.binenbaum" target="_blank">
+                                <a href="https://www.facebook.com/adi.binenbaum" title="Adi's Facebook profile page" target="_blank">
                                     <i class="fab fa-facebook-square"></i>
                                 </a>
-                                <a href="https://github.com/adiBinen" target="_blank">
+                                <a href="https://github.com/adiBinen" title="Adi's Github page" target="_blank">
                                     <i class="fab fa-github-square"></i>
                                 </a>
-                                <a href="https://www.linkedin.com/in/adibinenbaum/" target="_blank">
+                                <a href="https://www.linkedin.com/in/adibinenbaum/" title="Adi's Linkedin profile page" target="_blank">
                                     <i class="fab fa-linkedin"></i>
                                 </a>
                             </div>

@@ -80,7 +80,7 @@ export default {
             this.searchTerm = to.hash.replace(/#search\//, '').toLowerCase();
         }
     },
-    created() {
+    mounted() {
         // Get notes from server
         noteService.query()
             .then(notes => {

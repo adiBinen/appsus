@@ -107,7 +107,7 @@ export default {
             return {show: this.isNavToggled};
         }
     },
-    created() {
+    mounted() {
         let { compose, body } = this.$route.query;
         this.isComposing = compose;
         this.sentBody = body;

@@ -77,7 +77,7 @@ function modifyEmail(modifiedEmail) {
     if (idx !== -1) {
         emailsDB.splice(idx, 1, modifiedEmail);
         storageService.saveToLocal(EMAILS_KEY, emailsDB);
-        return Promise.resolve('Email was successfully modified.');
+        return Promise.resolve('Email was saved as a draft.');
     }
     return Promise.reject('Error: Email not found');
 }
@@ -127,7 +127,7 @@ function _createEmails() {
     emailsDB = emails;
 }
 
-function _createEmail(sender = "Adi B.", recipient = "Simon I.", subject = 'Deep in the night, I am looking for some fun!', body = '') {
+function _createEmail(sender = 'Adi B.', recipient = 'Simon I.', subject = '', body = '') {
     return {
         id: utilService.generateId(),
         sender: sender,
