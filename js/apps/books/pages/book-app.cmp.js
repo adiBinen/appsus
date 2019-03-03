@@ -9,12 +9,14 @@ export default {
     template: `
         <main class="book-app">
             <book-header :unread-emails="unreadEmails"></book-header>
-            <router-view
-                v-if="books" 
-                :books="filterBooks"
-                :view-book="previewBook"
-                @filter="changeFilter"
-            ></router-view>
+            <transition name="fade" mode="out-in">
+                <router-view
+                    v-if="books" 
+                    :books="filterBooks"
+                    :view-book="previewBook"
+                    @filter="changeFilter"
+                ></router-view>
+            </transition>
         </main>
     `,
     data() {
