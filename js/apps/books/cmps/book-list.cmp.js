@@ -7,7 +7,7 @@ export default {
     },
     props: ['books'],
     template: `
-            <section>
+            <section class="book-list">
                 <book-filter 
                     @filter="changeFilter"
                 ></book-filter>

@@ -6,11 +6,11 @@ export default {
     components: { navCmp, globalNav },
     template: `
          <header class="books-header flex row">
-            <router-link to="/books/">
-                <img src="./img/books.svg" />
+             <button @click="toggleNav" class="btn btn-nav-toggle"><i class="fas fa-bars"></i></button>
+            <router-link tag="div" to="/books/" class="logo">
+                <img class="logo-img" src="./img/books.svg" />
                 <h1>BooksHub</h1>
             </router-link>
-            <button @click="toggleNav" class="btn btn-nav-toggle"><i class="fas fa-bars"></i></button>
             <nav-cmp @click.stop :class="isShowNav">
 
             </nav-cmp>

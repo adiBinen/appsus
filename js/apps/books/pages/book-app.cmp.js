@@ -15,14 +15,6 @@ export default {
                 :view-book="previewBook"
                 @filter="changeFilter"
             ></router-view>
-            <!-- <book-filter 
-                v-on:filter="changeFilter"
-            ></book-filter> -->
-            <!-- <book-list
-                v-if="books" 
-                v-bind:books="filterBooks"
-                v-on:view-book="previewBook"
-            ></book-list> -->
         </main>
     `,
     data() {
@@ -48,11 +40,6 @@ export default {
         },
         changeFilter(filterBy) {
             this.filterBy = filterBy;
-        }
-    },
-    watch: {
-        $route(to, from) {
-            console.log(to, from)
         }
     },
     computed: {

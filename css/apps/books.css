@@ -29,6 +29,11 @@
     cursor: pointer;
 }
 
+.book-app header .logo-img {
+    width: 35px;
+    height: 35px;
+}
+
 @media (min-width: 750px) {
     .book-app header {
         position: static;
@@ -54,7 +59,7 @@
 }
 
 /* Nav */
-/* .header-nav {
+.books-header .header-nav {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -62,46 +67,45 @@
     width: 25vw;
     top: 48px;
     height: 100vh;
-    background-color: #f78fb3e8;
+    background-color: #333;
     right: 0;
     transform: translateX(200px);
     visibility: hidden; opacity: 0;
     transition: .6s ease-in-out;
 }
 
-.header-nav.show {
+.books-header .header-nav.show {
     visibility: visible;
     opacity: 1;
     transform: translateX(0);
 }
 
-.header-nav > * {
+.books-header .header-nav > * {
     font-size: 1.1em;
     transition: .3s;
 }
 
-.header-nav > *:first-child {
+.books-header .header-nav > *:first-child {
     margin: 10px 0;
 }
 
-.header-nav > * {
+.books-header .header-nav > * {
     margin-bottom: 10px;
 }
-.header-nav > *:hover {
+.books-header .header-nav > *:hover {
     color: #fff;
 }
 
-.btn-nav-toggle {
+.books-header .btn-nav-toggle {
     font-size: 1.2em;
     transition: .3s;
 }
 
-.btn-nav-toggle:hover {
-    color: #e3e3e3;
+.books-header .btn-nav-toggle:hover {
 }
 
 @media(min-width: 750px){
-    .header-nav {
+    .books-header .header-nav {
         background-color: inherit;
         margin: 0;
         display: flex;
@@ -115,14 +119,14 @@
         opacity: 1;
         transform: translateX(0);
     }
-    .btn-nav-toggle {
+    .books-header .btn-nav-toggle {
         display: none;
     }
-    .header-nav > *, .header-nav > *:first-child {
+    .books-header .header-nav > *, .header-nav > *:first-child {
         font-size: 1em;
         margin: 0;
     }
-} */
+}
 
 /* BOOK APP PAGE */
 /* Book filter */
@@ -316,6 +320,10 @@
 .book-details .book-description.long:hover::after {
     content: '...Read Less';
     color: #636e72;
+}
+
+.book-details .book-image {
+    width: 50%;
 }
 
 
@@ -513,8 +521,8 @@
 
 /* Buttons */
 
-/* 
-.btn-back {
+
+.book-container .btn-back {
     align-self: flex-start;
     margin-top: 20px;
     margin-left: 20px;
@@ -523,17 +531,17 @@
     color: #333;
 }
 
-.btn-back, .btn-back > * {
+.book-container .btn-back, .btn-back > * {
     transition: .3s;
 }
 
-.btn-back:hover i {
+.book-container .btn-back:hover i {
     transform: translateX(-5px);
 }
 
-.btn-back:hover span {
+.book-container .btn-back:hover span {
     text-decoration: underline;
-} */
+}
 
 .btn-filter {
     border-radius: 5px;
