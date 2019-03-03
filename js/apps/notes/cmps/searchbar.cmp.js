@@ -13,7 +13,7 @@ export default {
                     placeholder="Search notes"
                 />
                 <datalist id="notes-suggest">
-                    <option v-for="term in autoSuggest" :value="term"  :label="term"></option>
+                    <option v-for="term in autoSuggest" :value="formatSuggestion(term)"></option>
                 </datalist>
                 <button class="btn btn-clear-search" :class="{show: !!term}" title="Clear search" @click="clearSearch"><i class="fas fa-times"></i></button>
             </div>
@@ -31,26 +31,26 @@ export default {
         clearSearch() {
             this.term = '';
             eventBus.$emit(NOTES_CLEAR_SEARCH)
-        }
+        },
+        formatSuggestion(term) {
+            if (!term) return null;
+            if (term.length > 25) return term.slice(0,25) + '...';
+            else return term;
+        },
     },
     computed: {
         autoSuggest() {
             if (!this.notes || !this.term) return;
             let term = this.term.toLowerCase();
-            return this.notes.map(note => {
+            return this.notes.reduce((acc, note) => {
                 if (note.type === 'typeTodo') {
-                    let todoTerms = note.data.filter(todo => 
-                        todo.txt.toLowerCase().includes(term.toLowerCase()) || 
-                        term.toLowerCase().includes(todo.txt.toLowerCase())
-                    );
-                    if (todoTerms.length) {
-                        // todoTerms = todoTerms.map(todo => todo.txt.slice(0,25));
-                        todoTerms = todoTerms.map(todo => todo.txt);
-                        return todoTerms;
-                    }
+                    note.data.forEach(todo => {
+                        if (todo.txt.toLowerCase().includes(term)) acc.add(todo.txt);
+                    })
                 }
-                else if (note.data.toLowerCase().includes(term)) return note.data.slice(0,25);
-            }).slice(0, 8);
+                else if (note.data.toLowerCase().includes(term)) acc.add(note.data);
+                return acc;
+            }, new Set())
         },
         hasClicked() {
             return this.isTyping;

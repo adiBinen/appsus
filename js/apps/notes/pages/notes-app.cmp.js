@@ -89,11 +89,12 @@ export default {
 
         // EVENT LISTENERS
         eventBus.$on(NOTE_DELETE, noteId => {
-            eventBus.$emit(TO_CONFIRM, 
-                { msg: 'Are you sure you wish to delete this note?', 
-                type: 'note-confirmation',
-                id: noteId,
-            });
+            eventBus.$emit(TO_CONFIRM,
+                {
+                    msg: 'Are you sure you wish to delete this note?',
+                    type: 'note-confirmation',
+                    id: noteId,
+                });
         });
 
         eventBus.$on(NOTE_DELETE_ANS, userRes => {
