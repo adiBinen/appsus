@@ -8,7 +8,6 @@ export default {
                 <i class="material-icons">
                     add
                 </i>
-                    <!-- <i class="fas fa-plus"></i> -->
                 </button>
 
                 <router-link class="btn-inbox" tag="button" to="/email/inbox" exact>

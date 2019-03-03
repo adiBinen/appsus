@@ -39,8 +39,6 @@ export default {
     },
     methods: {
         sendEmail() {
-            // debugger;
-            // this.closeComposeEmail();
             this.$emit('email-sent');
             emailService.addEmail({...this.email})
                 .then(msg => eventBus.$emit(USER_MSG_SUCCESS, msg));

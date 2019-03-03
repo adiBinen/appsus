@@ -12,12 +12,4 @@ export default {
             <global-nav :unread-emails="unreadEmails"></global-nav>
         </header>
     `,
-    data() {
-        return {
-        }
-    },
-    methods: {
-    },
-    computed: {
-    }
 }

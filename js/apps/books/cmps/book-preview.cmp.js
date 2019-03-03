@@ -12,11 +12,6 @@ export default {
                 </div>
             </div>
     `,
-    data() {
-        return {
-
-        }
-    },
     computed: {
         getCurrencyChar() {
             let currencyCode = this.book.listPrice.currencyCode;

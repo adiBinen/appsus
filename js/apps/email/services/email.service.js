@@ -124,7 +124,6 @@ function _getEmailIdxById(id) {
 function _createEmails() {
     let emails = storageService.loadFromLocal(EMAILS_KEY);
     if (!emails) {
-        // DUMMY DATA SECTION
         emails = _premadeData();
     }
     emailsDB = emails;
@@ -146,6 +145,8 @@ function _createEmail(sender = "Adi B.", recipient = "Simon I.", subject = 'Deep
     }
 }
 
+
+// DUMMY DATA SECTION
 function _premadeData() {
     let emails = [];
         for (let i = 0; i < 20; i++) {

@@ -129,8 +129,6 @@
     font-size: 1.6em;
     color: #333;
     align-self: flex-end;
-    /* justify-self: flex-end; */
-    /* text-align: right; */
     padding-top: 10px;
 }
 
@@ -140,7 +138,6 @@
         display: none;
     }
 }
-
 
 .email-side-nav {
     grid-area: nav;
@@ -201,7 +198,6 @@
 
 .email-side-nav .btn-compose i {
     font-size: 2em;
-    /* color: #137adf; */
     color: #d93025; 
     font-weight: 1000;
 }
@@ -234,7 +230,6 @@
 }
 
 .email-side-nav .btns-container:hover .btn-inbox .unread-emails {
-    /* transform: translate(200%, -50%); */
     transform: translate(50px, -50%);
     background-color: transparent;
     color: #333;
@@ -265,9 +260,7 @@
 }
 
 .email-side-nav .btns-container:hover .btn-inbox {
-    /* background-color: #e6e9fc; */
     background-color: #fce8e6;
-    /* color: #1171e2; */
     color: #d93025;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
@@ -279,7 +272,6 @@
 
 .email-side-nav .btns-container:hover .btn-inbox::after {
     content: "Inbox";
-    /* color:#1171e2; */
     color: #d93025;
     font-weight: bold;
     padding-left: 20px;
@@ -327,7 +319,6 @@
     
     .email-side-nav .btn-compose i {
         font-size: 2em;
-        /* color: #137adf; */
         color: #d93025; 
         font-weight: 1000;
     }
@@ -360,7 +351,6 @@
     }
     
     .email-side-nav .btns-container .btn-inbox .unread-emails {
-        /* transform: translate(200%, -50%); */
         transform: translate(50px, -50%);
         background-color: transparent;
         color: #333;
@@ -378,7 +368,6 @@
     }
     
     .email-side-nav .btns-container > *:not(.btn-inbox):not(.btn-compose) {
-        /* background-color: #f5f7f7; */
         width: 98%;
         border-top-right-radius: 30px;
         border-bottom-right-radius: 30px;
@@ -391,9 +380,7 @@
     }
     
     .email-side-nav .btns-container .btn-inbox {
-        /* background-color: #e6e9fc; */
         background-color: #fce8e6;
-        /* color: #1171e2; */
         color: #d93025;
         border-top-right-radius: 30px;
         border-bottom-right-radius: 30px;
@@ -405,7 +392,6 @@
     
     .email-side-nav .btns-container .btn-inbox::after {
         content: "Inbox";
-        /* color:#1171e2; */
         color: #d93025;
         font-weight: bold;
         padding-left: 20px;
@@ -579,11 +565,6 @@
 .email-preview .date {
     justify-self: end;
 }
-/* .email-preview .checkbox-container {
-    position: absolute;
-    top: 12px;
-    left: -4px;
-} */
 
 /* EMAIL-PREVIEW-DESKTOP-IS-THE-BEST-THING */
        @media (min-width: 650px) {

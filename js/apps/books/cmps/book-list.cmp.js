@@ -32,7 +32,4 @@ export default {
             this.$emit('filter', filterBy)
         }
     },
-    computed: {
-
-    },
 }

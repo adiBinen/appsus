@@ -105,11 +105,6 @@ export default {
             return {show: this.isNavToggled};
         }
     },
-    watch: {
-        // $route(to, from) {
-        //     console.log(to, from); // emails/$#$#$/?compose=CONTENT
-        // }
-    },
     created() {
         let { compose, body } = this.$route.query;
         this.isComposing = compose;
