@@ -1,7 +1,7 @@
 import bookService from '../services/book.service.js';
 import reviewAdd from '../cmps/review-add.cmp.js'
 import reviewList from '../cmps/review-list.cmp.js'
-import { eventBus } from '../../../event-bus.js';
+import { eventBus, USER_MSG_SUCCESS } from '../../../event-bus.js';
 
 // Scroll bellow to see how book object looks like
 export default {
@@ -81,12 +81,12 @@ export default {
         },
         addBookReview(review) {
             bookService.addBookReview(review, this.book.id)
-                .then(res => console.log(res));
+                .then(msg => eventBus.$emit(USER_MSG_SUCCESS, msg));
             this.isAddReview = false;
         },
         deleteBookReview(reviewId) {
             bookService.deleteBookReview(reviewId, this.book.id)
-                .then(res => console.log(res));
+                .then(msg => eventBus.$emit(USER_MSG_SUCCESS, msg));
         },
         showAddReview() {
             this.isAddReview = !this.isAddReview;
@@ -117,7 +117,7 @@ export default {
             return (new Date(Date.now()).getFullYear() - this.book.publishedDate) < 2;
         },
         isReviewing() {
-            return (!this.isAddReview)? 'Add Review': 'Discard Review';
+            return (!this.isAddReview) ? 'Add Review' : 'Discard Review';
         }
     },
 }

@@ -1,11 +1,15 @@
+// GLOBAL CMPS
+import userMsg from '../../../cmps/user-msg-global.cmp.js';
+
 import bookHeader from '../cmps/header.cmp.js';
 import bookService from '../services/book.service.js';
 import bookList from '../cmps/book-list.cmp.js';
 import bookFilter from '../cmps/book-filter.cmp.js';
 
+
 export default {
     props: ['unreadEmails'],
-    components: { bookList, bookFilter, bookHeader },
+    components: { bookList, bookFilter, bookHeader, userMsg },
     template: `
         <main class="book-app">
             <book-header :unread-emails="unreadEmails"></book-header>
@@ -17,6 +21,7 @@ export default {
                     @filter="changeFilter"
                 ></router-view>
             </transition>
+            <user-msg></user-msg>
         </main>
     `,
     data() {
