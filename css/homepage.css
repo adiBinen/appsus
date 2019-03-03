@@ -4,9 +4,23 @@
     align-items: center;
     background-color: #fff;
     justify-content: space-between;
+    position: fixed;
+    width: 100%;
     padding: 0 20px;
     height: 65px;
+    z-index: 1;
     box-shadow: 0px 1px 1px 1px #e6e6e6;
+}
+
+@media (min-width: 650px) {
+    .homepage-header {
+        position: static;
+        width: auto;
+    }
+}
+
+.homepage-header .logo {
+    cursor: pointer;
 }
 
 .homepage-header .logo h1 {
@@ -25,23 +39,73 @@
 .homepage-container {
     font-family: 'Open Sans', sans-serif;
     padding-top: 30px;
-    width: 800px;
-    margin: 0 auto;
-    height: calc(100vh - 65px);
     padding: 20px;
     border-right: .0625rem solid #e1e0e0;
     border-left: .0625rem solid #e1e0e0;
     color: #777777;
+    flex-direction: column;
+    padding: 20px 10vw;
+    margin-top: 65px;
 }
+
+@media (min-width: 860px) {
+    .homepage-container {
+        padding: 20px;
+        margin: 0 auto;
+        width: 800px;
+        
+    }
+}
+
 
 .homepage-container > p {
     line-height: 1.4;
     font-size: .9em;
 }
 
-.about {
+.homepage .title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 2em;
-    margin-bottom: 20px;
+    margin: 20px 0;
+}
+
+.homepage p {
+    padding: 20px;
+    font-size: 1.125em;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.homepage p span {
+    font-style: italic;
+}
+
+.homepage .vuejs-logo-container {
+    float: right;
+    position: relative;
+    width: 350px;
+    height: 180px;
+    /* shape-outside: polygon(0% -83%, 100% 167%, 100% 0%); */
+    shape-outside: polygon(0% -101%, 100% 212%, 100% 0%);
+    clip-path: polygon(0% -101%, 100% 212%, 100% 0%);
+    /* background-color: grey; */
+}
+
+.homepage .vuejs-logo {
+    position: absolute;
+    width: 71%;
+    top: -32px;
+    right: -29px;
+}
+
+/* about-cards-container */
+
+.about-card-container {
+    justify-content: space-evenly;
+}
+
+.card .profile-img {
+    width: 150px;
+    height: 150px;
 }
