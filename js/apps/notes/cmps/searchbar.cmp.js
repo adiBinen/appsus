@@ -43,7 +43,6 @@ export default {
                         todo.txt.toLowerCase().includes(term.toLowerCase()) || 
                         term.toLowerCase().includes(todo.txt.toLowerCase())
                     );
-                    console.log(todoTerms);
                     if (todoTerms.length) {
                         // todoTerms = todoTerms.map(todo => todo.txt.slice(0,25));
                         todoTerms = todoTerms.map(todo => todo.txt);
