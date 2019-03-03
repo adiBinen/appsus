@@ -19,8 +19,8 @@ export default {
                     </router-link>
                     <router-link title="NotesHub" to="/notes"><img src="./img/note.svg"/></router-link>
                     <router-link title="BooksHub" to="/books"><img src="./img/books.svg"/></router-link>
-                    <router-link title="LocationsHub" to="#"><img src="./img/map-location.svg"/></router-link>
-                    <router-link title="WikiTubeHub" to="#"><img src="./img/wikitube.svg"/></router-link>
+                    <router-link class="coming-soon" title="Coming soon!" to="#"><img src="./img/comingsoon/locations.png"/></router-link>
+                    <router-link class="coming-soon" title="Coming soon!" to="#"><img src="./img/comingsoon/wikitube.png"/></router-link>
                 </div>
                 <img class="global-nav-user-img" :src="userImg" alt="User Profile Image" title="User profile"/>
             </nav>

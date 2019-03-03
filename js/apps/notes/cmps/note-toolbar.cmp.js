@@ -62,8 +62,9 @@ export default {
     },
     methods: {
         deleteNote() {
-            let toDelete = confirm('are you sure you want to delete?');
-            if (toDelete) eventBus.$emit(NOTE_DELETE, this.note.id);
+            // let toDelete = confirm('are you sure you want to delete?');
+            // if (toDelete) 
+            eventBus.$emit(NOTE_DELETE, this.note.id);
         },
         duplicateNote() {
             eventBus.$emit(NOTE_DUPLICATE, this.note.id);

@@ -117,7 +117,7 @@ iframe, audio {
     position: relative;
 }
 
-.global-nav .dropdown-menu a:hover {
+.global-nav .dropdown-menu a:hover:not(.coming-soon) {
     box-shadow: 0 0 1px 0px black;
 }
 
@@ -143,6 +143,16 @@ iframe, audio {
     border-radius: 50px;
 }
 
+.global-nav .coming-soon {
+    cursor: initial;
+}
+
+.global-nav .coming-soon:hover {
+    box-shadow: none;
+    border: none;
+    outline: none;
+}
+
     /* END GLOBAL NAV */
 
     /* GLOBAL USER-MSG */
@@ -154,11 +164,11 @@ iframe, audio {
     position: fixed;
     bottom: 10px;
     right: 10px;
-    width: 265px;
+    width: 280px;
     height: 50px;
     z-index: 1000;
     font-size: 0.8em;
-    padding: 5px;
+    padding: 10px;
     visibility: hidden;
     opacity: 0;
     color: #fff;
@@ -192,20 +202,57 @@ iframe, audio {
     /* CONFIRMATION BOX */
 
 .confirm-box {
-    display: none;
+    border-radius: 5px;
     position: fixed;
-    margin: 20px auto;
-    width: 20vw;
-    background-color: #333;
-    color: #fff;
-    z-index: 2000;
-    top: 20px;
+    bottom: 10px;
+    right: 10px;
+    width: 350px;
+    height: 100px;
+    z-index: 1000;
+    font-size: 1em;
+    padding: 5px;
+    visibility: hidden;
+    opacity: 0;
+    text-align: center;
+    color: #333;
+    background-color: #fffffff5;
+    box-shadow: 0 0 3px 0px black;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+    transition: opacity .6s ease-in-out;
+    top: 50%;
     left:50%;
     transform: translate(-50%,-50%);
 }
 
 .confirm-box.show {
-    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+.confirm-box .confirm-msg {
+    margin-top: 10px;
+    font-weight: bold;
+}
+.confirm-box .confirm-btn-container {
+    margin-top: 20px;
+    
+}
+
+.confirm-box .confirm-btn-container .btn-confirm {
+    margin-right: 10px;
+    background-color:#aed357;
+    color: white;
+    padding: 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.confirm-box .confirm-btn-container .btn-cancel {
+    background-color: #d93025;
+    color: white;
+    padding: 10px;
+    font-family: 'Open Sans', sans-serif;
 }
 
     /* END OF CONFIRMATION BOX */
