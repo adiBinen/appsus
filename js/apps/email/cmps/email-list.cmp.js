@@ -47,6 +47,7 @@ export default {
             } else if (this.filterBy.includes('#search')) {
                 // IF SEARCHBAR WAS ACTIVATED
                 let term = this.filterBy.replace(/#search\//, '').toLowerCase();
+                term = term.replace(/\.\.\./, '');
                 return this.emails.filter(email => 
                     email.sender.toLowerCase().includes(term) || 
                     email.recipient.toLowerCase().includes(term) || 

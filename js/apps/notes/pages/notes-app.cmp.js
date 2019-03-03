@@ -66,6 +66,7 @@ export default {
         },
         searchedNotes() {
             let term = this.searchTerm.toLowerCase();
+            term = term.replace(/\.\.\./, '');
             return this.notes.filter(note => {
                 if (note.type === 'typeTodo') {
                     if (note.data.some(todo => (todo.txt.toLowerCase().includes(term)))) return true;
