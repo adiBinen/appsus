@@ -32,10 +32,8 @@ export default {
             <note-create @note-created="addNote"></note-create>
             <div class="notes-container">
                 <note-list v-if="searchTerm" :notes="searchedNotes"></note-list>
-                <!-- <hr v-if ="pinnedNotes.length >= 1"/> -->
                 <h3 v-if ="!searchTerm && pinnedNotes.length >= 1" class="notes-sections">Pinned</h3>
                 <note-list v-if="!searchTerm" :notes="pinnedNotes"></note-list>
-                <!-- <hr v-if ="unpinnedNotes.length >= 1" /> -->
                 <h3 v-if ="!searchTerm && pinnedNotes.length >= 1" class="notes-sections">Others</h3>
                 <note-list v-if="!searchTerm" :notes="unpinnedNotes"></note-list>
             </div>
@@ -91,25 +89,19 @@ export default {
 
         // EVENT LISTENERS
         eventBus.$on(NOTE_DELETE, noteId => {
-            noteService.deleteNote(noteId)
-                    .then(msg => { eventBus.$emit(USER_MSG_SUCCESS, msg) });
+            eventBus.$emit(TO_CONFIRM, 
+                { msg: 'Are you sure you wish to delete this note?', 
+                type: 'note-confirmation',
+                id: noteId,
+            });
         });
 
-        // Confirm box with promise?
-        //     eventBus.$emit(TO_CONFIRM, { msg: 'Are you sure you wish to delete this note?', type: 'note-confirm-delete' });
-        //     eventBus.$on(NOTE_DELETE_ANS, (prms) => {
-        //         prms
-        //         .then(msg => {
-                    
-        //             eventBus.$off(NOTE_DELETE_ANS);
-        //         })
-        //         .catch(msg => {
-        //             eventBus.$off(NOTE_DELETE_ANS);
-        //             eventBus.$emit(USER_MSG_FAILURE, msg);
-        //             })
-        //     })
-
-        // });
+        eventBus.$on(NOTE_DELETE_ANS, userRes => {
+            userRes.then(id =>
+                noteService.deleteNote(id)
+                    .then(msg => { eventBus.$emit(USER_MSG_SUCCESS, msg) })
+            ).catch(msg => { eventBus.$emit(USER_MSG_FAILURE, msg) });
+        })
 
         eventBus.$on(NOTE_UPDATE, ({ id, data }) => {
             let note = this.notes.find(note => note.id === id);
