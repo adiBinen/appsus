@@ -142,7 +142,7 @@ function _createEmail(sender = "Adi B.", recipient = "Simon I.", subject = 'Deep
         isDeleted: false,
         isDraft: false,
         isSent: false,
-        sentAt: Date.now() - 1000 * 60 * 60 * 24 * 500,
+        sentAt: Date.now(),
     }
 }
 
@@ -170,6 +170,11 @@ function _premadeData() {
         emails[2].sender = 'Chuang T.';
         emails[2].subject = 'The fish trap exists because of the fish';
         emails[2].body = `Once you've gotten the fish you can forget the trap. The rabbit snare exists because of the rabbit. Once you've gotten the rabbit, you can forget the snare. Words exist because of meaning. Once you've gotten the meaning, you can forget the words. Where can I find a man who has forgotten words so I can talk with him?`;
+
+        emails[3].sentAt = Date.now() - 1000 * 60 * 60 * 24 * 4;
+        emails[3].sender = 'Ruskin B.';
+        emails[3].subject = `love is undying,of that I feel certain`;
+        emails[3].body = `I mean deep,abiding,cherishing love.The love that gives protection even as you,my guardian angel,gave me protection long after you had gone-and continue to give this very day... A love beyond Death-a love that makes Life alive!`;
 
         emails[4].sentAt = Date.now() - 1000 * 60 * 60 * 24 * 7;
         emails[4].sender = 'Robert L.';
