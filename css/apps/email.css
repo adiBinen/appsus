@@ -573,7 +573,7 @@
     padding-right: 15px;
 }
 .email-preview .sender {
-    width: 80px;
+    width: 100px;
 }
 .email-preview .date {
     justify-self: end;
@@ -751,10 +751,11 @@
 /* compose email */
 .email-compose {
     grid-template-rows: 40px 1fr;
-    position: absolute;
-    bottom: 0;
-    height: 100vh;
-    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
     z-index: 100;
     background-color: white;
     border-top-right-radius: 3px;
@@ -764,7 +765,11 @@
 
 @media (min-width: 650px) {
     .email-compose {
+        position: absolute;
+        bottom: 0;
         right: 50px;
+        top: unset;
+        left: unset;
         height: 400px;
         width: 500px;
     }
