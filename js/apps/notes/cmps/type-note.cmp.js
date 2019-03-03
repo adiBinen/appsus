@@ -1,4 +1,5 @@
-// This is a type: note componenet that will render inside 'note-item'. Do not mistake it for a 'Note-item'. 
+// This is a type: note componenet that will render inside 'note-item'. 
+// Do not mistake it for a 'Note-item'. 
 // Thanks.
 
 export default {
@@ -9,7 +10,6 @@ export default {
                 <i class="fas fa-font"></i>
             </div>
             <div class="note-content" v-if="!isEditable">{{data}}</div>
-            <!-- <textarea class="edit-note" v-else="isEditable" v-model="dataCopy"></textarea> -->
             <div 
                 contenteditable="true" 
                 class="edit-note" 

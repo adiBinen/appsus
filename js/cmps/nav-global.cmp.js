@@ -6,7 +6,6 @@ export default {
     template: `
             <nav class="global-nav" @click.stop>
                 <button @click.stop="toggleNav" title="Hub apps">
-                    <!-- <i class="material-icons">apps</i> -->
                     <img class="global-nav-img" src="./img/apps.svg"/>
                 </button>
                 <div class="dropdown-menu" :class="isShown" @click.stop>
