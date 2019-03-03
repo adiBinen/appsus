@@ -27,13 +27,18 @@ export default {
     },
     methods: {
         update(ev) {
-            this.$emit('update-data', ev.target.innerHTML)
+            this.$emit('update-data', ev.target.innerHTML);
         }
     },
     watch: {
         dataCopy: {
             handler(val) {
                 this.$emit('update-data', val);
+            }
+        },
+        data: {
+            handler(val) {
+                this.dataCopy = this.data;
             }
         }
     }

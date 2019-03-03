@@ -16,9 +16,6 @@ export default {
             dataCopy: this.data,
         };
     },
-    methods: {
-
-    },
     watch: {
         dataCopy: {
             handler(val) {

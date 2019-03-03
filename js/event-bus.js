@@ -21,9 +21,10 @@ export const EMAIL_DRAFT_COMPOSING = 'emails-draft-composing';
 export const EMAIL_DELETED = 'email-deleted';
 
 // NOTES-APP
-export const NOTES_CLEAR_SEARCH = 'notes-clear-search'
+export const NOTES_CLEAR_SEARCH = 'notes-clear-search';
 export const NOTE_DELETE = 'note-delete';
 export const NOTE_DUPLICATE = 'note-duplicate';
 export const NOTE_MODIFIED  = 'note-modified';
 export const NOTE_UPDATE  = 'note-update';
 export const NOTE_TODOS_MODIFY = 'note-modify-todos';
+export const NOTE_SAVE_URL_ON_ENTER = 'note-save-url-on-enter';

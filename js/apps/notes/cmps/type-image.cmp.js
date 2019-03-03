@@ -1,4 +1,3 @@
-
 export default {
     props: ['data', 'isEditable'],
     template: `
@@ -15,9 +14,6 @@ export default {
             isEditing: false,
             dataCopy: this.data,
         };
-    },
-    methods: {
-
     },
     watch: {
         dataCopy: {

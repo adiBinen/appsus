@@ -7,7 +7,7 @@ export default {
     components: { navGlobal, searchBar },
     template: `
         <header class="email-header">
-            <router-link to="/emails" tag="div" class="email-logo flex align-center">
+            <router-link title="MailsHub" to="/emails" tag="div" class="email-logo flex align-center">
                 <button @click.stop="toggleSideNav" class="btn btn-toggle-nav">
                     <i class="fas fa-bars"></i>
                  </button>

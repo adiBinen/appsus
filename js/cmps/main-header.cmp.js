@@ -7,7 +7,7 @@ export default {
     },
     template: `
         <header class="homepage-header">
-            <router-link tag="div" to="/" class="logo flex align-center">
+            <router-link title="MainHub" tag="div" to="/" class="logo flex align-center">
                 <img class="homepage-logo" src="./img/wifi.svg" />
                 <h1>MainHub</h1>
             </router-link>

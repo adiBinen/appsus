@@ -1,4 +1,5 @@
 
+
 export default {
     props: ['data', 'isEditable'],
     template: `
@@ -27,7 +28,6 @@ export default {
             return youtubeEmbed;
         }
     },
-
      watch: {
         dataCopy: {
             handler(val) {

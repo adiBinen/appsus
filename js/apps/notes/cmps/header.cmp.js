@@ -5,7 +5,7 @@ export default {
     components: { globalNav, searchBar },
     template: `
             <header class="notes-header">
-                <router-link to="/notes" tag="div" class="email-logo">
+                <router-link title="NotesHub" to="/notes" tag="div" class="email-logo">
                     
                     <img class="email-logo-img" src="./img/note.svg">
                     <h1>NotesHub</h1>
