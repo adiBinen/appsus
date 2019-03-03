@@ -75,7 +75,6 @@
 .notes-header .search-bar-input {
     padding: 10px 15px;
     border: none;
-    /* border: .5px solid #64798fab; */
     outline: none;
     border-radius: 3px;
     font-family: 'Roboto', sans-serif;
@@ -201,7 +200,6 @@
 
 .note-create button:hover {
     color: #f14e68;
-    /* color: #686de0; */
 }
 
 .note-create-btns-container > *.selected {
@@ -209,7 +207,6 @@
 }
 
 .note-create-btns-container > *.selected:hover {
-    /* color: #2d3436; */
     color: #b2bec3;
 }
 
@@ -354,8 +351,6 @@
 .color-palette {
     display: none;
     position: absolute;
-    /* transform: translate(20%,50%); */
-    /* transform: translate(-2.5%,90%); */
     transform: translate(-15px, 40px);
     width: 350px;
     background-color: #576574;

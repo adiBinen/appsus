@@ -88,10 +88,8 @@
     position: relative;
     width: 350px;
     height: 180px;
-    /* shape-outside: polygon(0% -83%, 100% 167%, 100% 0%); */
     shape-outside: polygon(0% -101%, 100% 212%, 100% 0%);
     clip-path: polygon(0% -101%, 100% 212%, 100% 0%);
-    /* background-color: grey; */
 }
 
 .homepage .vuejs-logo {
