@@ -34,10 +34,13 @@ export default {
         toggleNav() {
             this.isToggled = !this.isToggled;
             if (this.isToggled) {
-                document.getElementById('app').addEventListener('click', function closeNav() {
-                    eventBus.$emit(GLOBAL_NAV_CLOSE);
-                    })
+                document.getElementById('app').addEventListener('click', this.closeNav);
             }
+           
+        },
+        closeNav() {
+            eventBus.$emit(GLOBAL_NAV_CLOSE);
+            document.getElementById('app').removeEventListener('click', this.closeNav);
         }
     },
     computed: {

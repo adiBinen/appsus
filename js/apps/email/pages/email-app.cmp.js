@@ -33,7 +33,7 @@ export default {
     template: `
         <main class="email-app grid">
             <main-header @toggle-nav="toggleNav" :unread-emails="unreadEmails"></main-header>
-            <side-nav :unread-emails="unreadEmails" @openComposeEmail="openComposeEmail()" :class="navToggle"></side-nav>
+            <side-nav @click.stop :unread-emails="unreadEmails" @openComposeEmail="openComposeEmail()" :class="navToggle"></side-nav>
             <transition name="fade" mode="out-in">
                 <router-view class="email-content"></router-view>
             </transition>
@@ -100,6 +100,11 @@ export default {
         },
         toggleNav() {
             this.isNavToggled = !this.isNavToggled;
+            document.querySelector('#app').addEventListener('click', this.closeNav)
+        },
+        closeNav() {
+            this.isNavToggled = false;
+            document.querySelector('#app').removeEventListener('click', this.closeNav)
         }
     },
     computed: {
