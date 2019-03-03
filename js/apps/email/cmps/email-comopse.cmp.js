@@ -1,6 +1,6 @@
 
 import emailService from '../../email/services/email.service.js';
-import { eventBus, USER_MSG_SUCCESS } from '../../../event-bus.js';
+import { eventBus, USER_MSG_SUCCESS, UNREAD_EMAILS } from '../../../event-bus.js';
 
 export default {
     props: ['username', 'body', 'draftEmail'],
@@ -41,7 +41,10 @@ export default {
         sendEmail() {
             this.$emit('email-sent');
             emailService.addEmail({...this.email})
-                .then(msg => eventBus.$emit(USER_MSG_SUCCESS, msg));
+                .then(msg => {
+                    eventBus.$emit(USER_MSG_SUCCESS, msg);
+                    eventBus.$emit(UNREAD_EMAILS);
+                });
             this.email = {
                 sender: this.username,
                 recipient: null,

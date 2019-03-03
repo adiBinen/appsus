@@ -146,5 +146,21 @@ export default {
             this.addNote(externalNote);
         }
 
+    },
+    beforeDestroy() {
+        eventBus.$off(NOTE_DELETE);
+
+        eventBus.$off(NOTE_DELETE_ANS)
+
+        eventBus.$off(NOTE_UPDATE);
+
+        eventBus.$off(NOTE_DUPLICATE);
+
+        eventBus.$off(NOTE_MODIFIED);
+
+        eventBus.$off(NOTE_TODOS_MODIFY);
+
+        eventBus.$off(NOTES_CLEAR_SEARCH);
+
     }
 }

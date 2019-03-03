@@ -13,8 +13,6 @@ export default {
 };
 
 const EMAILS_KEY = 'localEmails';
-const LOREM_TXT = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, consequatur! Aliquid aliquam sapiente reiciendis, suscipit in, id at fugiat et esse accusamus aspernatur rem ipsum veritatis praesentium ducimus porro commodi.`;
-
 
 var emailsDB;
 
@@ -129,7 +127,7 @@ function _createEmails() {
     emailsDB = emails;
 }
 
-function _createEmail(sender = "Adi B.", recipient = "Simon I.", subject = 'Deep in the night, I am looking for some fun!', body = LOREM_TXT) {
+function _createEmail(sender = "Adi B.", recipient = "Simon I.", subject = 'Deep in the night, I am looking for some fun!', body = '') {
     return {
         id: utilService.generateId(),
         sender: sender,

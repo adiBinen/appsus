@@ -15,8 +15,9 @@ import {
     EMAILS_CHECKED_MODIFIED,
     UNREAD_EMAILS,
     USER_MSG_SUCCESS,
+    USER_MSG_FAILURE,
     EMAIL_DRAFT_COMPOSING,
-    EMAIL_DELETED
+    EMAIL_DELETED,
 } from '../../../event-bus.js';
 
 
@@ -93,7 +94,8 @@ export default {
             this.draftEmail = null;
             if (id) {
                 emailService.deleteEmail(id)
-                    .then(msg => eventBus.$emit(USER_MSG_SUCCESS, msg));
+                    .then(msg => eventBus.$emit(USER_MSG_SUCCESS, msg))
+                    .catch(msg => eventBus.$emit(USER_MSG_FAILURE, msg))
             } else eventBus.$emit(USER_MSG_SUCCESS, 'Draft was successfully removed.')
         },
         toggleNav() {
@@ -119,6 +121,7 @@ export default {
                 .then(() => {
                     eventBus.$emit(UNREAD_EMAILS);
                 })
+                .catch();
         })
 
         eventBus.$on(EMAIL_DRAFT_COMPOSING, draftEmail => {
@@ -128,7 +131,17 @@ export default {
 
         eventBus.$on(EMAIL_DELETED, emailId => {
             emailService.deleteEmail(emailId)
-                .then(msg => eventBus.$emit(USER_MSG_SUCCESS, msg));
+                .then(msg => eventBus.$emit(USER_MSG_SUCCESS, msg))
+                .catch(msg => eventBus.$emit(USER_MSG_FAILURE, msg));
         });
+    },
+    beforeDestroy() {
+        eventBus.$off(EMAIL_MODIFIED)
+
+        eventBus.$off(EMAILS_CHECKED_MODIFIED)
+
+        eventBus.$off(EMAIL_DRAFT_COMPOSING);
+
+        eventBus.$off(EMAIL_DELETED);
     }
 }

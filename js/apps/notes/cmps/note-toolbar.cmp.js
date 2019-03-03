@@ -5,7 +5,6 @@ import {
     NOTE_DELETE,
     NOTE_DUPLICATE,
     NOTE_MODIFIED,
-    NOTE_SAVE_URL_ON_ENTER,
 } from '../../../event-bus.js';
 
 
@@ -110,7 +109,5 @@ export default {
             return data;
         },
     },
-    created() {
-        eventBus.$on(NOTE_SAVE_URL_ON_ENTER, this.toggleEdit);
-    },
+    
 }

@@ -49,6 +49,9 @@ export default {
     },
     mounted() {
         eventBus.$on(EMAILS_SEARCHBAR, emails => this.emails = emails);
+    },
+    beforeDestroy() {
+        eventBus.$off(EMAILS_SEARCHBAR);
     }
 
 }

@@ -56,6 +56,4 @@ export default {
             return { unread: !this.email.isRead }
         },
     },
-    mounted() {
-    }
 }

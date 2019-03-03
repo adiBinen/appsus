@@ -26,5 +26,8 @@ window.vueApp = new Vue({
         emailService.getUnreadEmails()
                 .then(unreadNum => this.unreadEmails = unreadNum);
         eventBus.$on(UNREAD_EMAILS, this.updateUnreadEmails);
+    },
+    beforeDestroy() {
+        eventBus.$off(UNREAD_EMAILS);
     }
 })
