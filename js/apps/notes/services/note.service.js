@@ -128,8 +128,8 @@ function _premadeData() {
         ]));
         notes.push(_createNote('typeNote', `“No man's knowledge here can go beyond his experience” – John Locke`));
         notes.push(_createNote('typeVideo', `https://www.youtube.com/watch?v=SbWLWNXsVxA`));
+        notes.push(_createNote('typeImage', './img/location2.jpeg'));
         notes.push(_createNote('typeNote', `“Happiness is not an ideal of reason but of imagination” – Immanuel Kant`));
-    
         notes.push(_createNote('typeTodo', [
             { id: '-' + utilService.generateId(), txt: 'Call your family', isMarked: true },
             { id: '-' + utilService.generateId(), txt: 'Go out with friends', isMarked: false },
