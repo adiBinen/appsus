@@ -29,14 +29,20 @@ export default {
             this.isOn = true;
             this.msg = successMsg;
             this.isSuccess = true;
-            setTimeout(() => this.isOn = false, 2200)
+            setTimeout(() => {
+                this.isOn = false;
+                this.msg = '';
+            }, 2200)
         });
 
         eventBus.$on(USER_MSG_FAILURE, failureMsg => {
             this.isOn = true;
             this.msg = failureMsg;
             this.isSuccess = false;
-            setTimeout(() => this.isOn = false, 2200);
+            setTimeout(() => {
+                this.isOn = false
+                this.msg = '';
+            }, 2200);
         });
     },
     beforeDestroy() {
