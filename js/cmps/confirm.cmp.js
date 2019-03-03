@@ -6,8 +6,8 @@ export default {
         <aside class="confirm-box" :class="toggleClass">
             <div class="confirm-msg">{{msg}}</div>
             <div class="confirm-btn-container flex row justify-center">
-                <button class="btn-confirm" title="Confirm" @click="confirm">Confirm</button>
-                <button class="btn-cancel" title="Cancel" @click="cancel">Cancel</button>
+                <button class="btn-confirmation btn-confirm" title="Confirm" @click="confirm">Confirm</button>
+                <button class="btn-confirmation btn-cancel" title="Cancel" @click="cancel">Cancel</button>
             </div>
         </aside>
     `,

@@ -38,6 +38,7 @@
 /* homepage layout */
 .homepage-container {
     font-family: 'Open Sans', sans-serif;
+    font-size: .9em;
     padding-top: 30px;
     padding: 20px;
     border-right: .0625rem solid #e1e0e0;
@@ -52,7 +53,8 @@
     .homepage-container {
         padding: 20px;
         margin: 0 auto;
-        width: 800px;
+        width: 700px;
+        /* width: 800px; */
         
     }
 }
@@ -103,9 +105,45 @@
 
 .about-card-container {
     justify-content: space-evenly;
+    margin: 50px auto;
 }
 
 .card .profile-img {
     width: 150px;
     height: 150px;
+    border-radius: 2px;
+    box-shadow: 0 0 1px black;
 }
+
+.card > h4 {
+    margin-top: 5px;
+    font-size: 1.1em;
+    letter-spacing: 1.05px;
+    text-align: center;
+}
+
+.btns-social-container {
+    margin-top: 5px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btns-social-container > a {
+    color: black;
+    padding: 5px;
+    font-size: 1.6em;
+}
+.btns-social-container > a:visited {
+    color: inherit;
+}
+.btns-social-container > a:hover {
+    color: black;
+}
+
+@media (min-width: 650px) {
+    .card .profile-img {
+        width: 200px;
+        height: 200px;
+    }
+}
+

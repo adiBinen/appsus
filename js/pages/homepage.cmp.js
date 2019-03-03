@@ -33,24 +33,36 @@ export default {
                         take an existing stand-alone project and put it into a bigger-scale one. Thanks to the power of VueJS, this task was very simple. The components in Vue needed some minor tweaking,
                         without going to deep, and after a very short time it started to behave as if it was always a part of Hub.
                     </p>
-                    <h2 class="title">About Us:</h2>
+                    <h2 class="title">The Team</h2>
                     <div class="about-card-container flex align-center">
                         <div class="card">
                             <img class="profile-img" src="./img/about/simon.jpg" />
                             <h4>Simon Ron Ifergan</h4>
                             <div class="btns-social-container flex">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-git"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" target="_blank">
+                                        <i class="fab fa-facebook-square"></i>
+                                </a>
+                                <a href="#" target="_blank">
+                                    <i class="fab fa-github-square"></i>
+                                </a>
+                                <a href="#" target="_blank">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
                             </div>
                         </div>
                         <div class="card">
                             <img class="profile-img" src="./img/about/adi.png" />
                             <h4>Adi Binenbaum</h4>
-                            <div class="btns-social-container">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-git"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <div class="btns-social-container flex">
+                                <a href="https://www.facebook.com/adi.binenbaum" target="_blank">
+                                    <i class="fab fa-facebook-square"></i>
+                                </a>
+                                <a href="https://github.com/adiBinen" target="_blank">
+                                    <i class="fab fa-github-square"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/adibinenbaum/" target="_blank">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
                             </div>
 
                         </div>
