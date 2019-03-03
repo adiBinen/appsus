@@ -1,6 +1,6 @@
-import { getGoogleBooks } from '../service/google-api.service.js';
-import bookService from '../service/book.service.js';
-import { eventBus, USER_MSG_SUCCESS, USER_MSG_FAILURE } from '../event-bus.js';
+// import { getGoogleBooks } from '../service/google-api.service.js';
+import bookService from '../services/book.service.js';
+// import { eventBus, USER_MSG_SUCCESS, USER_MSG_FAILURE } from '../event-bus.js';
 
 export default {
     template: `

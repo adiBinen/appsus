@@ -40,7 +40,7 @@ const routes = [
         children: [
             { path: '', component: bookList },
             { path: ':bookId/:bookTitle?', component: bookDetails },
-            { path: 'book-add', component: bookAdd },
+            { path: 'book-add', component: booksApp },
 
         ]
     },
