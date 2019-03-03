@@ -5,23 +5,27 @@ import bookFilter from '../cmps/book-filter.cmp.js';
 
 export default {
     props: ['unreadEmails'],
-    components: {
-        bookList, bookFilter, bookHeader
-    },
+    components: { bookList, bookFilter, bookHeader },
     template: `
         <main class="book-app">
             <book-header :unread-emails="unreadEmails"></book-header>
-            <book-filter 
+            <router-view
+                v-if="books" 
+                :books="filterBooks"
+                :view-book="previewBook"
+                @filter="changeFilter"
+            ></router-view>
+            <!-- <book-filter 
                 v-on:filter="changeFilter"
-            ></book-filter>
-            <book-list
+            ></book-filter> -->
+            <!-- <book-list
                 v-if="books" 
                 v-bind:books="filterBooks"
                 v-on:view-book="previewBook"
-            ></book-list>
+            ></book-list> -->
         </main>
     `,
-    data () {
+    data() {
         return {
             books: null,
             filterBy: {
@@ -53,7 +57,7 @@ export default {
     },
     computed: {
         filterBooks() {
-            let filteredBooks =  this.books.slice();
+            let filteredBooks = this.books.slice();
 
             if (this.filterBy.title) filteredBooks = filteredBooks.filter(book => book.title.includes(this.filterBy.title.toLowerCase()));
             if (this.filterBy.minPrice) filteredBooks = filteredBooks.filter(book => book.listPrice.amount >= this.filterBy.minPrice);

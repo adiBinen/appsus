@@ -13,6 +13,7 @@ import notesApp from './apps/notes/pages/notes-app.cmp.js';
 import booksApp from './apps/books/pages/book-app.cmp.js';
 import bookDetails from './apps/books/pages/book-details.cmp.js'
 import bookAdd from './apps/books/pages/book-app.cmp.js';
+import bookList from './apps/books/cmps/book-list.cmp.js';
 
 const routes = [
     { path: '/', component: homepage },
@@ -37,8 +38,9 @@ const routes = [
     {
         path: '/books', component: booksApp,
         children: [
-            { path: '#/book:bookId/:bookName?', component: bookDetails },
-            { path: '#/book-add', component: bookAdd },
+            { path: '', component: bookList },
+            { path: ':bookId/:bookTitle?', component: bookDetails },
+            { path: 'book-add', component: bookAdd },
 
         ]
     },

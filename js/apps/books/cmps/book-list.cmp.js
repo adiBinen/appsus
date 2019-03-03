@@ -1,17 +1,21 @@
 import bookPreview from './book-preview.cmp.js';
+import bookFilter from './book-filter.cmp.js';
 
 export default {
     components: {
-        bookPreview,
+        bookPreview, bookFilter,
     },
     props: ['books'],
     template: `
             <section>
+                <book-filter 
+                    @filter="changeFilter"
+                ></book-filter>
                 <transition-group name="list" tag="ul" class="book-list grid">
                     <li v-for="book in books" :key="book.id">
-                        <router-link :to="'/books/#/book' + book.id + '/' + book.title">
+                        <router-link :to="'/books/' + book.id + '/' + book.title">
                             <book-preview 
-                                v-bind:book="book"
+                                :book="book"
                             ></book-preview>
                         </router-link>
                     </li>
@@ -24,7 +28,9 @@ export default {
         }
     },
     methods: {
-        
+        changeFilter(filterBy) {
+            this.$emit('filter', filterBy)
+        }
     },
     computed: {
 
