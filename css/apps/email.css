@@ -4,7 +4,7 @@
     grid-template-areas: 
     "header header"
     "content content";
-    grid-template-rows: 100px calc(100vh - 100px);
+    grid-template-rows: 80px calc(100vh - 80px);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -26,8 +26,15 @@
     align-items: center;
     flex-wrap: wrap;
     padding: 0 20px;
+    position: fixed;
     z-index: 3;
     box-shadow: 0 0px 0px 0.5px #64798fab;
+}
+
+@media(min-width: 650px) {
+    .email-header {
+        position: static;
+    }
 }
 
 /* email logo */
@@ -303,7 +310,7 @@
 
 @media (max-width: 649px) {
     .email-side-nav.show {
-        transform:translate(0, 0);
+        transform:translate(0, 29px);
     }
 
     .email-side-nav .btns-container .btn-compose {
@@ -449,11 +456,21 @@
     height: 50px;
     padding: 10px;
     z-index: 1;
-    position: sticky;
-    top: 0;
+    position: fixed;
+    top: 80ox;
+    width: 100%;
     background-color: white;
     box-shadow: 0px 1px 5px #d9dee4;
 }
+
+@media (min-width: 650px) {
+    .email-toolbar {
+        position: sticky;
+        top:0;
+        width: auto;
+    }
+}
+
 .email-toolbar > button {
     font-size: 15px;
     padding: 5px;
@@ -529,6 +546,10 @@
 .unread .sender {
     font-weight: bold;
 }
+
+.email-preview:first-of-type {
+    margin-top: 50px;
+}
 .email-preview:hover {
     box-shadow: 0px 1px 5px -1px black;
     position: relative;
@@ -564,6 +585,9 @@
 
 /* EMAIL-PREVIEW-DESKTOP-IS-THE-BEST-THING */
        @media (min-width: 650px) {
+        .email-preview:first-of-type {
+            margin: 0;
+        }
         .email-preview {
             display: flex;
             height: 50px;
@@ -799,13 +823,16 @@
 
 /* EMAIL DISPLAY */
 .email-display {
-    padding: 20px;
+    padding: 0 20px 20px 20px;
 }
+
+
 
 .email-display > .display-toolbar {
     height: 50px;
     align-items: baseline;
     border-bottom: .5px solid #4040404d;
+    align-items: center;
 }
 
 .display-toolbar > :nth-child(2) {
