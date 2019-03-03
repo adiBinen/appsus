@@ -84,12 +84,14 @@ function modifyEmail(modifiedEmail) {
 
 function modifyChecked(action) {
     if (!action) Promise.reject('Error: no action has been selected.');
+    let prmsStr;
     if (action === 'delete') {
         let emailsToDelete = [];
         emailsDB.forEach(email => {
             if (email.isChecked) {
                 if (email.isDeleted) {
                     emailsToDelete.push(email);
+                    prmsStr = 'E-mail was moved to trash inbox.';
                 } else {
                     email.isChecked = false;
                     email.isSent = false;
@@ -100,19 +102,23 @@ function modifyChecked(action) {
         });
         if (emailsToDelete.length) {
             emailsToDelete.forEach(email => deleteEmail(email.id));
+            prmsStr = 'Selected E-mails were permanently deleted.';
         }
     } else {
         emailsDB.forEach(email => {
             if (action === 'unread' && email.isChecked) {
                 email.isRead = false;
+                prmsStr = 'Selected E-mails were marked as unread';
             } else if (action === 'read' && email.isChecked) {
                 email.isRead = true;
+                prmsStr = 'Selected E-mails were marked as read';
             }
             email.isChecked = false;
         });
         storageService.saveToLocal(EMAILS_KEY, emailsDB);
     }
-    return Promise.resolve('Email was successfully modified.');
+    prmsStr = (prmsStr)? prmsStr : 'Email was successfully modified.';
+    return Promise.resolve(prmsStr);
 }
 
 function _getEmailIdxById(id) {

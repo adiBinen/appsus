@@ -118,10 +118,11 @@ export default {
 
         eventBus.$on(EMAILS_CHECKED_MODIFIED, action => {
             emailService.modifyChecked(action)
-                .then(() => {
+                .then(msg => {
                     eventBus.$emit(UNREAD_EMAILS);
+                    eventBus.$emit(USER_MSG_SUCCESS, msg);
                 })
-                .catch();
+                .catch(msg => eventBus.$emit(USER_MSG_FAILURE, msg));
         })
 
         eventBus.$on(EMAIL_DRAFT_COMPOSING, draftEmail => {
