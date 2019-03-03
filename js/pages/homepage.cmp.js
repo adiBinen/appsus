@@ -39,13 +39,13 @@ export default {
                             <img class="profile-img" src="./img/about/simon.jpg" />
                             <h4>Simon Ron Ifergan</h4>
                             <div class="btns-social-container flex">
-                                <a href="#" target="_blank">
+                                <a href="https://www.facebook.com/Simon.Ifergan" target="_blank">
                                         <i class="fab fa-facebook-square"></i>
                                 </a>
-                                <a href="#" target="_blank">
+                                <a href="https://github.com/simonifergan" target="_blank">
                                     <i class="fab fa-github-square"></i>
                                 </a>
-                                <a href="#" target="_blank">
+                                <a href="www.linkedin.com/in/simonifergan" target="_blank">
                                     <i class="fab fa-linkedin"></i>
                                 </a>
                             </div>

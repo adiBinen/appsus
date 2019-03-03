@@ -5,7 +5,7 @@ export default {
     components: { globalNav },
     template: `
          <header class="books-header flex row">
-            <router-link tag="div" to="/books/" class="logo flex align-center">
+            <router-link title="BooksHub" tag="div" to="/books/" class="logo flex align-center">
                 <img class="logo-img" src="./img/books.svg" />
                 <h1>BooksHub</h1>
             </router-link>
