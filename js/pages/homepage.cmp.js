@@ -7,9 +7,9 @@ export default {
         <main class="homepage">
             <main-header :unread-emails="unreadEmails"></main-header>
             <div class="homepage-container">            
-                    <h1 class="our-app">Our App</h1>
+                    <h1 class="our-app">About Us</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis consectetur optio cumque, dignissimos, possimus animi quia totam est voluptatibus quasi fugiat, fuga velit nostrum impedit unde. Vero enim perferendis dolor.
+                        We are too 
                     </p>
                 </div>
                 <div class="icon">
