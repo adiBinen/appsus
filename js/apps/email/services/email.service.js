@@ -152,7 +152,7 @@ function _premadeData() {
         for (let i = 0; i < 20; i++) {
             let newEmail = _createEmail();
             newEmail.isRead = true;
-            newEmail.recipient = utilService.generateName();
+            newEmail.recipient = utilService.generateEmail();
             emails.unshift(newEmail);
         }
 
