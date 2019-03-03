@@ -509,6 +509,10 @@
     border-radius: 11px
 }
 
-.note-item .type-video .type-edit, .note-item .type-audio .type-edit {
+.note-item .type-video .type-edit, .note-item .type-audio .type-edit, .note-item .type-image .type-edit  {
     margin-bottom: 5px;
+}
+
+.note-item .type-image img {
+    border-radius: 3px;
 }

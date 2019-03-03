@@ -84,8 +84,8 @@ function _createNotes() {
 
 function _createNote(type, data) {
     return {
-        // type: 'video' || 'audio' || 'image' || 'todo'                  || 'note',
-        // data: 'src'   || 'src'   || 'src'   || '[id, txt, isMarked]'   || 'txt',
+        // type: 'video' || 'audio' || 'image' || 'todo'                    || 'note',
+        // data: 'src'   || 'src'   || 'src'   || '{[id, txt, isMarked]}'   || 'txt',
 
         id: utilService.generateId(),
         type: type,
@@ -102,21 +102,39 @@ function _premadeData() {
         let video1 = _createNote('typeVideo', 'https://www.youtube.com/embed/tgbNymZ7vqY');
         let video2 = _createNote('typeVideo', 'https://www.youtube.com/watch?v=JVZTP_kX5BE'); // WILL BE TURNED INTO EMBED
         let audio = _createNote('typeAudio', './sound/win.mp3');
-        let note1 = _createNote('typeNote', 'Hi there, I am a note.');
+        let note1 = _createNote('typeNote', `“There is only one good, knowledge, and one evil, ignorance” – Socrates`);
         let note2 = _createNote('typeNote', `Don't trouble troubles until trouble troubles you!`);
         let todo1 = _createNote('typeTodo', [
-            { id: '-' + utilService.generateId(), txt: 'Code during day', isMarked: true },
-            { id: '-' + utilService.generateId(), txt: 'Code during night', isMarked: true },
+            { id: '-' + utilService.generateId(), txt: 'Code during the day', isMarked: true },
+            { id: '-' + utilService.generateId(), txt: 'Code during the night', isMarked: true },
             { id: '-' + utilService.generateId(), txt: 'Jump off a cliff', isMarked: false },
         ]);
         let todo2 = _createNote('typeTodo', [
-            { id: '-' + utilService.generateId(), txt: 'Go walk', isMarked: false },
-            { id: '-' + utilService.generateId(), txt: 'Go swim', isMarked: false },
-            { id: '-' + utilService.generateId(), txt: 'Go run', isMarked: false },
+            { id: '-' + utilService.generateId(), txt: 'Walk', isMarked: false },
+            { id: '-' + utilService.generateId(), txt: 'Swim', isMarked: false },
+            { id: '-' + utilService.generateId(), txt: 'Run', isMarked: false },
         ]);
-        let img = _createNote('typeImage', './img/my-meme.jpg');
+        let img = _createNote('typeImage', './img/location.jpg');
         notes.push(video1, audio, img, note1, note2, todo1, video2, todo2);
         notes[0].isPinned = true;
         notes[5].isPinned = true;
+
+        // Extended
+        notes.push(_createNote('typeNote', `“The unexamined life is not worth living” – Socrates`));
+        notes.push(_createNote('typeTodo', [
+            { id: '-' + utilService.generateId(), txt: 'Master HTML', isMarked: false },
+            { id: '-' + utilService.generateId(), txt: 'Master CSS', isMarked: false },
+            { id: '-' + utilService.generateId(), txt: 'Master JS', isMarked: false },
+        ]));
+        notes.push(_createNote('typeNote', `“No man's knowledge here can go beyond his experience” – John Locke`));
+        notes.push(_createNote('typeVideo', `https://www.youtube.com/watch?v=SbWLWNXsVxA`));
+        notes.push(_createNote('typeNote', `“Happiness is not an ideal of reason but of imagination” – Immanuel Kant`));
+    
+        notes.push(_createNote('typeTodo', [
+            { id: '-' + utilService.generateId(), txt: 'Call your family', isMarked: true },
+            { id: '-' + utilService.generateId(), txt: 'Go out with friends', isMarked: false },
+            { id: '-' + utilService.generateId(), txt: 'Excel at something', isMarked: true },
+        ]));
+
     return notes;
 }
