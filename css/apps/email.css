@@ -10,6 +10,7 @@
 
 @media (min-width: 650px) {
     .email-app {
+        overflow: hidden;
         grid-template-columns: 45px 2fr;
         grid-template-rows: 65px calc(100vh - 65px);
         grid-template-areas: 
@@ -148,7 +149,7 @@
     color: #767676;
     font-size: .9em;
     z-index: 2;
-    top: 106px;
+    top: 135px;
     transform: translate(-500px, 0);
     transition: transform .6s;
 }
@@ -311,7 +312,7 @@
 
 @media (max-width: 649px) {
     .email-side-nav.show {
-        transform:translate(0, 29px);
+        transform:translate(0, 0);
     }
 
     .email-side-nav .btns-container .btn-compose {
