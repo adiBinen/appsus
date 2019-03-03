@@ -251,7 +251,7 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
-    font-family: 'Maven Pro', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #fff;
     background-color: rgba(51, 51, 51, 0.85);
     transition: opacity .3s;
@@ -304,13 +304,14 @@
 .book-details .book-title {
     font-size: 2em;
     font-weight: bold;
-    font-family: 'Maven Pro', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     text-transform: capitalize;
 }
 
 .book-details .book-subtitle {
     text-transform: capitalize;
     font-size: 1.5em;
+    line-height: 1.2;
 }
 
 .book-details .book-locale span{
@@ -319,7 +320,7 @@
 
 .book-details .book-description {
     font-weight: normal;
-
+    line-height: 1.1;
     min-height: 4em;
     margin-bottom: 50px;
 }
@@ -364,7 +365,9 @@
 
 /* Book Reviews */
 
-
+.book-container {
+    font-family: 'Roboto', sans-serif;
+}
 .book-container hr {
     width: 80%;
     border-color: #333; 
@@ -378,18 +381,30 @@
 
 .add-book-review {
     font-family: 'Open Sans', sans-serif;
+    font-size: .95em;
 }
 
 
 .add-book-review input {
+    font-family: 'Open Sans', sans-serif;
     margin-bottom: 5px;
     width: 200px;
     padding: 5px;
-    outline: #333;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #b3b2b2;
 
 }
 
 .add-book-review .review-rating {
+    margin-bottom: 10px;
+}
+
+.review-text {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.add-book-review .review-text-title {
     margin-bottom: 5px;
 }
 
@@ -407,34 +422,27 @@
 }
 
 
-.review-rating .btn-dec-star {
-    color: #eb3b5a;
+.review-rating .btn-dec-star, .review-rating .btn-inc-star {
+    color: #7e8185;
 }
 
-.review-rating .btn-dec-star:hover {
-    color: #333;
-}
-
-.review-rating .btn-inc-star {
-    color: #2d98da;
-}
-
-.review-rating .btn-inc-star:hover {
+.review-rating .btn-dec-star:hover, .review-rating .btn-inc-star:hover {
     color: #333;
 }
 
 .add-book-review .btn-submit {
     align-self: center;
+    font-family: 'Open Sans', sans-serif;
     margin: 20px 0;
     padding: 10px;
-    background-color: #33d9b2;
-    color: #000;
+    border-radius: 2px;
+    background-color: #2d3436;
+    color: #fff;
     transition: .3s;
 }
 
 .add-book-review .btn-submit:hover {
-    background-color: #218c74;
-    color: #fff;
+    box-shadow: 0 0 6px black;
 }
 
 .add-book-review textarea {
@@ -454,7 +462,7 @@
     display: flex;
     flex-direction: column;
     font-weight: bold;
-    
+    width: 100%;
 }
 
 .review-list .review-container {
@@ -462,7 +470,8 @@
     margin-bottom: 10px;
     padding: 10px;
     border-bottom: 1px solid #333;
-
+    width: 80%;
+    margin: 10px auto;
 }
 
 .review-list span {
@@ -490,6 +499,12 @@
 
 .btn-delete-review:hover {
     color: #333;
+}
+
+
+.review-list > * {
+    margin-top: 10px;
+    max-width: 400px;
 }
 
 /* Book Add Page */
@@ -544,6 +559,7 @@
 
 .book-container .btn-back {
     align-self: flex-start;
+    font-family: 'Open Sans', sans-serif;
     margin-top: 20px;
     margin-left: 20px;
     font-size: 1.3em;
@@ -585,28 +601,20 @@
 
 .btn-add-review {
     align-self: flex-end;
+    font-family: 'Open Sans', sans-serif;
     padding: 10px;
     margin-right: 10vw;
     margin-bottom: 20px;
-    background-color: #26de81;
+    background-color: #f0efef;
     border-radius: 2px;
     transition: .3s;
 }
 
 .btn-add-review:hover {
-    color: #fff;
-    background-color: #20bf6b;
+    background-color: #f0efef;
+    box-shadow: 0 0 6px #a6a7a9;
 }
 
-.btn-add-review.red {
-    background-color: #ff5252;
-    color: #000;
-}
-
-.btn-add-review.red:hover {
-    background-color: #b33939;
-    color: #fff;
-}
 
 .btn-filter-toggle {
     font-size: 1.05em;

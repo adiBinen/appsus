@@ -10,7 +10,7 @@ export default {
                         />
                     </label>
                     <label> Read At:
-                        <input type="date" v-model="review.readAt" />
+                        <input type="date" v-model="review.readAt" required/>
                     </label>
                     <div class="review-rating">
                         Rate Book:
@@ -18,7 +18,7 @@ export default {
                         <span class="review-stars">&nbsp;{{starsToShow}}&nbsp;</span>
                         <button @click.stop.prevent="modifyRating(1)" class="btn btn-inc-star"><i class="far fa-plus-square"></i></button>
                     </div>
-                    <div>Share Your Review:</div>
+                    <div class="review-text-title">Share Your Review:</div>
                     <textarea class="review-text" type="text" v-model.trim="review.txt"></textarea>
                     <button class="btn btn-submit" type="submit">Submit Review</button>
                 </div>

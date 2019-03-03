@@ -2,15 +2,15 @@ export default {
     props: ['review'],
     template: `
         <li>
-            <h4>
-                Review By: <span>{{showReviewer}}</span>&nbsp; At: <span>{{showDate}}</span>&nbsp; Rating: <span class="review-stars">{{showRating}}</span>
-            </h4>
-            <p><span>Review:</span> {{review.txt}}</p>
+            <p><span>Review By:&nbsp;</span>{{showReviewer}}</p>
+            <p><span>At:&nbsp;</span>{{showDate}}</p>
+            <p><span>Rating:&nbsp;</span><span class="review-stars">{{showRating}}</span></p>
+            <p><span>Review:&nbsp;</span>{{review.txt}}</p>
         </li>
     `,
     computed: {
         showReviewer() {
-            return (this.review.name)? this.review.name : 'Anonymous Reviewer';
+            return (this.review.name) ? this.review.name : 'Anonymous Reviewer';
         },
         showRating() {
             const star = '★';
