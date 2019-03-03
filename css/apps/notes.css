@@ -493,3 +493,21 @@
     font-size: 1rem;
     padding: 10px;
 }
+
+/* EDIT TYPE - VIDEO, AUDIO, IMAGE */
+
+.note-item .type-edit {
+    background: none;
+    border: none;
+    outline: none;
+    background-color: #ffffff2e;
+    padding: 5px;
+}
+
+.note-item .type-audio .type-edit {
+    border-radius: 11px
+}
+
+.note-item .type-video .type-edit, .note-item .type-audio .type-edit {
+    margin-bottom: 5px;
+}
