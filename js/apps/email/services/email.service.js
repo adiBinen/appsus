@@ -22,7 +22,6 @@ _createEmails();
 
 function query() {
     return Promise.resolve(emailsDB);
-    
 }
 
 function getEmailById(id) {
@@ -126,7 +125,29 @@ function _createEmails() {
     let emails = storageService.loadFromLocal(EMAILS_KEY);
     if (!emails) {
         // DUMMY DATA SECTION
-        emails = [];
+        emails = _premadeData();
+    }
+    emailsDB = emails;
+}
+
+function _createEmail(sender = "Adi B.", recipient = "Simon I.", subject = 'Deep in the night, I am looking for some fun!', body = LOREM_TXT) {
+    return {
+        id: utilService.generateId(),
+        sender: sender,
+        recipient: recipient,
+        subject: subject,
+        body: body,
+        isRead: false,
+        isChecked: false,
+        isDeleted: false,
+        isDraft: false,
+        isSent: false,
+        sentAt: Date.now() - 1000 * 60 * 60 * 24 * 500,
+    }
+}
+
+function _premadeData() {
+    let emails = [];
         for (let i = 0; i < 40; i++) {
             emails.unshift(_createEmail());
         }
@@ -149,22 +170,5 @@ function _createEmails() {
         emails[9].sentAt = Date.now() - 1000 * 60 * 60 * 24 * 365 * 5;
         emails[9].sender = 'Simon I.'
         storageService.saveToLocal(EMAILS_KEY, emails);
-    }
-    emailsDB = emails;
-}
-
-function _createEmail(sender = "Adi B.", recipient = "Simon I.", subject = 'Deep in the night, I am looking for some fun!', body = LOREM_TXT) {
-    return {
-        id: utilService.generateId(),
-        sender: sender,
-        recipient: recipient,
-        subject: subject,
-        body: body,
-        isRead: false,
-        isChecked: false,
-        isDeleted: false,
-        isDraft: false,
-        isSent: false,
-        sentAt: Date.now() - 1000 * 60 * 60 * 24 * 500,
-    }
+        return emails;
 }
