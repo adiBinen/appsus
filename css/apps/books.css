@@ -12,11 +12,13 @@
 /* app header */
 .book-app header {
     grid-area: app-header;
-    font-family: 'Maven Pro',sans-serif;
-    background-color: #e6e6e6;
+    height: 60px;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0efef;
     color: #333;
     padding: 5px 20px 0 20px;
-    box-shadow: 0 0 5px 2px black;
+    box-shadow: 0 0 4px 1px #64686d;
     justify-content: space-between;
     position: fixed;
     width: 100%;
@@ -24,14 +26,18 @@
 }
 
 .book-app header h1 {
-    font-size: 2em;
-    text-transform: capitalize;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #64686d;
+    font-size: 25px;
+    /* text-transform: capitalize; */
     cursor: pointer;
 }
 
 .book-app header .logo-img {
     width: 35px;
     height: 35px;
+    margin-right: 10px;
 }
 
 @media (min-width: 750px) {
@@ -140,21 +146,36 @@
 }
 
 .book-filter .form-filter {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Lato', sans-serif;
+    grid-template-rows: 40px 1fr;
+    grid-template-columns: 1fr 80px;
+    font-family: 'Open Sans', sans-serif;
+    color: #64686d;
 }
 
 .book-filter .form-filter > * {
     margin: 0 5px;
     margin-bottom: 5px;
+    font-size: .8em;
 }
 
 .book-filter .input-title {
-    border: 1px solid #333;
+    grid-row-start: 1;
+    grid-column: 1 / span 2;
     outline-color: #333;
-    padding: 5px;
+    padding: 10px;
+    margin: 0;
+    margin-bottom: 5px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    background-color: #ecebe5;
+    transition: .3s;
+}
+
+.book-filter .input-title:focus {
+    box-shadow: 0px 0px 5px black;
+    background-color: white;
 }
 
 .book-filter .input-price {
@@ -165,7 +186,7 @@
 
 @media (min-width: 860px) {
     .book-filter {
-        margin: 20px 0;
+        margin-bottom: 20px;
         }
     .book-filter .form-filter {
         flex-direction: row;
@@ -175,7 +196,6 @@
 /* Book-list */
 
 .book-list {
-    margin: 10px 0;
     grid-area: book-list;
     grid-template-columns: repeat(auto-fill, 150px);
     grid-template-rows: auto;
@@ -206,7 +226,7 @@
 
 .book-preview:hover {
     box-shadow: 0 0 3px 1px #333;
-    transform: translateY(-10px);
+    transform: translateY(-2px);
 }
 
 .book-preview .book-image-container {
@@ -262,7 +282,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin-bottom: 10px;
 }
 
@@ -357,7 +377,7 @@
 /* Add book review */
 
 .add-book-review {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 
@@ -544,6 +564,10 @@
 }
 
 .btn-filter {
+    grid-column-start: 2;
+    grid-row: 2;
+    align-self: center;
+    justify-self: end;
     border-radius: 5px;
     background-color: #0984e3;
     align-self: center;
@@ -551,6 +575,7 @@
     width: 58px;
     height: 30px;
     transition: .3s;
+    
 }
 
 .btn-filter:hover {
@@ -586,6 +611,7 @@
 .btn-filter-toggle {
     font-size: 1.05em;
     margin-bottom: 5px;
+    color: #767676;
 }
 
 .btn-filter-toggle span {

@@ -7,7 +7,7 @@ export default {
                     <span v-else="!isToggled"><i class="fas fa-toggle-off"></i></span>
                 </button>
                 <transition name="list" mode="in-out">
-                    <form @submit.prevent="filterBooks" class="form-filter flex" v-if="isToggled">
+                    <form @submit.prevent="filterBooks" class="form-filter grid" v-if="isToggled">
                         <input ref="inputTitle" autofocus class="input-title" type="text" v-model="filterBy.title" 
                             placeholder="Enter Book Title" autofocus 
                         />
