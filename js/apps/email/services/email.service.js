@@ -148,27 +148,74 @@ function _createEmail(sender = "Adi B.", recipient = "Simon I.", subject = 'Deep
 
 function _premadeData() {
     let emails = [];
-        for (let i = 0; i < 40; i++) {
-            emails.unshift(_createEmail());
+        for (let i = 0; i < 15; i++) {
+            let newEmail = _createEmail();
+            newEmail.isRead = true;
+            newEmail.recipient = utilService.generateName();
+            emails.unshift(newEmail);
         }
-        emails[1].isDeleted = true;
-        emails[4].isDraft = true;
-        emails[4].isRead = true;
-        emails[3].isSent = true;
-        emails[5].isSent = true;
-        emails[0].isRead = true;
+
         emails[0].sentAt = Date.now();
-        emails[0].sender = 'Simon I.'
-        emails[3].isRead = true;
-        emails[3].sender = 'Simon I.'
-        emails[6].isRead = true;
-        emails[6].sender = 'Adi B.'
-        emails[7].sentAt = Date.now() - 1000 * 60 * 60 * 24;
-        emails[7].sender = 'Adi B.'
-        emails[8].sentAt = Date.now() - 1000 * 60 * 60 * 24 * 3;
-        emails[8].sender = 'Simon I.'
-        emails[9].sentAt = Date.now() - 1000 * 60 * 60 * 24 * 365 * 5;
-        emails[9].sender = 'Simon I.'
+        emails[0].sender = 'Albert E.'
+        emails[0].subject = 'A human being is a part of the whole called by us universe, a part limited in time and space';
+        emails[0].body = 'He experiences himself, his thoughts and feeling as something separated from the rest, a kind of optical delusion of his consciousness. This delusion is a kind of prison for us, restricting us to our personal desires and to affection for a few persons nearest to us. Our task must be to free ourselves from this prison by widening our circle of compassion to embrace all living creatures and the whole of nature in its beauty.';
+
+        emails[1].sentAt = Date.now() - 1000 * 60 * 60 * 24;
+        emails[1].isRead = false;
+        emails[1].sender = 'Tolkien J.'
+        emails[1].subject = 'Fantasy is escapist, and that is its glory';
+        emails[1].body = `If a soldier is imprisioned by the enemy, don't we consider it his duty to escape?. . .If we value the freedom of mind and soul, if we're partisans of liberty, then it's our plain duty to escape, and to take as many people with us as we can!`;
+
+        emails[2].sentAt = Date.now() - 1000 * 60 * 60 * 24 * 3;
+        emails[2].sender = 'Chuang T.';
+        emails[2].subject = 'The fish trap exists because of the fish';
+        emails[2].body = `Once you've gotten the fish you can forget the trap. The rabbit snare exists because of the rabbit. Once you've gotten the rabbit, you can forget the snare. Words exist because of meaning. Once you've gotten the meaning, you can forget the words. Where can I find a man who has forgotten words so I can talk with him?`;
+
+        emails[4].sentAt = Date.now() - 1000 * 60 * 60 * 24 * 7;
+        emails[4].sender = 'Robert L.';
+        emails[4].subject = `if I could believe in the immortality business, the world would indeed be too good to be true`;
+        emails[4].body = `we were put here to do what service we can, for honour and not for hire; the sods cover us, and the worm that never dies, the conscience, sleeps well at last; these are the wages, besides what we receive so lavishly day by day; and they are enough for a man who knows his own frailty and sees all things in the proportion of reality. The soul of piety was killed long ago by that idea of reward.... [M]an's cherished belief is that he loves that happiness which he continually spurns and passes by; and this belief in some ulterior happiness exactly fits him. He does not require to stop and taste it; he can be about the rugged and bitter business where his heart lies; and yet he can tell himself this fairy tale of an eternal tea-party, and enjoy the notion that he is both himself and something else; and that his friends will yet meet him, all ironed out and emasculate, and still be lovable—as if love did not live in the faults of the beloved only, and draw its breath in an unbroken round of forgiveness.`;
+
+        emails[5].sentAt = Date.now() - 1000 * 60 * 60 * 24 * 7;
+        emails[5].sender = 'Sylvia P';
+        emails[5].subject = `I can never read all the books I want`;
+        emails[5].body = `I can never be all the people I want and live all the lives I want. I can never train myself in all the skills I want. And why do I want? I want to live and feel all the shades, tones and variations of mental and physical experience possible in my life. And I am horribly limited.`;
+
+        emails[6].sentAt = Date.now() - 1000 * 60 * 60 * 24 * 13;
+        emails[6].sender = 'Salinger J.';
+        emails[6].subject = 'What really knocks me out is a book that';
+        emails[6].body = `when you're all done reading it, you wish the author that wrote it was a terrific friend of yours and you could call him up on the phone whenever you felt like it. That doesn't happen much, though.`;
+
+        emails[7].sentAt = Date.now() - 1000 * 60 * 60 * 24 * 14;
+        emails[7].sender = 'André G.';
+        emails[7].subject = `It is better to be hated for what you are than to be loved for what you are not`;
+        emails[7].body = `We invest less in our friendships and expect more of friends than any other relationship. We spend days working out where to book for a romantic dinner, weeks wondering how to celebrate a partner or parent's birthday, and seconds forgetting a friend's important anniversary.`;
+
+        emails[8].sentAt = Date.now() - 1000 * 60 * 60 * 24 * 14;
+        emails[8].sender = 'Nnedi O.';
+        emails[8].subject = `I love books, I adore everything about them`;
+        emails[8].body= `I love the feel of the pages on my fingertips. They are light enough to carry, yet so heavy with worlds and ideas. I love the sound of the pages flicking against my fingers. Print against fingerprints. Books make people quiet, yet they are so loud.`;
+
+        emails[9].sentAt = Date.now() - 1000 * 60 * 60 * 24 * 15;
+        emails[9].sender = 'Nick H.';
+        emails[9].subject = `People go on about places like Starbucks being unpersonal and all that, but what if that's what you want?`;
+        emails[9].body = `I'd be lost if people like that got their way and there was nothing unpersonal in the world. I like to know that there are big places without windows where no one gives a shit. You need confidence to go into small places with regular customers... I'm happiest in the Virgin Megastore and Borders and Starbucks and Pizza Express, where no one gives a shit and no one knows who you are. My mum & dad are always going on about how soulless those places are, and I'm like Der. That's the point.`;
+
+
+
+        // emails[4].isDraft = true;
+        // emails[3].isSent = true;
+        // emails[5].isSent = true;
+        // emails[3].isRead = false;
+        // emails[3].sender = 'Simon I.'
+        // emails[6].isRead = false;
+        // emails[6].sender = 'Adi B.'
+        // emails[7].sentAt = Date.now() - 1000 * 60 * 60 * 24;
+        // emails[7].sender = 'Adi B.'
+        // emails[8].sentAt = Date.now() - 1000 * 60 * 60 * 24 * 3;
+        // emails[8].sender = 'Simon I.'
+        // emails[9].sentAt = Date.now() - 1000 * 60 * 60 * 24 * 365 * 5;
+        // emails[9].sender = 'Simon I.'
         storageService.saveToLocal(EMAILS_KEY, emails);
         return emails;
 }
